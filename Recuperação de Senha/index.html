@@ -26,11 +26,23 @@
             <input class="repetir" placeholder="Repetir e-mail" type="text">
             <label for="Repetir e-mail"></label>
             <div class="botton">
-                <a href="btn">Enviar</a>
+                <a id="button" onclick="abrir()" href="#">Enviar</a>
             </div>
         </div>
     </div>
     <img src="img/VOLKSBOT RECUPERAÇÃO DE SENHA (2).png" alt="">
+    <div id="teste" class="teste">
+        <div class="dados2" id="dados2">
+            <img class="close" id="close" onclick="fechar()" src="img/fechar.png" alt="">
+            <h1>Link enviado</h1>
+            <h3>Verifique seu e-mail institucional, foi enviado um link para redefinição de senha.</h3>
+            <span>Não foi enviado?</span>
+            <div class="botton2">
+                <a href="#">Reenviar</a>
+            </div>
+        </div>
+    </div>
+    <script src="automation.js"></script>
 </body>
 
 </html>
