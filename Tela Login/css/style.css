@@ -12,8 +12,8 @@
 body {
     background-image: url(../img/bg\ \(2\).png);
     width: 100%;
-  
-   
+
+
 }
 
 .fundo {
@@ -27,48 +27,52 @@ body {
 h1 {
     font-family: var(--font);
     font-weight: 900;
-    width: 250px;
+    font-size: 35px;
+    width: 70%;
     text-align: center;
-    margin-left: 15px;
-    margin-top: 10px;
+    margin-left: 70px;
+    margin-top: 30px;
 
 }
 
 form {
     /* Apenas para centralizar o form na página */
     margin: 0 auto;
-    width: 380px;
-    height: 370px;
+    width: 550px;
+    height: 480px;
     /* Para ver as bordas do formulário */
     padding: 3em;
-    border-radius: 10%;
+    border-radius: 70px;
     margin-top: 140px;
     background-color: #ffff;
 
 }
 
-.formulario{
+.formulario {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px;
     font-family: var(--font);
-    font-size: small;
+    font-size: large;
 }
 
 .id {
     font-family: var(--font);
+    font-size: 50px;
 }
 
-.idcaixa{
-    margin-top: 25px;
+.idcaixa {
+    margin-top: 35px;
     border: 3px solid black;
     border-radius: 40px;
-    height: 43px;
-    width: 230px;
+    height: 70px;
+    width: 380px;
     text-align: center;
     margin-left: 10%;
-   
+    font-family: var(--font);
+    font-size: 25px;
+
 }
 
 .time {
@@ -76,14 +80,16 @@ form {
 
 }
 
-.idtime{
+.idtime {
     margin-top: 35px;
     border: 3px solid black;
     border-radius: 40px;
-    height: 43px;
-    width: 230px;
+    height: 70px;
+    width: 380px;
     text-align: center;
     margin-left: 10%;
+    font-family: var(--font);
+    font-size: 25px;
 }
 
 
@@ -92,51 +98,53 @@ form {
 
 }
 
-.idsenha{
+.idsenha {
     border: 3px solid black;
     border-radius: 40px;
-    height: 43px;
-    width: 230px;
+    height: 70px;
+    width: 380px;
     margin-left: 10%;
     text-align: center;
-    margin-top: 15%;
+    margin-top: 10%;
+    font-family: var(--font);
+    font-size: 25px;
 }
 
 
 
 .bot {
 
-    height: 100%;
-    margin-left: -90%;
-    margin-top: -40%;
+    height: 85%;
+    margin-left: -65%;
+    margin-top: -60%;
 
 }
-   
-    
+
+
 
 
 .logovw {
     display: flex;
     justify-content: center;
-    margin-top: -38%;
+    margin-top: -21%;
     filter: drop-shadow(10px 10px 10px rgb(138, 134, 134));
-        
+
 }
 
-.acessar{
+.acessar {
     display: flex;
-    box-sizing:border-box;
+    box-sizing: border-box;
     width: 190px;
     height: 50px;
-    margin-left: 55px;
+    margin-left: 130px;
     font-family: var(--font);
     font-weight: 900;
-    font-size: large;
+    font-size:x-large;
     border-radius: 40px;
     border: solid rgb(113, 217, 248);
     background: linear-gradient(90deg, #01b0f1, #35BDF5, #B1DBFF);
-    margin-top: -40%;
-    color:black;
+    margin-top: -10%;
+    color: black;
     justify-content: center;
     text-decoration: none;
     align-items: center;
@@ -145,22 +153,21 @@ form {
 }
 
 
-h2{
-    font-family:var(--font);
+h2 {
+    font-family: var(--font);
     font-size: small;
     color: white;
-    margin-top: 110px;
-    margin-left: 680px;
+    margin-top: 50px;
+    margin-left: 650px;
     font-weight: 300;
 }
 
-.clique{
-    font-family:var(--font);
+.clique {
+    font-family: var(--font);
     font-size: small;
     color: white;
     margin-top: -16px;
-    margin-left: 825px;
+    margin-left: 800px;
     font-weight: 700;
 
 }
-
