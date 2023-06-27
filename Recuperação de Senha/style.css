@@ -159,6 +159,26 @@ body>img {
 }
 
 
+.dados2{
+    margin-left: -50px;
+}
+
+.teste {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    cursor: pointer;
+    background-color: black;
+}
+
 @media screen and (max-width:1201px) {
     body {
         width: 100%;
@@ -240,7 +260,7 @@ body>img {
     .dados {
         width: 400px;
         height: 350px;
-        margin-left: 330px;
+        margin-left: 300px;
         border-radius: 70px;
         gap: 5px;
     }
@@ -295,7 +315,7 @@ body>img {
 
     body>img {
         margin-top: -160px;
-        margin-left: 640px;
+        margin-left: 590px;
         width: 250px;
         height: 250px;
     }
