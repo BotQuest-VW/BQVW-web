@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("../../assets/img/bg_padrao.png");
+    background-attachment: fixed;
+
+    color: var(--branco);
+    font-family: var(--montserrat);
+}
+
+
+:root{
+    --branco: #ffffff;
+    --verdeC: #23CE6B;
+    --azulC: #01B0F1;
+    --montserrat: 'Montserrat', sans-serif;
+}
+
+/* PRIMEIRA SEÇÃO */
+
+.primeira_secao{
+    display: flex;
+    justify-content: space-between;
+    gap: 200px;
+    align-items: center;
+    padding: 20px 60px;
+
+    height: 550px;
+}
+
+.primeira_secao img{
+    width: 500px;
+}
+
+.primeira_secao>div{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.primeira_secao>div>p{
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.primeira_secao>div>p>span{
+    color: var(--verdeC);
+}
+
+.primeira_secao>div>span{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#main_home>div:nth-child(2){
+    display: flex;    
+    justify-content: center;
+}
+
+#main_home>div:nth-child(2)>img{
+    width: 35px;
+}
+
+/*  */
+
+/* SEGUNDA SEÇÃO */
+.segunda_secao .cards{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+    margin: 80px 130px;
+
+    height: 350px;
+}
+
+.segunda_secao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 100px 0;
+}
+
+.segunda_secao>p:nth-child(1){
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.segunda_secao>p:nth-child(3){
+    font-size: 30px;
+    width: 70%;
+    text-align: center;
+}
+
+#main_home .card{
+    width: 28%;
+    height: 100%;
+
+    border-radius: 73px;
+    border: 0.8px solid var(--branco, #F1F2F5);
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0.10) 0%, rgba(217, 217, 217, 0.00) 100%);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+}
+
+#main_home .card>p{
+    text-align: center;
+    font-size: 18px;
+}
+
+/*  */
+
+/* TERCEIRA SEÇÃO */
+.terceira_secao{
+    /* height: 400px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0 100px;
+}
+
+.terceira_secao div{
+    display: flex;
+}
+
+.terceira_secao>div:nth-child(1){
+    align-items: center;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.terceira_secao>div:nth-child(1)>img{
+    width: 300px;
+}
+
+.terceira_secao>div:nth-child(2){
+    border-radius: 40px;
+    border: 0.733px solid var(--branco, #F1F2F5);
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0.10) 0%, rgba(217, 217, 217, 0.00) 100%);
+    width: 60%;
+    height: 230px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.terceira_secao>div:nth-child(2)>span{
+    font-size: 25px;
+}
+
+.terceira_secao>div:nth-child(2)>div{
+    display: flex;
+    gap: 30px;
+}
+
+.terceira_secao .botao{
+    transition: ease-in 0.2s;
+    width: 270px;
+    padding: 15px 0;
+    border-radius: 40px;
+
+    text-align: center;
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+/* CONFIG HOVER BOTÕES */
+
+.terceira_secao>div:nth-child(2)>div:hover :not(:hover){
+    opacity: 0.5;
+}
+
+/*----------------------------*/
+
+.terceira_secao .botao:nth-child(2){
+    background-color: var(--verdeC);
+}
+
+.terceira_secao .botao:nth-child(1){
+    background-color: var(--azulC);
+}
+
+/* CONFIG BLU */
+
+.terceira_secao>div:nth-child(1){
+    position: relative;
+    top: 50px;
+}
+
+
+
+
+
+
+
