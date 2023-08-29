@@ -1,14 +1,11 @@
 import './style.css'
 
 import { useEffect, useState } from 'react';
+import api from '../../utils/api';
 
-import uncheck from "../../assets/img/uncheck.png"
-import check from "../../assets/img/check.png"
+import CardTarefa from '../../components/cardTarefa';
 
-
-import itemCard from '../../components/itemCard';
-
-export default function Homepage_logado(){
+export default function AreaColaborador(){
 
     const data = new Date();
     const dia = String(data.getDate()).padStart(2, '0');
@@ -25,14 +22,22 @@ export default function Homepage_logado(){
     
     console.log(dataAtual)
 
-
     const [tarefas, setTarefas] = useState<any[]>([])
 
-    
+    function listarTarefas(){
+        api.get("tarefas").then((response: any) => {
+            console.log(response.data)
+            setTarefas(response.data)
+        }).catch(error => console.log("Erro ao obter os dados das tarefas.", error));
+    }
 
-        // console.log(semana[d.getDay()])
+    useEffect(() =>{
+        document.title = "Área do colaborador - BQVW"
+        listarTarefas()
+    }, [])
 
-    
+
+
     return(
         <main id='area_colaborador'>
             <section className="left">
@@ -43,7 +48,17 @@ export default function Homepage_logado(){
                 <div>
                     <div className="card">
                         <h2>Minhas tarefas</h2>
-                        {itemCard()}
+                        <ul>
+                        {tarefas.map((tarefa:any, index:number) =>{
+                            return <li key={index}>
+                                <CardTarefa
+                                titulo={tarefa.titulo}
+                                id={tarefa.id}
+                                />
+                            </li>
+                        }
+                        )}
+                    </ul>
                     </div>
                     <div className="card">
                         <h2>Eventos</h2>

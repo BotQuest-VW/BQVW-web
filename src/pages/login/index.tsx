@@ -1,6 +1,7 @@
 import './style.css'
 
 import logoVW from "../../assets/img/logo_vw.png"
+import { Link } from 'react-router-dom'
 
 export default function Login(){
     return(
@@ -14,7 +15,7 @@ export default function Login(){
             <label htmlFor="Time"></label>
             <input type="password" id="Senha" placeholder="Senha"/>
             <label htmlFor="Senha"></label>
-            <a href="#">Acessar</a>
+            <Link to="/area-colaborador">Acessar</Link>
             <p>Esqueceu sua senha? <a href="../Recuperacao-senha/index.html">Clique aqui.</a></p>
         </div>
     </main>
