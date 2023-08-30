@@ -8,22 +8,22 @@ function AcessoAdm() {
     return (
         <>
         
-    <main>
+    <main id='acessoAdm'>
         <section className="conteudo">
-            <div className="lado-esquerdo">
+             <div className="lado-esquerdo">
                 <div className="acesso">
                     <h1>Acesso <br/>Administrador</h1>
-                    <img src={logovw} alt="logo volksvagen"/>
+                     <img src={logovw} alt="logo volksvagen"/> 
                 </div>
                 <div className="frase">
                     <p>
                         Este ambiente tem acesso <br/> restrito à administradores <br/> do BotQuestVW e <br/> curadores.
                     </p>
                 </div>
-                <div className="recado_fator">
+                {/* <div className="recado_fator">
                     <p>Atenção: login de administrador <br/> requer autenticação de dois <br/> fatores.</p>
-                </div>
-            </div>
+                </div> */}
+            </div> 
             <div className="lado-direito">
                 <div className="conteudo2">
                     <div className="acesso_menor">
@@ -51,9 +51,9 @@ function AcessoAdm() {
             </div>
 
         </section>
-        <div className="segundo_fator">
+        {/* <div className="segundo_fator">
             <img src={seta} alt="seta"/>
-        </div>
+        </div> */}
     </main>
 
 

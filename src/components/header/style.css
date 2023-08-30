@@ -9,6 +9,65 @@
     --verdeC: #23CE6B;
     --montserrat: 'Montserrat', sans-serif;
 }
+.menu_barras {
+    display: none;
+    z-index: 1;
+}
+
+.menu_barras>img {
+    width: 50px;
+}
+
+.barras{
+    /* border-top: 5px solid var(--branco); */
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--branco);
+    display: block;
+    margin-top: 5px;
+    position: relative;
+    transition: .5s;
+}
+
+.barras::after{
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--branco);
+    position: absolute;
+    top: 12px;
+    transition: .5s;
+}
+
+.barras::before{
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--branco);
+    position: absolute;
+    top: -12px;
+    transition: .5s;
+}
+
+.ativo .barras{
+    /* background-color: transparent; */
+    transform: rotate(135deg);
+}
+
+.ativo .barras::after{
+    transform: rotate(-270deg);
+    top: 0;
+}
+
+.ativo .barras::before{
+    /* transform: rotate(90deg); */
+    top: 0;
+}
 
 
 body::-webkit-scrollbar {
@@ -71,4 +130,44 @@ header div>.link>p{
 
 header div .link img{
     width: 60px;
+}
+
+@media screen and (max-width: 768px) {
+    /* HEADER */
+    .menu_barras {
+        display: initial;
+    }
+
+    .header_logo{
+        /* margin-left: 55px; */
+    }
+
+    .menu_links {
+        /* display: none; */
+        position: absolute;
+        left: -300px;
+        overflow-x: hidden;
+        top: 70px;
+        flex-direction: column;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5);
+        width: auto;
+        z-index: 1;
+        border-radius: 10%;
+        gap: 15px;
+        -moz-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+    .menu_links * {
+        margin: 15px 50px 25px 5px;
+    }
+
+    .link{
+        padding-bottom: 15px;
+    }
+
 }
