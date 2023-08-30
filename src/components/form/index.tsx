@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import "./style.css";
+import { Link } from "react-router-dom";
 
 interface Props {
   acces: string;
@@ -8,9 +9,9 @@ interface Props {
 
 export default function Form({ acces }: Props) {
   const [instruction] = useState({
-    recuperation: `Recuperação de Senha: Siga estas etapas para recuperar sua senha e
+    recuperation: `Siga estas etapas para recuperar sua senha e
             acessar sua conta novamente.`,
-    delimitation: `Acesso Limitado: Durante o processo de recuperação, você terá acesso limitado à sua conta para usar recursos essenciais.`,
+    delimitation: ` Durante o processo de recuperação, você terá acesso limitado à sua conta para usar recursos essenciais.`,
   });
   const [click, setClick] = useState<number>(0);
 
@@ -20,7 +21,13 @@ export default function Form({ acces }: Props) {
     <>
       <form action="" method="post">
         <div className="form-content">
-          <input type="text" id="Time" placeholder="E-mail" required />
+          <input
+            type="text"
+            id="Time"
+            minLength={4}
+            placeholder="E-mail"
+            required
+          />
           <label htmlFor="E-mail"></label>
           <input
             type="text"
@@ -37,10 +44,18 @@ export default function Form({ acces }: Props) {
             return e.preventDefault();
           }}
         >
-          <a href="#">{acces}</a>
+          <Link to="/active">{acces}</Link>
         </button>
+
         <div>
-          <p style={{ margin: 30, width: 450, marginLeft: 130 }}>
+          <p
+            style={{
+              margin: 30,
+              width: 450,
+              marginLeft: 130,
+              textDecoration: "underline",
+            }}
+          >
             {(click > 3 && instruction.recuperation) ||
               instruction.delimitation}
           </p>

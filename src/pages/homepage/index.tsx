@@ -74,7 +74,7 @@ export default function Homepage() {
         <div>
           <span>Acesse a plataforma.</span>
           <div>
-            <a className="botao" href="#">
+            <a className="botao" href="/login">
               Login
             </a>
             <a className="botao" href="#">
