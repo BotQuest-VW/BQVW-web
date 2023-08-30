@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body {
+#metricas body {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Righteous', cursive;
     font-family: 'Titillium Web', sans-serif;
@@ -12,36 +12,36 @@ body {
     background-color: #00101F;
 }
 
-header {
+#metricas header {
     height: 80px;
     width: 100%;
-    background-image: url(img/Header.png);
+    background-image: url("img/Header.png");
 }
 
 
-.heder {
+#metricas .heder {
     height: 80px;
     width: 100%;
     display: flex;
     align-items: center;
 }
 
-.heder img {
+#metricas .heder img {
     width: 80px;
     margin-top: 25px;
 }
 
-main {
+main#metricas {
     display: flex;
     justify-content: end;
 }
 
-aside {
+#metricas aside {
     position: fixed;
     left: 0;
 }
 
-.aside_position {
+#metricas .aside_position {
     height: 633px;
     width: 229px;
     border: solid #2e3b47 3px;
@@ -50,19 +50,19 @@ aside {
     justify-content: space-around;
 }
 
-a {
+#metricas a {
     color: white;
     text-decoration: none;
 }
 
-.Dashboard_aside {
+#metricas .Dashboard_aside {
     width: 12vw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.Usuario_aside {
+#metricas .Usuario_aside {
     width: 12vw;
     display: flex;
     justify-content: space-evenly;
@@ -70,7 +70,7 @@ a {
     margin-top: 55px;
 }
 
-.Dados_aside {
+#metricas .Dados_aside {
     width: 12vw;
     background: #01B0F1;
     border-radius: 0 15px 15px 0;
@@ -79,14 +79,14 @@ a {
     align-items: center;
 }
 
-.Suporte_aside {
+#metricas .Suporte_aside {
     width: 12vw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.COnfiguração_aside {
+#metricas .COnfiguração_aside {
     width: 12vw;
     display: flex;
     justify-content: space-evenly;
@@ -94,24 +94,24 @@ a {
     margin-top: 55px;
 }
 
-.COnfiguração_aside img{
+#metricas .COnfiguração_aside img{
     width: 50px;
     
 }
-.COnfiguração_aside:hover{
+#metricas .COnfiguração_aside:hover{
     background: #01B0F1;
     border-radius: 0 15px 15px 0;
     transition:ease-in 0.5s;
 }
 
-section {
+#metricas section {
     height: 100%;
     width: 85%;
     border: solid #2e3b47 3px;
-    background-image: url(img/fundo.png);
+    background-image: url("img/fundo.png");
 }
 
-.Metricas {
+#metricas .Metricas {
     margin: 15px;
     margin-left: 20px;
     display: flex;
@@ -119,20 +119,20 @@ section {
     gap: 20px;
 }
 
-.Metricas img{
+#metricas .Metricas img{
     width: 50px;
     display: none;
 }
 
 
-.todos_quadrados {
+#metricas .todos_quadrados {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
     margin-left: 20px;
 }
 
-.quadradinhos {
+#metricas .quadradinhos {
     border-radius: 30px;
     height: 200px;
     width: 400px;
@@ -148,44 +148,44 @@ section {
     text-align: center;
 }
 
-.barrinha_azul{
+#metricas .barrinha_azul{
     border-radius: 25px;
     width: 6px;
     height: 20px;
     background: #01B0F1;
 }
 
-.ajuste_barrinha{
+#metricas .ajuste_barrinha{
     display: flex;
     align-items: center;
     gap: 7px;
 }
 
-.quadradinhos P{
+#metricas .quadradinhos P{
     font-size: 20px;
     width: 80%;
 }
 
 @media screen and ( max-width:1400px ) {
 
-    .aside_position{
+    #metricas .aside_position{
         border: none;
     }
 
-    section{
+    #metricas section{
         border: none;
     }
 }
 
 @media screen and (max-width:1045px) {
-    aside{
+   #metricas  aside{
         display: none;
     }
 
-    section{
+   #metricas  section{
         width: 100%;
     }
-    .Metricas img{
+    #metricas .Metricas img{
         display: flex;
     }
 }

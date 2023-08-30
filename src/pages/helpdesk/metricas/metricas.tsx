@@ -1,5 +1,7 @@
 import './metricas.css'
 
+import { Link } from "react-router-dom"
+
 import dashboard from './img/Dashboard Layout.png'
 import usuarios from './img/Vector.png'
 import dados from './img/dados.png'
@@ -11,24 +13,25 @@ function Metricas() {
     <>
 
 
-      <main>
-        <aside>
+      <main id='metricas'>
+      <aside>
           <div className="aside_position">
             <div className="Dashboard_aside">
               <img src={dashboard} alt="" />
-              <a href="../Index.html">Tela Inicial</a>
+              <Link to={'/helpdesk'}>Tela Inicial</Link>
             </div>
             <div className="Usuario_aside">
               <img src={usuarios} alt="" />
-              <a href="../Usuario/usuario.html">Usuários</a>
+              <Link to={'/usuarioHelpdesk'}>Usuários</Link>
             </div>
             <div className="Dados_aside">
               <img src={dados} alt="" />
-              <a href="#">Metricas</a>
+              <Link to={'/metricas'}>Metricas</Link>
+              
             </div>
             <div className="COnfiguração_aside">
               <img src={setaVoltar} alt="" />
-              <a href="../../acesso ADM/index.html">Voltar ao Inicio</a>
+              <Link to={'/acessoAdm'}>Voltar ao Inicio</Link>
             </div>
           </div>
         </aside>

@@ -18,12 +18,12 @@ function HomeHelpdesk() {
 
 
 
-      <main>
+      <main id='homeHelpdesk'>
         <aside>
           <div className="aside_position">
             <div className="Dashboard_aside">
               <img src={dashboard} alt="" />
-              <Link to={'/'}>Tela Inicial</Link>
+              <Link to={'/helpdesk'}>Tela Inicial</Link>
             </div>
             <div className="Usuario_aside">
               <img src={usuarios} alt="" />
@@ -31,11 +31,12 @@ function HomeHelpdesk() {
             </div>
             <div className="Dados_aside">
               <img src={dados} alt="" />
-              <a href="Metricas/metricas.html">Metricas</a>
+              <Link to={'/metricas'}>Metricas</Link>
+              
             </div>
             <div className="COnfiguração_aside">
               <img src={setaVoltar} alt="" />
-              <a href="../acesso ADM/index.html">Voltar ao Inicio</a>
+              <Link to={'/acessoAdm'}>Voltar ao Inicio</Link>
             </div>
           </div>
         </aside>
