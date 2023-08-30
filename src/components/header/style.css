@@ -9,16 +9,16 @@
     --verdeC: #23CE6B;
     --montserrat: 'Montserrat', sans-serif;
 }
-.menu_barras {
+#header_home .menu_barras {
     display: none;
     z-index: 1;
 }
 
-.menu_barras>img {
+#header_home #header_home .menu_barras>img {
     width: 50px;
 }
 
-.barras{
+#header_home .barras{
     /* border-top: 5px solid var(--branco); */
     width: 40px;
     height: 5px;
@@ -30,7 +30,7 @@
     transition: .5s;
 }
 
-.barras::after{
+#header_home .barras::after{
     content: '';
     display: block;
     width: 40px;
@@ -42,7 +42,7 @@
     transition: .5s;
 }
 
-.barras::before{
+#header_home .barras::before{
     content: '';
     display: block;
     width: 40px;
@@ -54,64 +54,64 @@
     transition: .5s;
 }
 
-.ativo .barras{
+#header_home .ativo .barras{
     /* background-color: transparent; */
     transform: rotate(135deg);
 }
 
-.ativo .barras::after{
+#header_home .ativo .barras::after{
     transform: rotate(-270deg);
     top: 0;
 }
 
-.ativo .barras::before{
+#header_home .ativo .barras::before{
     /* transform: rotate(90deg); */
     top: 0;
 }
 
 
-body::-webkit-scrollbar {
+#header_home body::-webkit-scrollbar {
     width: 1em;
     background-color: #013649;
 }
   
-body::-webkit-scrollbar-track {
+#header_home body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
   
-body::-webkit-scrollbar-thumb {
+#header_home body::-webkit-scrollbar-thumb {
   background-color: #a9a9a9;
   /* outline: 1px solid slategrey; */
 }
 
-header div>.link, header nav{
+#header_home div>.link, header nav{
     display: flex;
     align-items: center;
 
     justify-content: space-between;
 }
 
-header nav{
+#header_home  nav{
     gap: 60px;
     padding-bottom: 10px;
 }
 
-header nav a{
+#header_home  nav a{
     text-decoration: none;
     color: var(--branco);
 }
 
-header nav a:hover{
+#header_home  nav a:hover{
     color: var(--verdeC);
 }
 
-header div>.link{
+#header_home  div>.link{
     gap: 15px;
     text-decoration: none;
     color: var(--branco);
 }
 
-header {
+#header_home {
     display: flex;
     padding: 20px 60px 0;
 
@@ -123,12 +123,12 @@ header {
     color: var(--branco);
 }
 
-header div>.link>p{
+#header_home div>.link>p{
     font-weight: 800;
     font-size: 20px;
 }
 
-header div .link img{
+#header_home div .link img{
     width: 60px;
 }
 
