@@ -1,17 +1,17 @@
 #main_login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 70px);
 }
 
-.logo{
-    width: 100px;
+.logo {
+  width: 100px;
 }
 
-.dados>h1{
-    font-weight: 800;
+.dados > h1 {
+  font-weight: 800;
 }
 
 #main_login input{
@@ -21,38 +21,46 @@
     border-radius: 40px;
     font-size: 15px;
 
+
+input {
+  text-align: center;
+  padding: 20px 50px;
+  margin-top: 15px;
+  border-radius: 40px;
+  font-size: 15px;
+
 }
 
-::placeholder{
-    font-size: 15px;
+::placeholder {
+  font-size: 15px;
 }
 
-.dados>a{
-    margin: 20px 0;
-    font-weight: 700;
-    font-size: 20px;
-    color: var(--branco);
-    text-decoration: none;
-    padding: 15px 50px;
-    border-radius: 40px;
-    background: #01B0F1;    
+.dados > button {
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--branco);
+  text-decoration: none;
+  padding: 15px 50px;
+  border-radius: 40px;
+  background: #01b0f1;
 }
 
-.dados>p{
-    color: var(--branco);
-    padding-top: 30px;
+.dados > p {
+  color: var(--branco);
+  padding-top: 30px;
 }
 
-.dados>p>a{
-    text-decoration: none;
-    color: var(--branco);
-    font-weight: 600;
+.dados > p > button {
+  text-decoration: none;
+  color: var(--branco);
+  font-weight: 600;
 }
 
-body>a{
-    color: rgb(255, 255, 255, 0.3);
+body > button {
+  color: rgb(255, 255, 255, 0.3);
 }
-body>a:hover{
-    transition: ease-in 0.2s;
-    color: var(--branco);
+body > button:hover {
+  transition: ease-in 0.2s;
+  color: var(--branco);
 }
