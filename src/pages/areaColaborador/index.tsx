@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import api from '../../utils/api';
 
 import CardTarefa from '../../components/cardTarefa';
+import CardEvento from '../../components/cardEvento';
 
 export default function AreaColaborador(){
 
@@ -62,6 +63,10 @@ export default function AreaColaborador(){
                     </div>
                     <div className="card">
                         <h2>Eventos</h2>
+                        <ul>
+                            <li><CardEvento/></li>
+                            <li><CardEvento/></li>
+                        </ul>
                     </div>
                 </div>
             </section>
