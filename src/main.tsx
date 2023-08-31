@@ -59,7 +59,17 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/recuperation" element={<Recuperation />} />
+        <Route
+          path="/recuperation"
+          element={
+            <Recuperation
+              title="Recuperação de Senha"
+              talk="Digite seu e-mail institucional para a recuperação de senha."
+              description="Será enviado um link de redefinição de senha para o seu endereço de
+              e-mail."
+            />
+          }
+        />
         <Route path="/active" element={<Active />} />
 
       </Routes>

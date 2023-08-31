@@ -1,0 +1,33 @@
+reestruturação: corrigindo erros nos inputs(sem usar ref hook ou formik por enquanto).
+
+
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Thu Aug 31 10:40:33 2023 -0300
+#
+# On branch form-refact
+# Changes to be committed:
+#	modified:   package-lock.json
+#	modified:   package.json
+#	new file:   src/components/auth/index.tsx
+#	new file:   src/components/auth/style.css
+#	modified:   src/components/form/index.tsx
+#	new file:   src/components/loader/index.tsx
+#	new file:   src/components/loader/style.css
+#	new file:   src/components/privateLink/index.tsx
+#	new file:   src/components/privateLink/style.css
+#	modified:   src/main.tsx
+#	modified:   src/pages/homepage/style.css
+#	modified:   src/pages/login/index.tsx
+#	modified:   src/pages/login/style.css
+#	modified:   src/pages/recuperation/active/index.tsx
+#	modified:   src/pages/recuperation/active/style.css
+#	modified:   src/pages/recuperation/index.tsx
+#	modified:   src/pages/recuperation/style.css
+#
+# Changes not staged for commit:
+#	modified:   src/components/form/index.tsx
+#
