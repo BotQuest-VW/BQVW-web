@@ -4,14 +4,14 @@ import { Image } from "../../components/Image";
 import Loader from "../../components/loader";
 
 import GoogleAuth from "../../components/auth";
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, SetStateAction } from "react";
 
 export default function Login() {
   const [loading] = useState<boolean>(false);
 
-  const [idState, setIdState] = useState<any>();
-  const [teamState, setTeamState] = useState<any>();
-  const [passwordState, setPasswordState] = useState<any>();
+  const [idState, setIdState] = useState<SetStateAction<any>>();
+  const [teamState, setTeamState] = useState<SetStateAction<any>>();
+  const [passwordState, setPasswordState] = useState<SetStateAction<any>>();
 
   const handleIdState = (e: ChangeEvent<HTMLInputElement>) =>
     setIdState(e?.target.value);
@@ -74,14 +74,7 @@ export default function Login() {
                 onChange={handlePasswordState}
               />
               <label htmlFor="Senha"></label>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  verifyState();
-                }}
-              >
-                Acessar
-              </button>
+              <button onClick={verifyState}>Acessar</button>
               <GoogleAuth />
 
               <p style={{ padding: 0 }}>

@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, DOMAttributes } from "react";
 
 import "./style.css";
 
@@ -42,17 +42,25 @@ export default function Form({ acces, animate }: Props) {
       : setTalk("é preciso que os 2 emails sejam iguais");
   };
 
+  const autorize = () => {
+    const valueEmail = Object.values(email);
+    const valueComfirm = Object.values(comfirm);
+
+    if (valueEmail.length == 0) setTalk("voce precisa digitar um email");
+    if (valueComfirm.length == 0) setTalk("voce precisa repetir o seu email");
+  };
+
   return (
     <>
-      <form action="" method="post">
+      <form action="" method="post" onChange={autorize}>
         <div className="form-content">
           <input
+            required
             onChange={handleState}
             type="text"
             id="Time"
             minLength={4}
             placeholder="E-mail"
-            required
           />
           <label htmlFor="E-mail"></label>
           <input
@@ -60,7 +68,6 @@ export default function Form({ acces, animate }: Props) {
             type="text"
             id="E-mail"
             placeholder="repetir E-mail"
-            required
           />
           <label htmlFor="Senha"></label>
         </div>
