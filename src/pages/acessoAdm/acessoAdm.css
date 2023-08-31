@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
 }
-main{
+body{
         background-image: url("../../assets/img/acessoAdm/img/fundoAcessoAdm.png.png") 
 }
 
