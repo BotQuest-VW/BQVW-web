@@ -35,6 +35,9 @@ input {
   padding: 15px 50px;
   border-radius: 40px;
   background: #01b0f1;
+  color: rgb(255, 255, 255, 0.3);
+  transition: ease-in 0.2s;
+  color: var(--branco);
 }
 
 .dados > p {
@@ -48,12 +51,7 @@ input {
   font-weight: 600;
 }
 
-body > button {
-  color: rgb(255, 255, 255, 0.3);
-}
 body > button:hover {
-  transition: ease-in 0.2s;
-  color: var(--branco);
 }
 
 .image-vw {

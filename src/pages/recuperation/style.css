@@ -70,7 +70,7 @@ body > a:hover {
 
 button {
   display: inline-flex;
-  margin: 20px 260px;
+  margin: 20px 273px;
   font-weight: 700;
   font-size: 20px;
   color: var(--branco);
@@ -88,7 +88,7 @@ span {
 }
 
 .image-vw {
-  margin: -40px 0px;
+  margin: -90px 0px;
 }
 .robot {
   position: absolute;

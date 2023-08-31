@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
 
 import "./style.css";
 
@@ -14,13 +14,8 @@ export default function Form({ acces, animate }: Props) {
     delimitation: ` Durante o processo de recuperação, você terá acesso limitado à sua conta para usar recursos essenciais.`,
   });
 
-  const [state, setState] = useState<any>();
-
   const [email, setEmail] = useState<any>({});
   const [comfirm, setComfirm] = useState<any>({});
-
-  const [call, setCall] = useState<any>();
-
   const [talk, setTalk] = useState<string>();
 
   const redirect = (): void => {
@@ -44,7 +39,7 @@ export default function Form({ acces, animate }: Props) {
 
     valueComfirm[0] === valueEmail[0]
       ? redirect()
-      : setTalk("é preciso que os 2 emails sejam iguais ....");
+      : setTalk("é preciso que os 2 emails sejam iguais");
   };
 
   return (
@@ -83,13 +78,16 @@ export default function Form({ acces, animate }: Props) {
           <p
             className={animate}
             style={{
-              margin: 30,
+              margin: "0 150px",
+              padding: " 50px",
               width: 450,
               marginLeft: 130,
               textDecoration: "underline",
+              fontFamily: "montSerrat",
+              fontSize: 35,
             }}
           >
-            {talk}
+            {!talk ? instruction.recuperation : talk}
           </p>
         </div>
       </form>
