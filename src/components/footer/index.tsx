@@ -4,7 +4,7 @@ import logoMF from "../../assets/img/logo_mindforge.png"
 
 export default function Footer(){
     return(
-        <footer id='footerr'>
+        <footer>
         <div>
             <h2>Institucional</h2>
             <ul>

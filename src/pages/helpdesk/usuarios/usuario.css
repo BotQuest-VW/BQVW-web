@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-#usuario body {
+#usuario {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Righteous', cursive;
     font-family: 'Titillium Web', sans-serif;
@@ -12,7 +12,7 @@
     background-color: #00101F;
 }
 
-#usuario header {
+header#usuario  {
     height: 80px;
     width: 100%;
     background-image: url("img/Header.png");

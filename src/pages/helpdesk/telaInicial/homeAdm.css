@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-#homeHelpdesk  body {
+#homeHelpdesk  {
     font-family: 'Montserrat', sans-serif;
     font-family: 'Righteous', cursive;
     font-family: 'Titillium Web', sans-serif;
@@ -12,7 +12,7 @@
     background-color: #00101F;
 }
 
-#homeHelpdesk header {
+header#homeHelpdesk  {
     height: 80px;
     width: 100%;
     background-image: url("img/Header.png");
@@ -30,12 +30,12 @@
     margin-top: 25px;
 }
 
-#homeHelpdesk main {
+main#homeHelpdesk  {
     display: flex;
     justify-content: end;
 }
 
-#homeHelpdesk aside {
+ aside {
     position: fixed;
     left: 0;
 }
@@ -317,7 +317,7 @@ margin-top: 30px;
 }
 
 @media screen and (max-width: 662px) {
-    #homeHelpdesk main {
+    main#homeHelpdesk {
         width: 90%;
     }    
 }
