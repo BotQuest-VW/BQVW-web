@@ -1,17 +1,7 @@
 import "./style.css";
 
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 const Auth = (): ReactNode => {
-  const [path, setPath] = useState<string>();
-
-  function overviewed(tag: string) {
-    const url = new URL(tag);
-  }
-
-  const url = overviewed(
-    "https://firebase.google.com/docs?gad=1&gclid=Cj0KCQjw9MCnBhCYARIsAB1WQVU7KQaNqLOpnK3nqefy3MFI86987DzAqCJUdePBD246CJ3IDPGwbsYaAgX7EALw_wcB&gclsrc=aw.ds&hl=pt-br"
-  );
-
   return (
     <div>
       <button className="openai-com-by">

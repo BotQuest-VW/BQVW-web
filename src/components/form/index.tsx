@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, DOMAttributes } from "react";
+import { useState, ChangeEvent } from "react";
 
 import "./style.css";
 
