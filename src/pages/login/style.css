@@ -55,3 +55,9 @@ body > button:hover {
   transition: ease-in 0.2s;
   color: var(--branco);
 }
+
+.image-vw {
+  position: absolute;
+  display: flex;
+  top: 195px;
+}

@@ -1,15 +1,6 @@
 .LINK-ENVIADO {
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-
-.LINK-ENVIADO .overlap-wrapper {
   height: 548px;
-  overflow-x: hidden;
-  width: 617px;
+  width: 100%;
 }
 
 .LINK-ENVIADO .overlap {
@@ -19,12 +10,12 @@
   width: 631px;
 }
 
-.LINK-ENVIADO .overlap-group-wrapper {
+.LINK-ENVIADO .overlap-wrapper {
   height: 548px;
   left: 0;
-  position: absolute;
   top: 16px;
   width: 623px;
+  overflow-x: clip;
 }
 
 .LINK-ENVIADO .overlap-group {
@@ -69,15 +60,14 @@
 }
 
 .LINK-ENVIADO .text-wrapper {
+  margin: -16px -50px;
+  display: flex;
   color: #00101f;
   font-family: "Montserrat-Bold", Helvetica;
   font-size: 35px;
   font-weight: 700;
   left: 50px;
   letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  top: 16px;
 }
 
 .LINK-ENVIADO .div {
@@ -124,4 +114,47 @@
   position: absolute;
   top: 0;
   width: 99px;
+}
+
+.p-result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.shake-horizontal:hover {
+  -webkit-animation: shake-horizontal 0.8s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+@-webkit-keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
 }

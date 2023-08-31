@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 
 import "./style.css";
-import { Link } from "react-router-dom";
 
 interface Props {
   acces: string;
+  animate: any;
 }
 
-export default function Form({ acces }: Props) {
+export default function Form({ acces, animate }: Props) {
   const [instruction] = useState({
     recuperation: `Siga estas etapas para recuperar sua senha e
             acessar sua conta novamente.`,
@@ -15,7 +15,18 @@ export default function Form({ acces }: Props) {
   });
   const [click, setClick] = useState<number>(0);
 
-  const handleClick = () => setClick(click + 1);
+  const [state, setState] = useState<any>();
+
+  const Redirect = (): void => {
+    window.location.href = "http://localhost:5173/active";
+  };
+
+  useEffect(() => {
+    const input = (event: ChangeEvent<HTMLInputElement>) => event?.target.value;
+
+    setState(input);
+    console.log(state);
+  }, []);
 
   return (
     <>
@@ -39,16 +50,17 @@ export default function Form({ acces }: Props) {
         </div>
         <button
           onClick={(e) => {
-            handleClick();
-
-            return e.preventDefault();
+            state === typeof "string"
+              ? e.preventDefault()
+              : alert("voce precisa colocar seu email ai ...");
           }}
         >
-          <Link to="/active">{acces}</Link>
+          {acces}
         </button>
 
         <div>
           <p
+            className={animate}
             style={{
               margin: 30,
               width: 450,
@@ -56,8 +68,7 @@ export default function Form({ acces }: Props) {
               textDecoration: "underline",
             }}
           >
-            {(click > 3 && instruction.recuperation) ||
-              instruction.delimitation}
+            {instruction.recuperation}
           </p>
         </div>
       </form>
