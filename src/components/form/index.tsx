@@ -13,26 +13,46 @@ export default function Form({ acces, animate }: Props) {
             acessar sua conta novamente.`,
     delimitation: ` Durante o processo de recuperação, você terá acesso limitado à sua conta para usar recursos essenciais.`,
   });
-  const [click, setClick] = useState<number>(0);
 
   const [state, setState] = useState<any>();
 
-  const Redirect = (): void => {
-    window.location.href = "http://localhost:5173/active";
+  const [email, setEmail] = useState<any>({});
+  const [comfirm, setComfirm] = useState<any>({});
+
+  const [call, setCall] = useState<any>();
+
+  const [talk, setTalk] = useState<string>();
+
+  const redirect = (): void => {
+    const url = new URL("http://localhost:5173/active");
+    window.location.href = String(url);
   };
 
-  useEffect(() => {
-    const input = (event: ChangeEvent<HTMLInputElement>) => event?.target.value;
+  const handleState = (e: ChangeEvent<HTMLInputElement>) =>
+    setEmail({
+      email: e.target.value,
+    });
 
-    setState(input);
-    console.log(state);
-  }, []);
+  const handleComfirm = (e: ChangeEvent<HTMLInputElement>) =>
+    setComfirm({
+      comfirm: e.target.value,
+    });
+
+  const compare = () => {
+    const valueEmail = Object.values(email);
+    const valueComfirm = Object.values(comfirm);
+
+    valueComfirm[0] === valueEmail[0]
+      ? redirect()
+      : setTalk("é preciso que os 2 emails sejam iguais ....");
+  };
 
   return (
     <>
       <form action="" method="post">
         <div className="form-content">
           <input
+            onChange={handleState}
             type="text"
             id="Time"
             minLength={4}
@@ -41,6 +61,7 @@ export default function Form({ acces, animate }: Props) {
           />
           <label htmlFor="E-mail"></label>
           <input
+            onChange={handleComfirm}
             type="text"
             id="E-mail"
             placeholder="repetir E-mail"
@@ -50,9 +71,9 @@ export default function Form({ acces, animate }: Props) {
         </div>
         <button
           onClick={(e) => {
-            state === typeof "string"
-              ? e.preventDefault()
-              : alert("voce precisa colocar seu email ai ...");
+            e.preventDefault();
+
+            return compare();
           }}
         >
           {acces}
@@ -68,7 +89,7 @@ export default function Form({ acces, animate }: Props) {
               textDecoration: "underline",
             }}
           >
-            {instruction.recuperation}
+            {talk}
           </p>
         </div>
       </form>
