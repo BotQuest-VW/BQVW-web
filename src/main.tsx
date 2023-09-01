@@ -2,26 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
-
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-
 
 import Header from "./components/header/index.tsx";
 import Footer from "./components/footer/index.tsx";
 
-
-import Homepage from './pages/homepage/index.tsx'
-import Login from './pages/login/index.tsx'
-import AcessoAdm from './pages/acessoAdm/index.tsx'
-import Metricas from './pages/helpdesk/metricas/metricas.tsx'
-import HomeHelpdesk from './pages/helpdesk/telaInicial/index.tsx'
-import Usuario from './pages/helpdesk/usuarios/usuario.tsx'
+import AcessoAdm from "./pages/acessoAdm/index.tsx";
+import Metricas from "./pages/helpdesk/metricas/metricas.tsx";
+import HomeHelpdesk from "./pages/helpdesk/telaInicial/index.tsx";
+import Usuario from "./pages/helpdesk/usuarios/usuario.tsx";
 
 import Homepage from "./pages/homepage/index.tsx";
 import Login from "./pages/login/index.tsx";
-
 
 import Recuperation from "./pages/recuperation/index.tsx";
 
@@ -31,13 +23,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <Header />
       <Routes>
-
-        <Route path='/' element={<Homepage />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/acessoAdm' element={<AcessoAdm />} />
-        <Route path='/metricas' element={<Metricas />} />
-        <Route path='/usuarioHelpdesk' element={<Usuario />} />
-        <Route path='/helpdesk' element={<HomeHelpdesk />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/acessoAdm" element={<AcessoAdm />} />
+        <Route path="/metricas" element={<Metricas />} />
+        <Route path="/usuarioHelpdesk" element={<Usuario />} />
+        <Route path="/helpdesk" element={<HomeHelpdesk />} />
 
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
@@ -53,7 +44,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           }
         />
         <Route path="/active" element={<Active />} />
-
       </Routes>
       <Footer />
     </BrowserRouter>
