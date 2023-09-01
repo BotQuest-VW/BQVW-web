@@ -30,8 +30,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/usuarioHelpdesk" element={<Usuario />} />
         <Route path="/helpdesk" element={<HomeHelpdesk />} />
 
-        <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
         <Route
           path="/recuperation"
           element={
