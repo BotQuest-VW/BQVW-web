@@ -1,3 +1,4 @@
+
 import "./style.css";
 
 export default function CardTarefa(props: any) {
@@ -16,3 +17,5 @@ export default function CardTarefa(props: any) {
     </>
   );
 }
+
+
