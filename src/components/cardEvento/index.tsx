@@ -1,8 +1,8 @@
 import "./style.css";
 
-import imgCard from "../../assets/img/cardEvento/evento_img1.png";
+// import imgCard from "../../assets/img/cardEvento/evento_img1.png";
 
-export default function CardEvento(props: any) {
+export default function CardEvento() {
   return (
     <>
       <div id="cardEvento">
