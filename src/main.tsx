@@ -17,7 +17,10 @@ import Login from "./pages/login/index.tsx";
 
 import Recuperation from "./pages/recuperation/index.tsx";
 
+import AreaColaborador from "./pages/areaColaborador/index.tsx";
+
 import Active from "./pages/recuperation/active/index.tsx";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -29,7 +32,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/metricas" element={<Metricas />} />
         <Route path="/usuarioHelpdesk" element={<Usuario />} />
         <Route path="/helpdesk" element={<HomeHelpdesk />} />
-
         <Route
           path="/recuperation"
           element={
@@ -42,6 +44,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           }
         />
         <Route path="/active" element={<Active />} />
+        <Route path="/area-colaborador" element={<AreaColaborador />} />
       </Routes>
       <Footer />
     </BrowserRouter>
