@@ -21,6 +21,8 @@ import AreaColaborador from "./pages/areaColaborador/index.tsx";
 
 import Active from "./pages/recuperation/active/index.tsx";
 
+import Cadastro from "./pages/cadastro/index.tsx";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -45,6 +47,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         />
         <Route path="/active" element={<Active />} />
         <Route path="/area-colaborador" element={<AreaColaborador />} />
+        <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
       <Footer />
     </BrowserRouter>
