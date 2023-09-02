@@ -17,7 +17,7 @@
 body {
   background-color: var(--color1);
   font-family: var(--font1);
-  height: 1100px;
+  height: 100vh;
 }
 
 .cadastro {
