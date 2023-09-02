@@ -22,18 +22,29 @@
     font-size: 15px;
 
 
-input {
-  text-align: center;
-  padding: 20px 50px;
-  margin-top: 15px;
-  border-radius: 40px;
-  font-size: 15px;
-
 }
+    input {
+      display: flex;
+      text-align: center;
+   
+      padding: 20px 50px;
+      margin-top: 15px;
+      border-radius: 40px;
+      font-size: 15px;
+      color: black;
+      font-style: normal;
+    }
+    
+    input::placeholder {
+      color: #01b0f1;
+      height: 25px;
+      font-size: 15px;
+      background-color: #20a28e3e;
+      border-radius: 7px;
+    }
 
-::placeholder {
-  font-size: 15px;
-}
+
+
 
 .dados > button {
   margin: 20px 0;
@@ -60,8 +71,9 @@ input {
   font-weight: 600;
 }
 
-body > button:hover {
-}
+/* body > button:hover {
+  bac
+} */
 
 .image-vw {
   position: absolute;

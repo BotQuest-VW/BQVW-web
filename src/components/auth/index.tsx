@@ -1,7 +1,6 @@
 import "./style.css";
 
-import { ReactNode } from "react";
-const Auth = (): ReactNode => {
+const Auth = () => {
   return (
     <div>
       <button className="openai-com-by">
@@ -27,7 +26,7 @@ export default function GoogleAuth() {
           marginLeft: 30,
         }}
       >
-        <Auth />
+     <Auth />
       </div>
     </>
   );

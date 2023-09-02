@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import "./style.css";
 
 interface Props {
@@ -7,7 +6,7 @@ interface Props {
   alt?: string;
 }
 
-export const Image = ({ source, class: design, alt }: Props): ReactNode => {
+export const Image = ({ source, class: design, alt }: Props): any => {
   return (
     <>
       <img className={design} src={source} alt={alt} />

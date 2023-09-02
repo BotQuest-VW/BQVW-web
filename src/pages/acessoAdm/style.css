@@ -12,15 +12,20 @@
   display: flex;
   justify-content: space-between;
 }
-body {
-  background-image: url("../../assets/img/acessoAdm/img/fundoAcessoAdm.png.png");
-}
+
+  /* background-image: url("../../assets/img/acessoAdm/img/fundoAcessoAdm.png.png"); */
+
 
 .main-container {
   width: 100%;
   height: 100vh;
   /* background-image: url(../../assets/img/acessoAdm/img/bg\ \(2\).png);  */
   /* background-image: url(../../assets/img/acessoAdm/img/bg\ \(2\).png.);   */
+}
+
+
+main{
+
   font-family: var(--font1);
   color: white;
   background-size: cover;
@@ -147,7 +152,7 @@ a {
   text-decoration: none;
 }
 
-/*  .segundo_fator {
+ .segundo_fator {
     background: #03293B80;
     width: 100%;
     height: 50px;
@@ -156,11 +161,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
 
-/*  .segundo_fator img {
+ .segundo_fator img {
     height: 30px;
-} */
+}
 
 .acesso_menor {
   display: none;
