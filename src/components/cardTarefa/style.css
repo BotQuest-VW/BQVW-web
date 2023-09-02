@@ -4,7 +4,7 @@
   --verde: #23ce6b;
 }
 
-.itemCard {
+#cardTarefa {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,10 +13,11 @@
   border-radius: 0 80px 80px;
 
   width: 100%;
+  height: 50px;
   background-color: #f1f2f5;
 }
 
-.itemCard > div {
+#cardTarefa > div {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -30,7 +31,7 @@
   border-radius: 50px;
 }
 
-.itemCard > button {
+#cardTarefa > button {
   width: 50px;
   height: 50px;
   border-radius: 80px;
@@ -41,14 +42,7 @@
   justify-content: center;
 }
 
-button:hover {
-  background-color: var(--verde);
-:root{
-    --cinza: #F1F2F5;
-    --verde: #23CE6B;
-}
-
-.itemCard{
+#cardTarefa{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,7 +54,7 @@ button:hover {
     background-color: #F1F2F5;
 }
 
-.itemCard>div{
+#cardTarefa>div{
     display: flex;
     align-items: center;
     gap: 15px;
@@ -73,21 +67,6 @@ button:hover {
     height: 15px;
     background-color: #CE6123;
     border-radius: 50px;
-}
-
-.itemCard>button{
-    width: 50px;
-    height: 50px;
-    border-radius: 80px;
-    border: none;
-    background-color: var(--cinza);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} 
-
-button:hover{
-    background-color: var(--verde);
 }
 
 .container {
@@ -116,7 +95,7 @@ button:hover{
 .checkmark {
   position: absolute;
   top: -15px;
-  right: -10px;
+  right: -6px;
   height: 40px;
   width: 40px;
   background-color: #d4d4d4;

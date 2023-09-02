@@ -4,7 +4,7 @@ import "./style.css";
 export default function CardTarefa(props: any) {
   return (
     <>
-      <div className="itemCard">
+      <div id="cardTarefa" className="itemCard">
         <div>
           <span className="bolinha"></span>
           <p>{props.titulo}</p>

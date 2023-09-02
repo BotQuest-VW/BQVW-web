@@ -3,7 +3,6 @@
 import './style.css'
 
 import { useEffect, useState } from 'react';
-import api from '../../utils/api';
 
 import CardTarefa from '../../components/cardTarefa';
 import CardEvento from '../../components/cardEvento';
@@ -25,18 +24,37 @@ export default function AreaColaborador(){
     
     console.log(dataAtual)
 
-    const [tarefas, setTarefas] = useState<any[]>([])
+    const tarefas = [
+        {
+          "titulo": "Gerenciar documentos",
+          "id": 1
+        },
+        {
+          "titulo": "Agendar reuniões",
+          "id": 2
+        },
+        {
+          "titulo": "Realizar ligações",
+          "id": 3
+        }
+      ]
 
-    function listarTarefas(){
-        api.get("tarefas").then((response: any) => {
-            console.log(response.data)
-            setTarefas(response.data)
-        }).catch(error => console.log("Erro ao obter os dados das tarefas.", error));
-    }
+    const eventos =[
+        {
+            "nome":"Seminário Desenvolvimento Pessoal",
+            "img": "https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/area-colaborador%2Fmeeting.png?alt=media&token=e2feeb74-bf14-4963-b315-ffce9a9835dd",
+            "id":1
+        },
+        {
+            "nome":"Aniversário do usuário123!",
+            "img": "https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/area-colaborador%2Fbirthday.png?alt=media&token=4da1c5fd-19ec-4b45-84bf-480ab1e3e45f",
+            "id":2
+        }
+    ]
 
     useEffect(() =>{
         document.title = "Área do colaborador - BQVW"
-        listarTarefas()
+        // listarTarefas()
     }, [])
 
 
@@ -66,14 +84,21 @@ export default function AreaColaborador(){
                     <div className="card">
                         <h2>Eventos</h2>
                         <ul>
-                            <li><CardEvento/></li>
-                            <li><CardEvento/></li>
+                        {eventos.map((evento:any, index:number) => {
+                            return <li key={index}>
+                                <CardEvento
+                                nome={evento.nome}
+                                id={evento.id}
+                                img={evento.img}
+                                />
+                            </li>
+                        })}
                         </ul>
                     </div>
                 </div>
             </section>
             <section className="right">
-
+                
             </section>
         </main>
     )
