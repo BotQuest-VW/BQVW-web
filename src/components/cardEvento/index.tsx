@@ -1,24 +1,20 @@
-import './style.css'
 
-import imgCard from '../../assets/img/cardEvento/evento_img1.png'
+import "./style.css";
 
-export default function CardEvento(props:any){
-    return(
-        <>
+// import imgCard from "../../assets/img/cardEvento/evento_img1.png";
 
-        <div id='cardEvento'>
-            <div className='titulo'>
-                <span className="bolinha_event"></span>
-                <span>title</span>
-            </div>
-            <span>18/05 às 18h</span>
+export default function CardEvento() {
+  return (
+    <>
+      <div id="cardEvento">
+        <div className="titulo">
+          <span className="bolinha_event"></span>
+          <span>title</span>
         </div>
-        {/* <div id='cardEvento'>
-            <div>
-                <span className="bolinha"></span>
-                <p>title</p>
-            </div>
-        </div> */}
+        <span>18/05 às 18h</span>
+      </div>
+
         </>
     )
 }
+

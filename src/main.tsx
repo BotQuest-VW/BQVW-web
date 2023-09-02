@@ -1,7 +1,4 @@
 
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
 
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -9,56 +6,47 @@ import "./index.css";
 
 
 
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
-
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
-
-import Header from "./components/header/index.tsx";
-import Footer from "./components/footer/index.tsx";
-
-
-import Homepage from './pages/homepage/index.tsx'
-import Login from './pages/login/index.tsx'
-
-import AreaColaborador from './pages/areaColaborador/index.tsx'
-
-import AcessoAdm from './pages/acessoAdm/index.tsx'
-import Metricas from './pages/helpdesk/metricas/metricas.tsx'
-import HomeHelpdesk from './pages/helpdesk/telaInicial/index.tsx'
-import Usuario from './pages/helpdesk/usuarios/usuario.tsx'
-
-import Homepage from "./pages/homepage/index.tsx";
-import Login from "./pages/login/index.tsx";
+import Header from "./components/header/index";
+import Footer from "./components/footer/index";
 
 
 
-import Recuperation from "./pages/recuperation/index.tsx";
+import Homepage from './pages/homepage/index'
+import Login from './pages/login/index'
 
-import Active from "./pages/recuperation/active/index.tsx";
+import AreaColaborador from './pages/areaColaborador/index'
+
+import AcessoAdm from './pages/acessoAdm/index'
+import Metricas from './pages/helpdesk/metricas/metricas'
+import HomeHelpdesk from './pages/helpdesk/telaInicial/index'
+import Usuario from './pages/helpdesk/usuarios/usuario'
+
+
+
+
+
+import Recuperation from "./pages/recuperation/index";
+
+
+import Active from "./pages/recuperation/active/index";
+
+import Cadastro from "./pages/cadastro/index";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
 
       <Header/>
-        <Routes>
-          <Route path='/' element={<Homepage/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/area-colaborador' element={<AreaColaborador/>}/>
-        </Routes>  
-      <Footer/>
-      <Header />
+
       <Routes>
-
-        <Route path='/' element={<Homepage />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/acessoAdm' element={<AcessoAdm />} />
-        <Route path='/metricas' element={<Metricas />} />
-        <Route path='/usuarioHelpdesk' element={<Usuario />} />
-        <Route path='/helpdesk' element={<HomeHelpdesk />} />
-
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/acessoAdm" element={<AcessoAdm />} />
+        <Route path="/metricas" element={<Metricas />} />
+        <Route path="/usuarioHelpdesk" element={<Usuario />} />
+        <Route path="/helpdesk" element={<HomeHelpdesk />} />
         <Route
           path="/recuperation"
           element={
@@ -71,7 +59,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           }
         />
         <Route path="/active" element={<Active />} />
-
+        <Route path="/area-colaborador" element={<AreaColaborador />} />
+        <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
       <Footer />
 

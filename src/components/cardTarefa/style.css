@@ -1,3 +1,48 @@
+
+:root {
+  --cinza: #f1f2f5;
+  --verde: #23ce6b;
+}
+
+.itemCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  padding: 12px;
+  border-radius: 0 80px 80px;
+
+  width: 100%;
+  background-color: #f1f2f5;
+}
+
+.itemCard > div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: black;
+}
+
+.bolinha {
+  width: 15px;
+  height: 15px;
+  background-color: #ce6123;
+  border-radius: 50px;
+}
+
+.itemCard > button {
+  width: 50px;
+  height: 50px;
+  border-radius: 80px;
+  border: none;
+  background-color: var(--cinza);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: var(--verde);
 :root{
     --cinza: #F1F2F5;
     --verde: #23CE6B;
@@ -56,7 +101,7 @@ button:hover{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  
+
 }
 
 .container input {
@@ -112,6 +157,3 @@ button:hover{
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
-
-  

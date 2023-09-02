@@ -2,6 +2,8 @@ import "./style.css";
 
 import { useEffect } from "react";
 
+import { Link } from "react-router-dom";
+
 // imagens
 import img_main from "../../assets/img/img_main.png";
 import seta_baixo from "../../assets/img/seta_down.png";
@@ -77,9 +79,9 @@ export default function Homepage() {
             <a className="botao" href="/login">
               Login
             </a>
-            <a className="botao" href="#">
-              Cadastre-se
-            </a>
+            <Link className="botao" to={"/cadastro"}>
+              Acessar
+            </Link>
           </div>
         </div>
       </section>
