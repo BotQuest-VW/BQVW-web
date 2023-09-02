@@ -9,7 +9,7 @@ import "./index.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Header from "./components/header/index";
-import Footer from "./components/footer/index";
+// import Footer from "./components/footer/index";
 
 
 
@@ -62,7 +62,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/area-colaborador" element={<AreaColaborador />} />
         <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
 
     </BrowserRouter>
   </React.StrictMode>
