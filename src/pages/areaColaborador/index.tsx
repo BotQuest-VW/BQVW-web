@@ -7,6 +7,11 @@ import { useEffect, useState } from 'react';
 import CardTarefa from '../../components/cardTarefa';
 import CardEvento from '../../components/cardEvento';
 
+import { avatares } from '../../assets/img/avatares/avatares';
+import { eventos } from '../../components/cardEvento/eventos';
+import { tarefas } from '../../components/cardTarefa/tarefas';
+
+
 export default function AreaColaborador(){
 
     const data = new Date();
@@ -24,40 +29,10 @@ export default function AreaColaborador(){
     
     console.log(dataAtual)
 
-    const tarefas = [
-        {
-          "titulo": "Gerenciar documentos",
-          "id": 1
-        },
-        {
-          "titulo": "Agendar reuniões",
-          "id": 2
-        },
-        {
-          "titulo": "Realizar ligações",
-          "id": 3
-        }
-      ]
-
-    const eventos =[
-        {
-            "nome":"Seminário Desenvolvimento Pessoal",
-            "img": "https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/area-colaborador%2Fmeeting.png?alt=media&token=e2feeb74-bf14-4963-b315-ffce9a9835dd",
-            "id":1
-        },
-        {
-            "nome":"Aniversário do usuário123!",
-            "img": "https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/area-colaborador%2Fbirthday.png?alt=media&token=4da1c5fd-19ec-4b45-84bf-480ab1e3e45f",
-            "id":2
-        }
-    ]
-
     useEffect(() =>{
         document.title = "Área do colaborador - BQVW"
         // listarTarefas()
     }, [])
-
-
 
     return(
         <main id='area_colaborador'>
@@ -98,7 +73,10 @@ export default function AreaColaborador(){
                 </div>
             </section>
             <section className="right">
-                
+                <h1>Meu perfil</h1>
+                <img src={avatares[0]} alt="" />
+                <h3>TAMIGLD</h3>
+                <button>Acessar</button>
             </section>
         </main>
     )
