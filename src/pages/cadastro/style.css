@@ -14,20 +14,20 @@
   --branco: #ffffff;
 }
 
-body {
+#cadastro body {
   background-color: var(--color1);
   font-family: var(--font1);
   height: 100vh;
 }
 
-.cadastro {
+#cadastro {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.aba_cadastro {
+#cadastro .aba_cadastro {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,13 +38,13 @@ body {
   height: 900px;
 }
 
-.logovw {
+#cadastro .logovw {
   width: 120px;
   position: absolute;
   margin-top: -900px;
 }
 
-h2 {
+#cadastro h2 {
   font-family: var(--font1);
   font-weight: 900;
   color: white;
@@ -52,7 +52,7 @@ h2 {
   margin-top: 70px;
 }
 
-.aba_cadastro > input {
+#cadastro .aba_cadastro > input {
   font-family: var(--font1);
   color: black;
   width: 400px;
@@ -63,19 +63,19 @@ h2 {
   padding-left: 20px;
 }
 
-.nivel_da_senha {
+#cadastro .nivel_da_senha {
   font-size: 25px;
   font-weight: 400;
   width: 60%;
   margin-top: 15px;
 }
 
-.tudo {
+#cadastro .tudo {
   display: flex;
   gap: 2%;
 }
 
-.linha {
+#cadastro .linha {
   width: 30%;
   font-family: var(--font1);
   font-weight: 400;
@@ -86,59 +86,59 @@ h2 {
   align-items: center;
 }
 
-.retangulo {
+#cadastro .retangulo {
   width: 100%;
   height: 10px;
 }
 
-.vermelho {
+#cadastro .vermelho {
   color: #ff2525;
   background-color: var(--color2);
 }
 
-.amarelo {
+#cadastro .amarelo {
   background-color: var(--color3);
 }
 
-.verde {
+#cadastro .verde {
   background-color: var(--color4);
 }
 
-.tudo > div:nth-child(1) > span {
+#cadastro .tudo > div:nth-child(1) > span {
   color: var(--color2);
   font-weight: 400;
-  margin-left: 250px;
+  /* margin-left: 250px; */
 }
 
-.tudo > div:nth-child(2) > span {
+#cadastro .tudo > div:nth-child(2) > span {
   color: var(--color3);
-  margin-left: 250px;
+  /* margin-left: 250px; */
 }
 
-.tudo > div:nth-child(3) > span {
+#cadastro .tudo > div:nth-child(3) > span {
   color: var(--color4);
-  margin-left: 250px;
+  /* margin-left: 250px; */
 }
 
-.nivel_da_senha > div:nth-child(2) > span {
+#cadastro .nivel_da_senha > div:nth-child(2) > span {
   font-weight: 400;
 }
 
-.teste {
+#cadastro .teste {
   margin-bottom: 60px;
   /* margin-top: 20px; */
 }
-.teste > span {
+#cadastro .teste > span {
   font-size: 25px;
 }
 
-.teste > ul {
+#cadastro .teste > ul {
   margin-top: 20px;
   font-size: 18px;
   padding-left: 40px;
 }
 
-.teste > div > a {
+#cadastro .teste > div > a {
   text-align: center;
   background: linear-gradient(
     94.31deg,
@@ -158,29 +158,29 @@ h2 {
   font-size: 20px;
 }
 
-.teste > div {
+#cadastro .teste > div {
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-.aceite > div {
+#cadastro .aceite > div {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.aceite {
+#cadastro .aceite {
   font-weight: 900;
   font-family: var(--font1);
   font-size: 15px;
   margin-top: 20px;
 }
-.aceite > span {
+#cadastro .aceite > span {
   margin-left: 50px;
   color: white;
 }
-.aceite > .logovw {
+#cadastro .aceite > .logovw {
   width: 15px;
   height: 15px;
   margin-top: 1020px;

@@ -9,7 +9,7 @@ export default function Cadastro() {
 
   return (
     <>
-      <section className="cadastro">
+      <section id="cadastro" className="cadastro">
         <form className="aba_cadastro">
           <img className="logovw" alt="" />
           <h2>Faça seu cadastro!</h2>
