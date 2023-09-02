@@ -8,7 +8,7 @@
   --font1: "Montserrat";
 }
 
-.conteudo {
+#acessoAdm .conteudo {
   display: flex;
   justify-content: space-between;
 }
@@ -16,7 +16,7 @@
   /* background-image: url("../../assets/img/acessoAdm/img/fundoAcessoAdm.png.png"); */
 
 
-.main-container {
+#acessoAdm  {
   width: 100%;
   height: 100vh;
   /* background-image: url(../../assets/img/acessoAdm/img/bg\ \(2\).png);  */
@@ -24,7 +24,7 @@
 }
 
 
-main{
+#acessoAdm {
 
   font-family: var(--font1);
   color: white;
@@ -33,13 +33,13 @@ main{
   overflow: hidden;
 }
 
-.lado-esquerdo {
+#acessoAdm .lado-esquerdo {
   height: 100vh;
   width: 50%;
   background-color: rgb(0, 0, 0, 0.5);
 }
 
-.acesso {
+#acessoAdm .acesso {
   margin-top: 100px;
   width: 55vw;
   height: 150px;
@@ -53,7 +53,7 @@ main{
   align-items: center;
 }
 
-.frase {
+#acessoAdm .frase {
   margin-top: 150px;
   font-size: 35px;
   margin-left: 40px;
@@ -66,17 +66,17 @@ main{
     justify-content: right;
 } */
 
-.acesso img {
+#acessoAdm .acesso img {
   width: 130px;
 }
 
-.lado-direiro {
+#acessoAdm .lado-direiro {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.conteudo2 {
+#acessoAdm .conteudo2 {
   font-size: 30px;
   width: 700px;
   /* height: 600px; */
@@ -87,23 +87,23 @@ main{
   margin-top: 130px;
 }
 
-.conteudo2 img {
+#acessoAdm .conteudo2 img {
   width: 100px;
   display: none;
 }
 
-.bot_salve {
+#acessoAdm .bot_salve {
   display: none;
 }
 
-.formulario {
+#acessoAdm .formulario {
   width: 250px;
   display: flex;
   flex-direction: column;
   margin-top: 50px;
 }
 
-.formulario input {
+#acessoAdm .formulario input {
   padding: 20px;
   border-radius: 50px;
   border: solid 2px #ffffff;
@@ -112,11 +112,11 @@ main{
   color: white;
 }
 
-input::placeholder {
+#acessoAdm input::placeholder {
   color: rgb(255, 255, 255);
 }
 
-.acessar {
+#acessoAdm .acessar {
   box-sizing: border-box;
   width: 150px;
   height: 50px;
@@ -136,7 +136,7 @@ input::placeholder {
   margin: 20px;
 }
 
-.acessar:hover {
+#acessoAdm .acessar:hover {
   background: linear-gradient(
     94.31deg,
     #026b91 -8.53%,
@@ -146,13 +146,13 @@ input::placeholder {
   transition: all 3s ease-in;
 }
 
-a {
+#acessoAdm a {
   font-size: 18px;
   color: #ffffff;
   text-decoration: none;
 }
 
- .segundo_fator {
+ #acessoAdm .segundo_fator {
     background: #03293B80;
     width: 100%;
     height: 50px;
@@ -163,15 +163,15 @@ a {
     align-items: center;
 }
 
- .segundo_fator img {
+ #acessoAdm .segundo_fator img {
     height: 30px;
 }
 
-.acesso_menor {
+#acessoAdm .acesso_menor {
   display: none;
 }
 
-@media screen and (max-width: 1230px) {
+@media screen and (max-width: 1230px) { 
   .acesso_menor {
     width: 100vw;
     height: 100px;

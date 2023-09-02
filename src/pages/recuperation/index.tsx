@@ -18,7 +18,7 @@ export default function Recuperation({ title, talk, description }: Props) {
   handleTime();
 
   return (
-    <main>
+    <main id="main_recuperation">
       {visible == true ? (
         <div id="main_login" className="dados">
           <Image

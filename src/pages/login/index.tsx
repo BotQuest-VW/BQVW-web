@@ -47,10 +47,9 @@ export default function Login() {
           <form method="post" onChange={gettinAxios}>
             <div id="main_login" className="dados">
               <Image
-                class=""
+                class="img_vw"
                 source="https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/nicismpcs6-271%3A9?alt=media&token=34022096-56d5-4eb8-801a-3b8328125e59"
               />
-
               <h1>Faça seu login!</h1>
               <input
                 type="tel"
@@ -75,9 +74,9 @@ export default function Login() {
               />
               <label htmlFor="Senha"></label>
               <button onClick={verifyState}>Acessar</button>
-              <GoogleAuth />
+              {/* <GoogleAuth /> */}
 
-              <p style={{ padding: 0 }}>
+              <p style={{ marginTop: "10px" }}>
                 Esqueceu sua senha? <a href="/recuperation">Clique aqui.</a>
               </p>
             </div>
