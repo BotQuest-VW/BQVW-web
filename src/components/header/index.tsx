@@ -3,7 +3,7 @@ import "./style.css";
 import { Link } from "react-router-dom";
 
 // imagens
-import Blu_header from "../../assets/img/blu_header.png";
+// import Blu_header from url;
 
 export default function Header() {
   function mostrarMenu() {
@@ -46,7 +46,7 @@ export default function Header() {
         </a>
         <div>
           <Link className="link" to={"/"}>
-            <img src={Blu_header} alt="" />
+            <img src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/blu_header.png?alt=media&token=317b726b-7e4a-4557-81f3-b60085755cf9" alt="" />
             <p>BotQuest VW</p>
           </Link>
         </div>
