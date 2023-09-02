@@ -76,8 +76,9 @@ export default function Login() {
               <button onClick={verifyState}>Acessar</button>
               {/* <GoogleAuth /> */}
 
-              <p style={{ marginTop: "10px" }}>
-                Esqueceu sua senha? <a href="/recuperation">Clique aqui.</a>
+              <p 
+                style={{ marginTop: "10px"}}>
+                Esqueceu sua senha? <a style={{color: "#ffffff"}} href="/recuperation">Clique aqui.</a>
               </p>
             </div>
           </form>

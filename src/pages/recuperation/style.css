@@ -47,7 +47,11 @@ input {
   padding-top: 30px;
 }
 
-.dados > p > a {
+#main_recuperation .dados > h1{
+  margin-bottom: 10px;
+}
+
+#main_recuperation .dados > p > a {
   text-decoration: none;
   color: var(--branco);
   font-weight: 600;
@@ -61,7 +65,7 @@ body > a:hover {
   color: var(--branco);
 }
 
-.form-content {
+#main_recuperation .form-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,16 +84,17 @@ button {
   background: #01b0f1;
 }
 
-span {
+#main_recuperation .dados span{
   width: 360px;
-  margin: 3px 0px;
-  background: #083b302e;
+  margin: 10px 0px;
+  /* background: #083b302e; */
   border-radius: 7px;
+  text-align: center;
 }
 
-.image-vw {
+/* #main_recuperation .dados .image-vw {
   margin: -90px 0px;
-}
+} */
 .robot {
   position: absolute;
   top: 650px;
