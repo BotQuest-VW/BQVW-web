@@ -49,7 +49,6 @@
   font-weight: 900;
   color: white;
   font-size: 40px;
-  margin-top: 70px;
 }
 
 #cadastro .aba_cadastro > input {
@@ -174,7 +173,7 @@
   font-weight: 900;
   font-family: var(--font1);
   font-size: 15px;
-  margin-top: 20px;
+  margin-top: 70px;
 }
 #cadastro .aceite > span {
   margin-left: 50px;
