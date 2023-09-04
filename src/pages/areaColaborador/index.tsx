@@ -75,31 +75,39 @@ export default function AreaColaborador(){
                 <div>
                     <div className="card">
                         <h2>Minhas tarefas</h2>
-                        <ul id='listaTarefas'>
-                            {tarefas.map((tarefa:any, index:number) =>{
-                                return <li key={index}>
-                                    <CardTarefa
-                                    titulo={tarefa.titulo}
-                                    id={tarefa.id}
-                                    />
-                                </li>
-                            }
-                            )}
-                        <div id="addTask" className="addTask">
-                            <form id='taskForm' action="" method="post" onSubmit={addTask}>
-                                <label htmlFor="task"></label>
-                                <input
-                                id='task' 
-                                name='campo_task' 
-                                type="text" 
-                                placeholder='Título da tarefa'
-                                onChange={ (e) => {setTitulo(e.target.value)} }
-                                required
-                                />
-                                <button>Adicionar</button>
-                            </form>
+                        <div className="listaTask"
+                        style={{
+                            height: "85%"
+                        }}>
+                            <ul id='listaTarefas'
+                             style={{
+                                marginRight: "15px"
+                            }}>
+                                {tarefas.map((tarefa:any, index:number) =>{
+                                    return <li key={index}>
+                                        <CardTarefa
+                                        titulo={tarefa.titulo}
+                                        id={tarefa.id}
+                                        />
+                                    </li>
+                                }
+                                )}
+                                <div id="addTask" className="addTask">
+                                    <form id='taskForm' action="" method="post" onSubmit={addTask}>
+                                        <label htmlFor="task"></label>
+                                        <input
+                                        id='task' 
+                                        name='campo_task' 
+                                        type="text" 
+                                        placeholder='Título da tarefa'
+                                        onChange={ (e) => {setTitulo(e.target.value)} }
+                                        required
+                                        />
+                                        <button>Adicionar</button>
+                                    </form>
+                                </div>
+                            </ul>                           
                         </div>
-                    </ul>
                     </div>
                     <div className="card">
                         <h2>Eventos</h2>
