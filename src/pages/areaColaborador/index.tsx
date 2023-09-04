@@ -64,6 +64,11 @@ export default function AreaColaborador(){
         api.post
     }
 
+    // const [visible, setVisible] = useState(false);
+
+    // const handleTime = () => setTimeout(() => setVisible(true), 1500);
+    // handleTime();
+
 
     return(
         <main id='area_colaborador'>

@@ -26,9 +26,8 @@ body{
 
     display: flex;
     justify-content: space-between;
-    margin: 50px 70px;
+    margin: 30px 70px;
     gap: 25px;
-
 }
 
 /* LEFT SECTION */
@@ -51,13 +50,6 @@ body{
   text-align: center;
 }
 
-#area_colaborador .left > div {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  justify-content: space-between;
-}
-
 #area_colaborador .left > div:nth-child(1) {
   margin-bottom: 15px;
 }
@@ -70,7 +62,7 @@ body{
 
 #area_colaborador .left > div:nth-child(2) .card {
   width: 80%;
-  height: 400px;
+  height: 70vh;
   border-radius: 25px;
   background: rgba(1, 176, 241, 0.1);
   box-shadow: 6px -9px 44px 0px rgba(0, 0, 0, 0.09);
@@ -83,10 +75,6 @@ body{
   font-weight: 400;
   font-size: 18px;
 
-}
-
-#area_colaborador .left{
-    width: 70%;
 }
 
 #area_colaborador .left>div h1{
@@ -114,7 +102,7 @@ body{
 
 #area_colaborador .left>div:nth-child(2) .card{
     width: 80%;
-    height: 400px;
+    height: 70vh;
     border-radius: 25px;
     background: rgba(1, 176, 241, 0.10);
     box-shadow: 6px -9px 44px 0px rgba(0, 0, 0, 0.09);
@@ -139,6 +127,7 @@ body{
   backdrop-filter: blur(100px);
 
   width: 30%;
+  height: 78vh;
 
   display: flex;
   flex-direction: column;
@@ -160,7 +149,7 @@ body{
 
 #area_colaborador .right>button{
   position: relative;
-  left: -15px;
+  /* left: -15px; */
 
   width: 60%;
   border-radius: 40px;
@@ -184,7 +173,7 @@ body{
 #area_colaborador button>svg{
   position: absolute;
   top: -15px;
-  right: -40px;
+  right: -10px;
 }
 
 #addTask input{
