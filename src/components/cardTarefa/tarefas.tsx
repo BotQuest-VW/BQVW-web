@@ -1,14 +1,13 @@
 export const tarefas = [
     {
-      "titulo": "Gerenciar documentos",
-      "id": 1
+      titulo: "Gerenciar documentos"
     },
     {
-      "titulo": "Agendar reuniões",
-      "id": 2
+      titulo: "Agendar reuniões"
     },
     {
-      "titulo": "Realizar ligações",
-      "id": 3
-    }
+      titulo: "Realizar ligações"
+    },
   ]
+
+
