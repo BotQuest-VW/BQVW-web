@@ -135,7 +135,8 @@ header div .link img{
 @media screen and (max-width: 768px) {
     /* HEADER */
     .menu_barras {
-        display: initial;
+        display: flex;
+        padding-bottom: 10px;
     }
 
     .header_logo{
@@ -156,6 +157,9 @@ header div .link img{
         z-index: 1;
         border-radius: 10%;
         padding: 10px;
+
+        gap: 30px;
+        align-items: flex-start;
 
         -moz-transition: all 0.5s ease;
         -webkit-transition: all 0.5s ease;

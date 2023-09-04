@@ -39,15 +39,15 @@ export default function Form({ acces, animate }: Props) {
 
     valueComfirm[0] === valueEmail[0]
       ? redirect()
-      : setTalk("é preciso que os 2 emails sejam iguais");
+      : setTalk("É necessário que os 2 emails sejam iguais.");
   };
 
   const autorize = () => {
     const valueEmail = Object.values(email);
     const valueComfirm = Object.values(comfirm);
 
-    if (valueEmail.length == 0) setTalk("voce precisa digitar um email");
-    if (valueComfirm.length == 0) setTalk("voce precisa repetir o seu email");
+    if (valueEmail.length == 0) setTalk("Você precisa digitar um email.");
+    if (valueComfirm.length == 0) setTalk("Você precisa repetir o seu email.");
   };
 
   return (
@@ -86,12 +86,13 @@ export default function Form({ acces, animate }: Props) {
             className={animate}
             style={{
               margin: "0 150px",
-              padding: " 50px",
+              padding: "20px",
               width: 450,
               marginLeft: 130,
               textDecoration: "underline",
               fontFamily: "montSerrat",
-              fontSize: 35,
+              // fontSize: 35,
+              textAlign: "center"
             }}
           >
             {!talk ? instruction.recuperation : talk}

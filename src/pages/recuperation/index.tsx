@@ -18,17 +18,22 @@ export default function Recuperation({ title, talk, description }: Props) {
   handleTime();
 
   return (
-    <main>
+    <main id="main_recuperation">
       {visible == true ? (
-        <div id="main_login" className="dados">
+        <div 
+        id="main_login" 
+        className="dados" 
+        style={{
+          height: "700px"
+        }}>
           <Image
             class="image-vw"
             source="https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/nicismpcs6-271%3A9?alt=media&token=34022096-56d5-4eb8-801a-3b8328125e59"
           />
-          <Image
+          {/* <Image
             class="robot"
             source="https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/xzjx27buj2k-106%3A18?alt=media&token=55352e40-f453-403c-8619-c6b5cd369dc5"
-          ></Image>
+          ></Image> */}
           <h1>{title}</h1>
           <span>{talk}</span>
           <span>{description}</span>

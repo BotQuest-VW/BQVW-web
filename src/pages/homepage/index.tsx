@@ -4,6 +4,9 @@ import { useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
+import Footer from "../../components/footer";
+
+
 // imagens
 import img_main from "../../assets/img/img_main.png";
 import seta_baixo from "../../assets/img/seta_down.png";
@@ -85,6 +88,7 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+      <Footer/>
     </main>
   );
 }

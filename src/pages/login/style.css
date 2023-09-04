@@ -6,47 +6,46 @@
   height: calc(100vh - 70px);
 }
 
-.logo {
+#main_login .logo {
   width: 100px;
 }
 
-.dados > h1 {
+#main_login .dados > h1 {
   font-weight: 800;
 }
 
 #main_login input{
-    text-align: center;
-    padding: 20px 50px;
-    margin-top: 15px;
-    border-radius: 40px;
-    font-size: 15px;
-
-
+  text-align: center;
+  padding: 20px 50px;
+  margin-top: 15px;
+  border-radius: 40px;
+  font-size: 15px;
 }
-    input {
-      display: flex;
-      text-align: center;
-   
-      padding: 20px 50px;
-      margin-top: 15px;
-      border-radius: 40px;
-      font-size: 15px;
-      color: black;
-      font-style: normal;
-    }
-    
-    input::placeholder {
-      color: #01b0f1;
-      height: 25px;
-      font-size: 15px;
-      background-color: #20a28e3e;
-      border-radius: 7px;
-    }
+
+#main_login input {
+  display: flex;
+  text-align: center;
+
+  padding: 20px 50px;
+  margin-top: 15px;
+  border-radius: 40px;
+  font-size: 15px;
+  color: black;
+  font-style: normal;
+}
+  
+#main_login input::placeholder {
+  color: #474747;
+  height: 25px;
+  font-size: 15px;
+  /* background-color: #20a28e3e; */
+  border-radius: 7px;
+}
 
 
 
 
-.dados > button {
+#main_login .dados > button {
   margin: 20px 0;
   font-weight: 700;
   font-size: 20px;
@@ -60,23 +59,17 @@
   color: var(--branco);
 }
 
-.dados > p {
+#main_login .dados > p {
   color: var(--branco);
   padding-top: 30px;
 }
 
-.dados > p > button {
+#main_login .dados > p > button {
   text-decoration: none;
   color: var(--branco);
   font-weight: 600;
 }
 
-/* body > button:hover {
-  bac
-} */
-
-.image-vw {
-  position: absolute;
-  display: flex;
-  top: 195px;
+#main_login .img_vw{
+  width: 120px;
 }
