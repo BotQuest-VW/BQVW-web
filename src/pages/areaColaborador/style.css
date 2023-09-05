@@ -210,22 +210,26 @@ body{
   justify-content: space-between;
 }
 
-#area_colaborador .listaTask{
+#area_colaborador .listaTask,
+#area_colaborador .listaNews{
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-#area_colaborador .listaTask::-webkit-scrollbar{
+#area_colaborador .listaTask::-webkit-scrollbar,
+#area_colaborador .listaNews::-webkit-scrollbar{
   width: 0.5em;
   background-color: #002431;
   border-radius: 40px;
 }
 
-#area_colaborador .listaTask::-webkit-scrollbar-track {
+#area_colaborador .listaTask::-webkit-scrollbar-track,
+#area_colaborador .listaNews::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 
-#area_colaborador .listaTask::-webkit-scrollbar-thumb {
+#area_colaborador .listaTask::-webkit-scrollbar-thumb,
+#area_colaborador .listaNews::-webkit-scrollbar-thumb {
   background-color: #a9a9a9;
   border-radius: 40px;
   /* outline: 1px solid slategrey; */

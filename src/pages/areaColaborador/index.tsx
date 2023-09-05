@@ -92,7 +92,9 @@ export default function AreaColaborador(){
                     </div>
                     <div>
                         <div className="card">
-                            <h2>Minhas tarefas</h2>
+                            <h2 style={{
+                                marginBottom: "10px"
+                            }}>Minhas tarefas</h2>
                             <div className="listaTask"
                             style={{
                                 height: "85%"
@@ -128,18 +130,28 @@ export default function AreaColaborador(){
                             </div>
                         </div>
                         <div className="card">
-                            <h2>Novidades</h2>
-                            <ul>
-                            {novidades.map((novidade:any, index:number) => {
-                                return <li key={index}>
-                                    <CardNovidade
-                                    titulo={novidade.titulo}
-                                    id={novidade.id}
-                                    link={novidade.link}
-                                    />
-                                </li>
-                            })}
-                            </ul>
+                            <h2 style={{
+                                marginBottom: "10px"
+                            }}>Novidades</h2>
+                            <div className="listaNews"
+                            style={{
+                                listStyleType: "none" ,
+                                height: "85%"                                               
+                            }}>
+                                <ul style={{
+                                    marginRight: "15px"
+                                }}>
+                                    {novidades.map((novidade:any, index:number) => {
+                                        return <li key={index}>
+                                            <CardNovidade
+                                            titulo={novidade.titulo}
+                                            id={novidade.id}
+                                            link={novidade.link}
+                                            />
+                                        </li>
+                                    })}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </section>
