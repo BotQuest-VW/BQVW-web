@@ -74,8 +74,13 @@ export default function AreaColaborador(){
         <main id='area_colaborador'>
             <section className="left">
                 <div>
-                    <h1>Visão Geral</h1>
-                    <span>{dataAtual}</span>
+          <form style={{ marginRight: 250 }}>
+            <input
+              className="date-style"
+              type="date"
+              style={{ color: 'white', width: 500, marginRight: 50 }}
+            ></input>
+          </form>
                 </div>
                 <div>
                     <div className="card">
