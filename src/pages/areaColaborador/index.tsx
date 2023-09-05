@@ -54,7 +54,7 @@ export default function AreaColaborador(){
     function listarNovidades(){
         api.get("novidades").then((response:any) => {
             setNovidades(response.data)
-        })
+        }).catch(error => console.log("Erro ao obter os dados das novidades", error))
     }
 
     function addTask(event:any){
