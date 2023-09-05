@@ -22,11 +22,6 @@ import AcessoAdm from './pages/acessoAdm/index'
 import Metricas from './pages/helpdesk/metricas/metricas'
 import HomeHelpdesk from './pages/helpdesk/telaInicial/index'
 import Usuario from './pages/helpdesk/usuarios/usuario'
-
-
-
-
-
 import Recuperation from "./pages/recuperation/index";
 
 
@@ -34,11 +29,13 @@ import Active from "./pages/recuperation/active/index";
 
 import Cadastro from "./pages/cadastro/index";
 
+
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
 
-      <Header/>
+      <Header />
 
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -46,6 +43,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/acessoAdm" element={<AcessoAdm />} />
         <Route path="/metricas" element={<Metricas />} />
         <Route path="/usuarioHelpdesk" element={<Usuario />} />
+       
+
         <Route path="/helpdesk" element={<HomeHelpdesk />} />
         <Route
           path="/recuperation"
