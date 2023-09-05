@@ -25,6 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 50px 0;
 }
 
 #cadastro .aba_cadastro {
@@ -33,15 +34,9 @@
   justify-content: center;
   align-items: center;
   width: 600px;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   border-radius: 85px;
-  height: 900px;
-}
-
-#cadastro .logovw {
-  width: 120px;
-  position: absolute;
-  margin-top: -900px;
+  /* height: 900px; */
 }
 
 #cadastro h2 {
@@ -49,7 +44,7 @@
   font-weight: 900;
   color: white;
   font-size: 40px;
-  margin-top: 70px;
+  /* margin-top: 70px; */
 }
 
 #cadastro .aba_cadastro > input {
@@ -58,7 +53,7 @@
   width: 400px;
   height: 60px;
   border-radius: 80px;
-  font-size: 25px;
+  font-size: 18px;
   margin-top: 15px;
   padding-left: 20px;
 }
@@ -138,7 +133,7 @@
   padding-left: 40px;
 }
 
-#cadastro .teste > div > a {
+#cadastro .teste > div > button {
   text-align: center;
   background: linear-gradient(
     94.31deg,
@@ -174,17 +169,11 @@
   font-weight: 900;
   font-family: var(--font1);
   font-size: 15px;
-  margin-top: 20px;
+  margin-top: 54px;
 }
 #cadastro .aceite > span {
   margin-left: 50px;
   color: white;
-}
-#cadastro .aceite > .logovw {
-  width: 15px;
-  height: 15px;
-  margin-top: 1020px;
-  margin-right: 100px;
 }
 
 @media screen and (max-width: 590px) {

@@ -60,7 +60,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           }
         />
         <Route path="/active" element={<Active />} />
-        <Route path="/area-colaborador" element={<AreaColaborador />} />
+        <Route path="/area-colaborador/:idUsuario" element={<AreaColaborador />} />
         <Route path="/area-colaborador/:idTarefa" element={<DeletarTarefa />} />
         <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
