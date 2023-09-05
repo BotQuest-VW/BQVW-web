@@ -52,7 +52,6 @@ export default function Login() {
 
   const [id, setId] = useState<String>("");
   const [senha, setSenha] = useState<String>("");
-  const [direcao, setDirecao] = useState<String>("");
   const [email, setEmail] = useState<String>("");
 
   function realizarAutenticacao(event: any) {
@@ -60,7 +59,6 @@ export default function Login() {
 
     const usuario = {
       id: id,
-      direcao: direcao,
       email: email,
       password: senha
     }
@@ -107,14 +105,6 @@ export default function Login() {
                 onChange={(e) => {setEmail(e.target.value)}}
               />
               <label htmlFor="ID"></label>
-
-              <input
-                type="text"
-                id="Time"
-                placeholder="Direção"
-                onChange={(e) => {setDirecao(e.target.value)}}
-              />
-              <label htmlFor="Time"></label>
 
               <input
                 type="password"

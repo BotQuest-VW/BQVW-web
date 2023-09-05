@@ -12,7 +12,6 @@ export default function Cadastro() {
   const [vwId, setVwId] = useState<string>("")
   const [nome, setNome] = useState<string>("")
   const [email, setEmail] = useState<string>("")
-  const [direcao, setDirecao] = useState<string>("")
   const [gestorImediato, setGestorImediato] = useState<string>("")
   const [setor, setSetor] = useState<string>("")
   const [senha, setSenha] = useState<string>("")
@@ -24,7 +23,6 @@ export default function Cadastro() {
     formdata.append("vwId", vwId)
     formdata.append("nome", nome)
     formdata.append("email", email)
-    formdata.append("direcao", direcao)
     formdata.append("gestor_imediato", gestorImediato)
     formdata.append("setor", setor)
     formdata.append("password", senha)
@@ -79,17 +77,6 @@ export default function Cadastro() {
           onChange={(event) => {setEmail(event.target.value)}}
           required
           />
-
-            <label className="time" htmlFor="direcao" />
-            <input
-            id="direcao"
-            className="time"
-            placeholder="Direção"
-            type="text"
-            maxLength={6}
-            onChange={(event) => {setDirecao(event.target.value)}}
-            required
-            />
 
           <label className="supervisor" htmlFor="supervisor" />
           <input
