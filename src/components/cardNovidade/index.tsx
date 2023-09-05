@@ -10,7 +10,7 @@ export default function CardNovidade(props:any) {
         <p>{props.titulo}</p>
         </div>
         <div>
-          <Link target="_blank" to={props.link}>Veja mais</Link>
+          <Link className="link" target="_blank" to={props.link}>Saiba mais</Link>
         </div>
       </div>
     </>

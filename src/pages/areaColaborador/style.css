@@ -139,7 +139,7 @@ body{
 }
 
 #area_colaborador .right>img{
-  width: 200px;
+  width: 12rem;
 }
 
 #area_colaborador .right>h3{
@@ -151,12 +151,12 @@ body{
   position: relative;
   /* left: -15px; */
 
-  width: 60%;
+  /* width: 60%; */
   border-radius: 40px;
   border: none;
   background: var(--branco, #F1F2F5);
   color: var(--preto);
-  padding: 12px 40px;
+  padding: 5% 20%;
   text-transform: uppercase;
   font-weight: 600;
   font-family: var(--montserrat);
@@ -167,7 +167,7 @@ body{
 
 #area_colaborador button>p{
   position: relative;
-  left: -5px;
+  left: -30%;
 }
 
 #area_colaborador button>svg{
