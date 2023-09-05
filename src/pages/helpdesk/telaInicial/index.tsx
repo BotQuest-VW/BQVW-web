@@ -1,9 +1,11 @@
 import './homeAdm.css'
 
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import api from "../../../utils/api";
 
 import dashboard from './img/Dashboard Layout.png'
-import usuarios from './img/Vector.png'
+import vector from './img/Vector.png'
 import dados from './img/dados.png'
 import setaVoltar from './img/botao-de-seta-para-a-esquerda 1.png'
 import avatarLuana from './img/avatar.png'
@@ -13,6 +15,45 @@ import avatarMiguel from './img/avatar (3).png'
 
 
 function HomeHelpdesk() {
+  const [usuarios, setUsuarios] = useState<any[]>([]);
+
+    const [usuarioDigitado, setUsuariosDigitada] = useState<string>("");
+
+    const [listaUsuariosFiltrados, setListaUsuariosFiltrados] = useState<any[]>(usuarios);
+
+    useEffect( () => {
+        document.title = "Helpdesk - BotVW"
+
+        listarUsuarios()
+    }, [] )
+    
+    function buscarPorUsuarios(event: any){
+        event.preventDefault();
+
+        const devsFiltrados = usuarios.filter((dev: any) => dev.hardSkills.includes(usuarioDigitado.toLocaleUpperCase()));
+
+        if(devsFiltrados.length === 0){
+            alert("Nenhum desenvolvedor(a) com essa skill")
+        }else{
+            setListaUsuariosFiltrados(devsFiltrados)
+        }
+    }
+
+    function retornoUsuariosGeral(event: any){
+        if(event.target.value === ""){
+            listarUsuarios()
+        }
+        setUsuariosDigitada(event.target.value)
+    }
+
+    function listarUsuarios() {
+
+        api.get("users").then( (response: any) => {
+            console.log(response.data)
+            setUsuarios(response.data)
+        } )
+
+    }
   return (
     <>
 
@@ -26,7 +67,7 @@ function HomeHelpdesk() {
               <Link to={'/helpdesk'}>Tela Inicial</Link>
             </div>
             <div className="Usuario_aside">
-              <img src={usuarios} alt="" />
+              <img src={vector} alt="" />
               <Link to={'/usuarioHelpdesk'}>Usuários</Link>
             </div>
             <div className="Dados_aside">
