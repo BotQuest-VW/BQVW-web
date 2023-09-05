@@ -3,7 +3,14 @@ import "./style.css";
 import { Image } from "../../components/Image";
 import Loader from "../../components/loader";
 
-import GoogleAuth from "../../components/auth";
+import api from "../../utils/api";
+
+import secureLocalStorage from "react-secure-storage";
+
+import { useNavigate } from "react-router";
+
+
+// import GoogleAuth from "../../components/auth";
 import { useState, ChangeEvent, SetStateAction } from "react";
 
 export default function Login() {
@@ -40,11 +47,42 @@ export default function Login() {
     // axios.post("blablabla")
   };
 
+  // -----------------------------------------------------------POR API - THAMIRES
+  const navigate = useNavigate()
+
+  const [id, setId] = useState<String>("");
+  const [senha, setSenha] = useState<String>("");
+  const [email, setEmail] = useState<String>("");
+
+  function realizarAutenticacao(event: any) {
+    event.preventDefault();
+
+    const usuario = {
+      id: id,
+      email: email,
+      password: senha
+    }
+
+    api.post("login", usuario).then((response: any) => {
+            secureLocalStorage.setItem("user", response.data)
+            alert("Login efetuado com sucesso!");
+
+            console.log(response.data);
+
+            // navigate("/area-colaborador/" + response.data.user.id);
+            // navigate(0);
+        
+        }).catch((error: any) => {
+            alert("Não foi possível realizar o login.");
+            console.log(error);
+        })
+}
+
   return (
     <>
       {loading == false ? (
         <>
-          <form method="post" onChange={gettinAxios}>
+          <form method="post" onSubmit={realizarAutenticacao}>
             <div id="main_login" className="dados">
               <Image
                 class="img_vw"
@@ -56,24 +94,30 @@ export default function Login() {
                 maxLength={5}
                 id="id"
                 placeholder="ID"
-                onChange={handleIdState}
+                onChange={(e) => {setId(e.target.value)}}
               />
               <label htmlFor="ID"></label>
+              
               <input
-                type="text"
-                id="Time"
-                placeholder="Time"
-                onChange={handleTeamState}
+                type="email"
+                id="email"
+                placeholder="E-mail"
+                onChange={(e) => {setEmail(e.target.value)}}
               />
-              <label htmlFor="Time"></label>
+              <label htmlFor="ID"></label>
+
               <input
                 type="password"
                 id="Senha"
                 placeholder="Senha"
-                onChange={handlePasswordState}
+                onChange={(e) => {setSenha(e.target.value)}}
               />
               <label htmlFor="Senha"></label>
-              <button onClick={verifyState}>Acessar</button>
+
+              <button 
+              // onClick={verifyState}
+              type="submit"
+              >Acessar</button>
               {/* <GoogleAuth /> */}
 
               <p 

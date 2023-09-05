@@ -19,7 +19,7 @@
   font-weight: 800;
 }
 
-input {
+#main_recuperation input {
   text-align: center;
   padding: 20px 50px;
   margin-top: 15px;
@@ -72,7 +72,7 @@ body > a:hover {
   margin-top: 15px;
 }
 
-button {
+#main_recuperation button {
   display: inline-flex;
   margin: 20px 273px;
   font-weight: 700;

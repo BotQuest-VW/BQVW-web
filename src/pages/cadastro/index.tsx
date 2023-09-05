@@ -1,45 +1,121 @@
 import "./style.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // import Logo from "../cadastro/img/iconeVW.png";
+
+import api from "../../utils/api";
 
 export default function Cadastro() {
   useEffect(() => {
     document.title = "Cadastro - BotQuest VW";
   });
 
+  const [vwId, setVwId] = useState<string>("")
+  const [nome, setNome] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [gestorImediato, setGestorImediato] = useState<string>("")
+  const [setor, setSetor] = useState<string>("")
+  const [senha, setSenha] = useState<string>("")
+
+  function cadastrarUsuario(event:any){
+    event.preventDefault()
+    const formdata = new FormData()
+
+    formdata.append("vwId", vwId)
+    formdata.append("nome", nome)
+    formdata.append("email", email)
+    formdata.append("gestor_imediato", gestorImediato)
+    formdata.append("setor", setor)
+    formdata.append("password", senha)
+    
+      // cadastro de usuario
+
+      api.post("users", formdata).then((response) =>{
+        console.log(response)
+        alert("Usuario criado com Sucesso!😊")
+        // Navegação para login
+    }).catch((error)=>{
+        console.log(error)
+    })
+
+    api.post
+  }
+
   return (
     <>
       <section id="cadastro" className="cadastro">
-        <form className="aba_cadastro">
-          <img className= "" src= "https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/icon_vw.png?alt=media&token=0b056a56-9020-4d26-b3ed-cd7bdbd05b2b"alt="" />
+        <form onSubmit={cadastrarUsuario} className="aba_cadastro" method="post">
+          <img className="logovw" alt="" src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/icon_vw.png?alt=media&token=0b056a56-9020-4d26-b3ed-cd7bdbd05b2b" />
           <h2>Faça seu cadastro!</h2>
-          <input className="id" placeholder="VW ID" type="text" />
-          <input className="nome" placeholder="Nome" type="text" />
-          <input
-            className="time"
-            placeholder="Direção"
-            type="text"
-            maxLength={6}
+
+          <label className="id" htmlFor="vwid" />
+          <input 
+          id="vwid"
+          className="id" 
+          placeholder="VW ID" 
+          type="tel"
+          maxLength={5}
+          onChange={(event) => {setVwId(event.target.value)}}
+          required
           />
+          
+          <label className="nome" htmlFor="nome" />
+          <input 
+          id="nome"
+          className="nome"
+          placeholder="Nome"
+          type="text"
+          onChange={(event) => {setNome(event.target.value)}}
+          required
+          />
+                    
+          <label className="nome" htmlFor="email" />
+          <input 
+          id="email"
+          className="email"
+          placeholder="E-mail"
+          type="text"
+          onChange={(event) => {setEmail(event.target.value)}}
+          required
+          />
+
+          <label className="supervisor" htmlFor="supervisor" />
           <input
+            id="supervisor"
             className="supervisor"
             placeholder="Gestor imediato"
             type="text"
-          />
-          <input className="setor" placeholder="Setor" type="text" />
-          <input className="senha" placeholder="Senha" type="password" />
+            onChange={(event) => {setGestorImediato(event.target.value)}}
+            required
+            />
+
+          <label className="setor" htmlFor="setor" />
+          <input 
+          id="setor"
+          className="setor" 
+          placeholder="Setor" 
+          type="text" 
+          onChange={(event) => {setSetor(event.target.value)}}
+          required
+            />
+
+          <label className="senha" htmlFor="senha" />
+          <input 
+          id="senha"
+          className="senha" 
+          placeholder="Senha" 
+          type="password" 
+          onChange={(event) => {setSenha(event.target.value)}}
+          required
+            />
+            
+          <label className="repetir_senha" htmlFor="repeatsenha" />
           <input
+            id="repeatsenha"
             className="repetir_senha"
             placeholder="Repetir a sua senha"
             type="password"
+            required
           />
-          <label className="id" htmlFor="ID" />
-          <label className="nome" htmlFor="Nome" />
-          <label className="time" htmlFor="Time" />
-          <label className="supervisor" htmlFor="" />
-          <label className="setor" htmlFor="Setor" />
-          <label className="senha" htmlFor="Senha" />
-          <label className="repetir_senha" htmlFor="Repetir a sua senha" />
           <div className="nivel_da_senha">
             <span>Nível da senha</span>
             <div className="tudo">
@@ -64,20 +140,24 @@ export default function Cadastro() {
                 <li>No mínimo um número</li>
               </ul>
               <div>
-                <a href="#">Cadastrar</a>
+                <button type="submit">Cadastrar</button>
               </div>
             </div>
           </div>
         </form>
         <div className="aceite">
           <div>
-            <input type="checkbox" id="check" name="checkbox" />
-            <label htmlFor="check">
+            <input type="checkbox" id="check" name="checkbox" required/>
+            <label htmlFor="checkbox">
               Li e aceito os Termos e Condições da corporação
             </label>
           </div>
         </div>
       </section>
+
+
+
+
       <div id="mostrar_overlay">
         <div id="overlay">
           <div className="overlay_div">
@@ -91,7 +171,7 @@ export default function Cadastro() {
             <div>
               <img
                 className="icon_celular"
-                src="../Cadastro/img/icon_celular.png"
+                // src="../Cadastro/img/icon_celular.png"
                 alt=""
               />
             </div>

@@ -3,10 +3,21 @@
 import './style.css'
 
 import { useEffect, useState } from 'react';
-import api from '../../utils/api';
+import { useParams } from 'react-router-dom';
+
+import Loader from '../../components/loader';
 
 import CardTarefa from '../../components/cardTarefa';
-import CardEvento from '../../components/cardEvento';
+import CardNovidade from '../../components/cardNovidade';
+
+import { avatares } from '../../assets/img/avatares/avatares';
+// import { eventos } from '../../components/cardNovidade/eventos';
+// import { tarefas } from '../../components/cardTarefa/tarefas';
+// import AddTask from '../../components/cardTarefa/addTask';
+
+import api from '../../utils/api';
+
+ 
 
 export default function AreaColaborador(){
 
@@ -23,59 +34,159 @@ export default function AreaColaborador(){
     const mesAtual = mês[d.getMonth()]
     const dataAtual = diaSemana + ', ' + dia + ' de ' + mesAtual + ' de ' + ano;
     
-    console.log(dataAtual)
+    useEffect(() =>{
+        document.title = "Área do colaborador - BQVW"
+        listarTarefas()
+        listarNovidades()
+    }, [])
 
     const [tarefas, setTarefas] = useState<any[]>([])
+    const [novidades, setNovidades] = useState<any[]>([])
+    const [titulo, setTitulo] = useState("")
 
     function listarTarefas(){
         api.get("tarefas").then((response: any) => {
             console.log(response.data)
             setTarefas(response.data)
-        }).catch(error => console.log("Erro ao obter os dados das tarefas.", error));
+        }).catch(error => console.log("Erro ao obter os dados das tarefas", error));
     }
 
-    useEffect(() =>{
-        document.title = "Área do colaborador - BQVW"
-        listarTarefas()
-    }, [])
+    function listarNovidades(){
+        api.get("novidades").then((response:any) => {
+            setNovidades(response.data)
+        }).catch(error => console.log("Erro ao obter os dados das novidades", error))
+    }
 
+    function addTask(event:any){
+        event.preventDefault();
+        const formdata = new FormData()
+
+        formdata.append("titulo", titulo)
+
+        api.post("tarefas", formdata).then((response:any) => {
+            console.log(response)
+            alert("Tarefa adicionada!")
+            window.location.reload()
+        }).catch((error)=>{
+            console.log(error)
+        })
+
+        api.post
+    }
+
+    const [visible, setVisible] = useState(false);
+
+    const handleTime = () => setTimeout(() => setVisible(true), 1000);
+    handleTime();
 
 
     return(
+        <>
         <main id='area_colaborador'>
-            <section className="left">
-                <div>
-                    <h1>Visão Geral</h1>
-                    <span>{dataAtual}</span>
-                </div>
-                <div>
-                    <div className="card">
-                        <h2>Minhas tarefas</h2>
-                        <ul>
-                        {tarefas.map((tarefa:any, index:number) =>{
-                            return <li key={index}>
-                                <CardTarefa
-                                titulo={tarefa.titulo}
-                                id={tarefa.id}
-                                />
-                            </li>
-                        }
-                        )}
-                    </ul>
+            {visible == true ? (
+            <>
+                <section className="left">
+                    <div>
+                        <h1>Visão Geral</h1>
+                        <span>{dataAtual}</span>
                     </div>
-                    <div className="card">
-                        <h2>Eventos</h2>
-                        <ul>
-                            <li><CardEvento/></li>
-                            <li><CardEvento/></li>
-                        </ul>
+                    <div>
+                        <div className="card">
+                            <h2 style={{
+                                marginBottom: "10px"
+                            }}>Minhas tarefas</h2>
+                            <div className="listaTask"
+                            style={{
+                                height: "85%"
+                            }}>
+                                <ul id='listaTarefas'
+                                style={{
+                                    marginRight: "15px"
+                                }}>
+                                    {tarefas.map((tarefa:any, index:number) =>{
+                                        return <li key={index}>
+                                            <CardTarefa
+                                            titulo={tarefa.titulo}
+                                            id={tarefa.id}
+                                            />
+                                        </li>
+                                    }
+                                    )}
+                                    <div id="addTask" className="addTask">
+                                        <form id='taskForm' action="" method="post" onSubmit={addTask}>
+                                            <label htmlFor="task"></label>
+                                            <input
+                                            id='task' 
+                                            name='campo_task' 
+                                            type="text" 
+                                            placeholder='Título da tarefa'
+                                            onChange={ (e) => {setTitulo(e.target.value)} }
+                                            required
+                                            />
+                                            <button>Adicionar</button>
+                                        </form>
+                                    </div>
+                                </ul>                           
+                            </div>
+                        </div>
+                        <div className="card">
+                            <h2 style={{
+                                marginBottom: "10px"
+                            }}>Novidades</h2>
+                            <div className="listaNews"
+                            style={{
+                                listStyleType: "none" ,
+                                height: "85%"                                               
+                            }}>
+                                <ul style={{
+                                    marginRight: "15px"
+                                }}>
+                                    {novidades.map((novidade:any, index:number) => {
+                                        return <li key={index}>
+                                            <CardNovidade
+                                            titulo={novidade.titulo}
+                                            id={novidade.id}
+                                            link={novidade.link}
+                                            />
+                                        </li>
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </section>
-            <section className="right">
+                </section>
+                <section className="right">
+                    <h1>Meu perfil</h1>
+                    <img src={avatares[0]} alt="" />
+                    <h3>TAMIGLD</h3>
+                    <button>
+                        <p>Acessar</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
+                            <circle cx="36.2934" cy="35.7065" r="32.4274" fill="#23CE6B" stroke="#F1F2F5" strokeWidth="6.55836"/>
+                            <path d="M44.207 34.094C45.4483 34.8107 45.4483 36.6024 44.207 37.3191L33.7332 43.3661C32.4919 44.0828 30.9402 43.187 30.9402 41.7536L30.9402 29.6595C30.9402 28.2261 32.4919 27.3303 33.7332 28.0469L44.207 34.094Z" stroke="#F1F2F5" strokeWidth="3"/>
+                        </svg>  
+                    </button>
+                </section>
+            </>
+            ) : (
+                <>
+                    <div
+                        style={{
+                        display: "flex",
+                        height: 500,
+                        width: "100vw",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 1,
+                        }}
+                    >
+                    <Loader/>
+                    </div>
+                </>
+            )}
+        </main>        
+        </>
 
-            </section>
-        </main>
     )
 }
 

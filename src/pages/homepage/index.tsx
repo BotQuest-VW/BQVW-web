@@ -83,7 +83,7 @@ export default function Homepage() {
               Login
             </a>
             <Link className="botao" to={"/cadastro"}>
-              Acessar
+              Cadastre-se
             </Link>
           </div>
         </div>

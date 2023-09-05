@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 80px);
 }
 
 #main_login .logo {
@@ -45,7 +45,7 @@
 
 
 
-#main_login .dados > button {
+#main_login button {
   margin: 20px 0;
   font-weight: 700;
   font-size: 20px;
@@ -73,3 +73,4 @@
 #main_login .img_vw{
   width: 120px;
 }
+

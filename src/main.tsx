@@ -28,6 +28,7 @@ import Recuperation from "./pages/recuperation/index";
 import Active from "./pages/recuperation/active/index";
 
 import Cadastro from "./pages/cadastro/index";
+import DeletarTarefa from "./components/cardTarefa/deletarTarefa";
 
 
 
@@ -58,7 +59,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           }
         />
         <Route path="/active" element={<Active />} />
-        <Route path="/area-colaborador" element={<AreaColaborador />} />
+        <Route path="/area-colaborador/:idUsuario" element={<AreaColaborador />} />
+        <Route path="/area-colaborador/:idTarefa" element={<DeletarTarefa />} />
         <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
       {/* <Footer /> */}
