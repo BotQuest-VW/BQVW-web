@@ -2,6 +2,8 @@ import "./style.css";
 import logovw from "../../assets/img/acessoAdm/img/VWlogovw.png";
 import volksBotPaz from "../../assets/img/acessoAdm/img/VOLKSBOT _PAZ_.png";
 
+import { Link } from "react-router-dom";
+
 function AcessoAdm() {
   return (
     <>
@@ -43,7 +45,7 @@ function AcessoAdm() {
               </form>
               <div className="posicionamento_robo">
                 <div className="acessar">
-                  <a href="../HelpDesk/Index.html">Acessar</a>
+                <Link to={"/helpdesk"}>Acessar</Link>
                 </div>
 
                 <div className="bot_salve">
