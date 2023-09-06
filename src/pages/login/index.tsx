@@ -64,19 +64,19 @@ export default function Login() {
     }
 
     api.post("login", usuario).then((response: any) => {
-            secureLocalStorage.setItem("user", response.data)
-            alert("Login efetuado com sucesso!");
+      secureLocalStorage.setItem("user", response.data)
+      alert("Login efetuado com sucesso!");
 
-            console.log(response.data);
+      console.log(response.data);
 
-            // navigate("/area-colaborador/" + response.data.user.id);
-            // navigate(0);
-        
-        }).catch((error: any) => {
-            alert("Não foi possível realizar o login.");
-            console.log(error);
-        })
-}
+      // navigate("/area-colaborador/" + response.data.user.id);
+      // navigate(0);
+
+    }).catch((error: any) => {
+      alert("Não foi possível realizar o login.");
+      console.log(error);
+    })
+  }
 
   return (
     <>
@@ -94,15 +94,15 @@ export default function Login() {
                 maxLength={5}
                 id="id"
                 placeholder="ID"
-                onChange={(e) => {setId(e.target.value)}}
+                onChange={(e) => { setId(e.target.value) }}
               />
               <label htmlFor="ID"></label>
-              
+
               <input
                 type="email"
                 id="email"
                 placeholder="E-mail"
-                onChange={(e) => {setEmail(e.target.value)}}
+                onChange={(e) => { setEmail(e.target.value) }}
               />
               <label htmlFor="ID"></label>
 
@@ -110,19 +110,19 @@ export default function Login() {
                 type="password"
                 id="Senha"
                 placeholder="Senha"
-                onChange={(e) => {setSenha(e.target.value)}}
+                onChange={(e) => { setSenha(e.target.value) }}
               />
               <label htmlFor="Senha"></label>
 
-              <button 
-              // onClick={verifyState}
-              type="submit"
+              <button
+                // onClick={verifyState}
+                type="submit"
               >Acessar</button>
               {/* <GoogleAuth /> */}
 
-              <p 
-                style={{ marginTop: "10px"}}>
-                Esqueceu sua senha? <a style={{color: "#ffffff"}} href="/recuperation">Clique aqui.</a>
+              <p
+                style={{ marginTop: "10px" }}>
+                Esqueceu sua senha? <a style={{ color: "#ffffff" }} href="/recuperation">Clique aqui.</a>
               </p>
             </div>
           </form>
