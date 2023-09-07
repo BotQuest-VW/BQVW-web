@@ -1,4 +1,7 @@
-
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -32,33 +35,32 @@ import Cadastro from "./pages/cadastro/index";
 import DeletarTarefa from "./components/cardTarefa/deletarTarefa";
 import PerfilUsuario from "./components/perfilUsuario";
 
-// export default function logado() {
+export default function logado() {
 
-//   if (secureLocalStorage.getItem("user")) {
+  if (secureLocalStorage.getItem("user")) {
 
-//     const objetoUsuario: any = secureLocalStorage.getItem("user");
+    const objetoUsuario: any = secureLocalStorage.getItem("user");
 
-//     // APARECE O PRIMEIRO NOME
-//     const nome:string =  objetoUsuario.user.nome.trim().split(" ")[0]
+    // APARECE O PRIMEIRO NOME
+    const nome:string =  objetoUsuario.user.nome.trim().split(" ")[0]
 
-//     return {
-//       logado: true , nomeUsuario: nome
-//     }
-//   } else{
-//     return { 
-//       logado: false , nomeUsuario: null
-//     }
-//   }
+    return {
+      logado: true , nome: nome
+    }
+  } else{
+    return { 
+      logado: false , nome: null
+    }
+  }
 
-// }
-
+}
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
 
-      <Header />
+      <Header user={logado()}/>
 
       <Routes>
         <Route path="/" element={<Homepage />} />

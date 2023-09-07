@@ -74,6 +74,7 @@ export default function Login() {
             console.log(error);
         })
 }
+
   useEffect(() => {
     document.title = "Login - BotQuest VW"
   })
