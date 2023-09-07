@@ -5,8 +5,8 @@ import Loader from "../../components/loader";
 import api from "../../utils/api";
 import secureLocalStorage from "react-secure-storage";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
 import { useState, ChangeEvent, SetStateAction } from "react";
+
 
 function AcessoAdm() {
   const [loading] = useState<boolean>(false);
@@ -38,9 +38,11 @@ function AcessoAdm() {
     password.length <= 5 && alert("sua senha tem menos de 5 caracteres");
   };
 
-  const gettinAxios = () => {
-    // axios.post("blablabla")
-  };
+
+  const redirect = () => {
+    const url = "http://localhost:5174/"
+return (window.location.href = url )
+  }
 
   // -----------------------------------------------------------POR API - THAMIRES
   const navigate = useNavigate()
@@ -57,17 +59,12 @@ function AcessoAdm() {
       email: email,
       password: senha
     }
-
     api.post("login", usuario).then((response: any) => {
-            secureLocalStorage.setItem("user", response.data)
-            alert("Login efetuado com sucesso!");
-
-            console.log(response.data);
-
-            // navigate("/area-colaborador/" + response.data.user.id);
-            // navigate(0);
-        
-        }).catch((error: any) => {
+  secureLocalStorage.setItem("user", response.data)
+  alert("Registrado com sucesso!!!");
+  redirect(); 
+})
+.catch((error: any) => {
             alert("Não foi possível realizar o login.");
             console.log(error);
         })
@@ -131,7 +128,7 @@ function AcessoAdm() {
               <label htmlFor="Senha"></label>
 
               <button
-                // onClick={verifyState}
+                
                 type="submit"
               >Acessar</button>
               {/* <GoogleAuth /> */}
