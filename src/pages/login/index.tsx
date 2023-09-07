@@ -11,7 +11,7 @@ import { useNavigate } from "react-router";
 
 
 // import GoogleAuth from "../../components/auth";
-import { useState, ChangeEvent, SetStateAction } from "react";
+import { useState, ChangeEvent, SetStateAction, useEffect } from "react";
 
 export default function Login() {
   const [loading] = useState<boolean>(false);
@@ -65,18 +65,18 @@ export default function Login() {
 
     api.post("login", usuario).then((response: any) => {
             secureLocalStorage.setItem("user", response.data)
-            alert("Login efetuado com sucesso!");
-
-            console.log(response.data);
-
-            // navigate("/area-colaborador/" + response.data.user.id);
-            // navigate(0);
-        
+            alert("Login efetuado com sucesso!")
+            // console.log(response.data)
+            navigate("/area-colaborador/" + response.data.user.id);
+            navigate(0);
         }).catch((error: any) => {
             alert("Não foi possível realizar o login.");
             console.log(error);
         })
 }
+  useEffect(() => {
+    document.title = "Login - BotQuest VW"
+  })
 
   return (
     <>

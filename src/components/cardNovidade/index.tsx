@@ -7,7 +7,7 @@ export default function CardNovidade(props:any) {
     <>
       <div id="cardEvento">
         <div>
-        <p>{props.titulo}</p>
+        <p>{props.titulo}...</p>
         </div>
         <div>
           <Link className="link" target="_blank" to={props.link}>Saiba mais</Link>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // imagens
 // import Blu_header from url;
 
-export default function Header() {
+export default function Header(props:any) {
   function mostrarMenu() {
     let menu = document.getElementById("menu_links") as HTMLCanvasElement; // Obtém o elemento do menu pelo ID
     let sombra: any = document.getElementById("sombra"); // Obtém o elemento da sombra pelo ID

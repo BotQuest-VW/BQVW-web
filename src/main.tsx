@@ -7,6 +7,7 @@ import "./index.css";
 
 
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import secureLocalStorage from "react-secure-storage";
 
 import Header from "./components/header/index";
 // import Footer from "./components/footer/index";
@@ -29,6 +30,27 @@ import Active from "./pages/recuperation/active/index";
 
 import Cadastro from "./pages/cadastro/index";
 import DeletarTarefa from "./components/cardTarefa/deletarTarefa";
+import PerfilUsuario from "./components/perfilUsuario";
+
+// export default function logado() {
+
+//   if (secureLocalStorage.getItem("user")) {
+
+//     const objetoUsuario: any = secureLocalStorage.getItem("user");
+
+//     // APARECE O PRIMEIRO NOME
+//     const nome:string =  objetoUsuario.user.nome.trim().split(" ")[0]
+
+//     return {
+//       logado: true , nomeUsuario: nome
+//     }
+//   } else{
+//     return { 
+//       logado: false , nomeUsuario: null
+//     }
+//   }
+
+// }
 
 
 
@@ -59,8 +81,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           }
         />
         <Route path="/active" element={<Active />} />
+        <Route path="/area-colaborador" element={<AreaColaborador />} />
         <Route path="/area-colaborador/:idUsuario" element={<AreaColaborador />} />
-        <Route path="/area-colaborador/:idTarefa" element={<DeletarTarefa />} />
+        <Route path="/area-colaborador/deletar/:idTarefa" element={<DeletarTarefa />} />
         <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
       {/* <Footer /> */}
