@@ -3,56 +3,21 @@ import logovw from "../../assets/img/acessoAdm/img/VWlogovw.png";
 import volksBotPaz from "../../assets/img/acessoAdm/img/VOLKSBOT _PAZ_.png";
 import api from "../../utils/api";
 import secureLocalStorage from "react-secure-storage";
-import { useNavigate } from "react-router";
-import {
-  useState,
-  ChangeEvent,
-  SetStateAction,
-  useRef,
-  useEffect,
-} from "react";
+
+import { AxiosResponse, AxiosError } from "axios";
+
+import { useState } from "react";
 
 function AcessoAdm() {
-  const [loading] = useState<boolean>(false);
-
-  const [idState, setIdState] = useState<SetStateAction<any>>();
-  const [teamState, setTeamState] = useState<SetStateAction<any>>();
-  const [passwordState, setPasswordState] = useState<SetStateAction<any>>();
-
-  const handleIdState = (e: ChangeEvent<HTMLInputElement>) =>
-    setIdState(e?.target.value);
-
-  const handleTeamState = (e: ChangeEvent<HTMLInputElement>) =>
-    setTeamState(e?.target.value);
-
-  const handlePasswordState = (e: ChangeEvent<HTMLInputElement>) =>
-    setPasswordState(e?.target.value);
-
-  const link = (id: any) => {
-    const url = `area-colaborador/:${id}`;
-    //metricas é o exemplo .
+  const link = (idUsuario: any) => {
+    const url = `area-colaborador/:${idUsuario}`;
 
     return (window.location.href = url);
   };
-  // -----------------------------------------------------------POR API - THAMIRES
 
   const [id, setId] = useState<String>("");
   const [senha, setSenha] = useState<String>("");
   const [email, setEmail] = useState<String>("");
-
-  const inputRef: React.MutableRefObject<number> = useRef(0);
-
-  const [word, setWord] = useState<React.SetStateAction<any>>([]);
-
-  useEffect(() => {
-    inputRef.current = inputRef.current + 1;
-
-    const rescue = [];
-
-    rescue.push(inputRef.current);
-
-    console.log(word);
-  }, [senha]);
 
   function realizarAutenticacao(event: any) {
     event.preventDefault();
@@ -63,12 +28,12 @@ function AcessoAdm() {
         email: email,
         password: senha,
       })
-      .then((response: any) => {
+      .then((response: AxiosResponse) => {
         secureLocalStorage.setItem("user", response.data);
-        alert("Registrado com sucesso!!!");
+        alert("Logado com sucesso !!!");
         link(response.data["vwId"]);
       })
-      .catch((error: any) => {
+      .catch((error: AxiosError) => {
         alert("Não foi possível realizar o login.");
         console.log(error);
       });

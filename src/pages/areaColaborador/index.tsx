@@ -1,5 +1,3 @@
-
-
 import './style.css'
 
 import { useEffect, useState } from 'react';
@@ -10,17 +8,13 @@ import Loader from '../../components/loader';
 import CardTarefa from '../../components/cardTarefa';
 import CardNovidade from '../../components/cardNovidade';
 
-import { avatares } from '../../assets/img/avatares/avatares';
-// import { eventos } from '../../components/cardNovidade/eventos';
-// import { tarefas } from '../../components/cardTarefa/tarefas';
-// import AddTask from '../../components/cardTarefa/addTask';
-
 import api from '../../utils/api';
+import PerfilUsuario from '../../components/perfilUsuario';
 
  
 
 export default function AreaColaborador(){
-
+    // vvvvvvvvvvvvvv FUNÇÃO DISPLAY DATA ATUAL
     const data = new Date();
     const dia = String(data.getDate()).padStart(2, '0');
     // const mes = String(data.getMonth() + 1).padStart(2, '0');
@@ -33,52 +27,73 @@ export default function AreaColaborador(){
     const diaSemana = semana[d.getDay()]
     const mesAtual = mês[d.getMonth()]
     const dataAtual = diaSemana + ', ' + dia + ' de ' + mesAtual + ' de ' + ano;
+    // ^^^^^^^^^^^^^^ FUNÇÃO DISPLAY DATA ATUAL
+ 
     
-    useEffect(() =>{
-        document.title = "Área do colaborador - BQVW"
-        listarTarefas()
-        listarNovidades()
-    }, [])
-
     const [tarefas, setTarefas] = useState<any[]>([])
     const [novidades, setNovidades] = useState<any[]>([])
     const [titulo, setTitulo] = useState("")
 
-    function listarTarefas(){
-        api.get("tarefas").then((response: any) => {
-            console.log(response.data)
-            setTarefas(response.data)
-        }).catch(error => console.log("Erro ao obter os dados das tarefas", error));
+    const {idUsuario} = useParams()
+
+    const [nome, setNome] = useState<string>("")
+    const [foto, setFoto] = useState<string>("")
+    const [vwId, setVwId] = useState<string>("")
+    
+    function buscarUsuarioPorID(){
+        api.get(`users/${idUsuario}`).then((response: any) => {
+            setNome(response.data.nome)
+            setFoto(response.data.user_img)  
+            setVwId(response.data.vwId)   
+        }).catch((error) =>{
+            console.log(error)
+        })
     }
 
+    
+    function listarTarefas(){
+        api.get(`/tarefas`).then((response: any) => {
+            setTarefas(response.data)
+        }).catch(error => console.log("Erro ao obter os dados das tarefas", error));
+    }    
+    
     function listarNovidades(){
-        api.get("novidades").then((response:any) => {
+        api.get("/novidades").then((response:any) => {
             setNovidades(response.data)
         }).catch(error => console.log("Erro ao obter os dados das novidades", error))
     }
-
+    
     function addTask(event:any){
         event.preventDefault();
         const formdata = new FormData()
-
+        
         formdata.append("titulo", titulo)
 
-        api.post("tarefas", formdata).then((response:any) => {
+        api.post("/tarefas", formdata).then((response:any) => {
             console.log(response)
             alert("Tarefa adicionada!")
             window.location.reload()
         }).catch((error)=>{
             console.log(error)
         })
-
+        
         api.post
     }
-
+    
+    
+    useEffect(() =>{
+        listarTarefas()
+        listarNovidades()
+        buscarUsuarioPorID()
+        console.log(nome)
+    }, [])
+  
+    // vvvvvvvvvvvvvv FUNÇÃO LOADER
     const [visible, setVisible] = useState(false);
-
-    const handleTime = () => setTimeout(() => setVisible(true), 1000);
+    
+    const handleTime = () => setTimeout(() => setVisible(true), 1500);
     handleTime();
-
+    // ^^^^^^^^^^^^^^ FUNÇÃO LOADER
 
     return(
         <>
@@ -155,18 +170,11 @@ export default function AreaColaborador(){
                         </div>
                     </div>
                 </section>
-                <section className="right">
-                    <h1>Meu perfil</h1>
-                    <img src={avatares[0]} alt="" />
-                    <h3>TAMIGLD</h3>
-                    <button>
-                        <p>Acessar</p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
-                            <circle cx="36.2934" cy="35.7065" r="32.4274" fill="#23CE6B" stroke="#F1F2F5" strokeWidth="6.55836"/>
-                            <path d="M44.207 34.094C45.4483 34.8107 45.4483 36.6024 44.207 37.3191L33.7332 43.3661C32.4919 44.0828 30.9402 43.187 30.9402 41.7536L30.9402 29.6595C30.9402 28.2261 32.4919 27.3303 33.7332 28.0469L44.207 34.094Z" stroke="#F1F2F5" strokeWidth="3"/>
-                        </svg>  
-                    </button>
-                </section>
+                <PerfilUsuario
+                foto={foto}
+                nome={nome}
+                vwId={vwId}
+                />
             </>
             ) : (
                 <>

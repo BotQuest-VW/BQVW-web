@@ -9,46 +9,13 @@ import secureLocalStorage from "react-secure-storage";
 
 import { useNavigate } from "react-router";
 
-
 // import GoogleAuth from "../../components/auth";
-import { useState, ChangeEvent, SetStateAction } from "react";
+import { useState, ChangeEvent, SetStateAction, useEffect } from "react";
 
 export default function Login() {
   const [loading] = useState<boolean>(false);
 
-  const [idState, setIdState] = useState<SetStateAction<any>>();
-  const [teamState, setTeamState] = useState<SetStateAction<any>>();
-  const [passwordState, setPasswordState] = useState<SetStateAction<any>>();
-
-  const handleIdState = (e: ChangeEvent<HTMLInputElement>) =>
-    setIdState(e?.target.value);
-
-  const handleTeamState = (e: ChangeEvent<HTMLInputElement>) =>
-    setTeamState(e?.target.value);
-
-  const handlePasswordState = (e: ChangeEvent<HTMLInputElement>) =>
-    setPasswordState(e?.target.value);
-
-  const verifyState = () => {
-    const data = {
-      id: [...idState],
-      team: [...teamState],
-      password: [...passwordState],
-    };
-
-    const { id, team, password } = data;
-
-    id.length !== 5 && alert("seu id tem menos de 5 caracteres");
-    team.length <= 5 && alert("seu time tem menos de 5 caracteres");
-    password.length <= 5 && alert("sua senha tem menos de 5 caracteres");
-  };
-
-  const gettinAxios = () => {
-    // axios.post("blablabla")
-  };
-
-  // -----------------------------------------------------------POR API - THAMIRES
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [id, setId] = useState<String>("");
   const [senha, setSenha] = useState<String>("");
@@ -60,23 +27,29 @@ export default function Login() {
     const usuario = {
       id: id,
       email: email,
-      password: senha
-    }
+      password: senha,
+    };
 
-    api.post("login", usuario).then((response: any) => {
-      secureLocalStorage.setItem("user", response.data)
-      alert("Login efetuado com sucesso!");
+    api
+      .post("login", usuario)
+      .then((response: any) => {
+        secureLocalStorage.setItem("user", response.data);
+        alert("Login efetuado com sucesso!");
 
-      console.log(response.data);
+        console.log(response.data);
 
-      // navigate("/area-colaborador/" + response.data.user.id);
-      // navigate(0);
-
-    }).catch((error: any) => {
-      alert("Não foi possível realizar o login.");
-      console.log(error);
-    })
+        // navigate("/area-colaborador/" + response.data.user.id);
+        // navigate(0);
+      })
+      .catch((error: any) => {
+        alert("Não foi possível realizar o login.");
+        console.log(error);
+      });
   }
+
+  useEffect(() => {
+    document.title = "Login - BotQuest VW";
+  });
 
   return (
     <>
@@ -94,7 +67,9 @@ export default function Login() {
                 maxLength={5}
                 id="id"
                 placeholder="ID"
-                onChange={(e) => { setId(e.target.value) }}
+                onChange={(e) => {
+                  setId(e.target.value);
+                }}
               />
               <label htmlFor="ID"></label>
 
@@ -102,7 +77,9 @@ export default function Login() {
                 type="email"
                 id="email"
                 placeholder="E-mail"
-                onChange={(e) => { setEmail(e.target.value) }}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
               <label htmlFor="ID"></label>
 
@@ -110,19 +87,25 @@ export default function Login() {
                 type="password"
                 id="Senha"
                 placeholder="Senha"
-                onChange={(e) => { setSenha(e.target.value) }}
+                onChange={(e) => {
+                  setSenha(e.target.value);
+                }}
               />
               <label htmlFor="Senha"></label>
 
               <button
                 // onClick={verifyState}
                 type="submit"
-              >Acessar</button>
+              >
+                Acessar
+              </button>
               {/* <GoogleAuth /> */}
 
-              <p
-                style={{ marginTop: "10px" }}>
-                Esqueceu sua senha? <a style={{ color: "#ffffff" }} href="/recuperation">Clique aqui.</a>
+              <p style={{ marginTop: "10px" }}>
+                Esqueceu sua senha?{" "}
+                <a style={{ color: "#ffffff" }} href="/recuperation">
+                  Clique aqui.
+                </a>
               </p>
             </div>
           </form>

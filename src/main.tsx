@@ -1,42 +1,57 @@
-
+// import "@fontsource/roboto/300.css";
+// import "@fontsource/roboto/400.css";
+// import "@fontsource/roboto/500.css";
+// import "@fontsource/roboto/700.css";
 
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 
-
-
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import secureLocalStorage from "react-secure-storage";
 
 import Header from "./components/header/index";
 // import Footer from "./components/footer/index";
 
+import Homepage from "./pages/homepage/index";
+import Login from "./pages/login/index";
 
+import AreaColaborador from "./pages/areaColaborador/index";
 
-import Homepage from './pages/homepage/index'
-import Login from './pages/login/index'
-
-import AreaColaborador from './pages/areaColaborador/index'
-
-import AcessoAdm from './pages/acessoAdm/index'
-import Metricas from './pages/helpdesk/metricas/metricas'
-import HomeHelpdesk from './pages/helpdesk/telaInicial/index'
-import Usuario from './pages/helpdesk/usuarios/usuario'
+import AcessoAdm from "./pages/acessoAdm/index";
+import Metricas from "./pages/helpdesk/metricas/metricas";
+import HomeHelpdesk from "./pages/helpdesk/telaInicial/index";
+import Usuario from "./pages/helpdesk/usuarios/usuario";
 import Recuperation from "./pages/recuperation/index";
-
 
 import Active from "./pages/recuperation/active/index";
 
 import Cadastro from "./pages/cadastro/index";
 import DeletarTarefa from "./components/cardTarefa/deletarTarefa";
 
+export default function logado() {
+  if (secureLocalStorage.getItem("user")) {
+    const objetoUsuario: any = secureLocalStorage.getItem("user");
 
+    // APARECE O PRIMEIRO NOME
+    const nome: string = objetoUsuario.user.nome.trim().split(" ")[0];
+
+    return {
+      logado: true,
+      nome: nome,
+    };
+  } else {
+    return {
+      logado: false,
+      nome: null,
+    };
+  }
+}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-
-      <Header />
+      <Header user={logado()} />
 
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -44,7 +59,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/acessoAdm" element={<AcessoAdm />} />
         <Route path="/metricas" element={<Metricas />} />
         <Route path="/usuarioHelpdesk" element={<Usuario />} />
-       
 
         <Route path="/helpdesk" element={<HomeHelpdesk />} />
         <Route
@@ -59,12 +73,18 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           }
         />
         <Route path="/active" element={<Active />} />
-        <Route path="/area-colaborador/:idUsuario" element={<AreaColaborador />} />
-        <Route path="/area-colaborador/:idTarefa" element={<DeletarTarefa />} />
+        <Route path="/area-colaborador" element={<AreaColaborador />} />
+        <Route
+          path="/area-colaborador/:idUsuario"
+          element={<AreaColaborador />}
+        />
+        <Route
+          path="/area-colaborador/deletar/:idTarefa"
+          element={<DeletarTarefa />}
+        />
         <Route path="/cadastro" element={<Cadastro />} />
       </Routes>
       {/* <Footer /> */}
-
     </BrowserRouter>
   </React.StrictMode>
 );

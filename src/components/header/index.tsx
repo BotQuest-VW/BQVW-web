@@ -1,11 +1,24 @@
 import "./style.css";
 
 import { Link } from "react-router-dom";
+import secureLocalStorage from "react-secure-storage";
+import { useNavigate } from "react-router-dom";
 
-// imagens
-// import Blu_header from url;
+import logado from "../../main";
 
-export default function Header() {
+export default function Header(props:any) {
+  const navigate = useNavigate();
+
+  function sair(event:any){   
+      event.preventDefault()
+
+      if (confirm("Tem certeza que deseja sair?") == true) {
+          secureLocalStorage.removeItem("user")
+          navigate("/")
+          navigate(0)
+        }
+  }
+
   function mostrarMenu() {
     let menu = document.getElementById("menu_links") as HTMLCanvasElement; // Obtém o elemento do menu pelo ID
     let sombra: any = document.getElementById("sombra"); // Obtém o elemento da sombra pelo ID
@@ -51,9 +64,28 @@ export default function Header() {
           </Link>
         </div>
         <nav id="menu_links" className="menu_links">
-          <Link to={"/"}>HOMEPAGE</Link>
-          <Link to={"/login"}>LOGIN</Link>
-          <Link to={"/cadastro"}>CADASTRE-SE</Link>
+        {
+          props.user.logado ?
+              <>
+              <div className="saudacao"
+              style={{
+                display:"flex",
+                gap: "15px",
+                fontWeight: "600"
+              }}>
+                  <span            
+                  >Olá, {props.user.nome}! 
+                  </span>
+                  <Link onClick={sair} className="btn_sair" to="/">Sair?</Link>
+              </div>
+              </>
+              :
+              <>
+              <Link to={"/"}>HOMEPAGE</Link>
+              <Link to={"/login"}>LOGIN</Link>
+              <Link to={"/cadastro"}>CADASTRE-SE</Link>              
+              </>
+        }
         </nav>
       </header>
     </>
