@@ -45,15 +45,17 @@ export default function logado() {
     const nome:string =  objetoUsuario.user.nome.trim().split(" ")[0]
 
     return {
-      logado: true , nome: nome
+      logado: true,
+      // nome: nome
     }
   } else{
     return { 
-      logado: false , nome: null
+      logado: false,
+      // nome: null
     }
   }
-
 }
+
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
