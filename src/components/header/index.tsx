@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 import logado from "../../main";
 
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+
 export default function Header(props:any) {
   const navigate = useNavigate();
 
@@ -42,6 +44,23 @@ export default function Header(props:any) {
     }
     menu_barras.classList.toggle("ativo"); // Alterna a classe 'ativo' no botão do menu
   }
+
+  function abrirMenu(){
+    let menu_lateral:any = document.getElementById('menu_lateral') as HTMLCanvasElement
+
+    if(window.getComputedStyle(menu_lateral).opacity == "0"){
+      menu_lateral.style.opacity = "1"
+      menu_lateral.setAttribute("aria-expanded", "false"); // Atualiza o atributo 'aria-expanded' para 'false'
+      menu_lateral.setAttribute("aria-label", "abrir menu"); // Atualiza o atributo 'aria-label' para 'abrir menu'
+    } else {
+      menu_lateral.style.opacity = "0"
+      menu_lateral.setAttribute("aria-expanded", "true"); // Atualiza o atributo 'aria-expanded' para 'true'
+      menu_lateral.setAttribute("aria-label", "fechar menu"); // Atualiza o atributo 'aria-label' para 'fechar menu'
+    }
+    menu_lateral.classList.toggle("ativo"); // Alterna a classe 'ativo' no botão do menu
+  }
+
+
   return (
     <>
       <header id="header_home">
@@ -68,24 +87,37 @@ export default function Header(props:any) {
           props.user.logado ?
               <>
               <div id="menu">
-              </div>
-              <div className="saudacao"
-              style={{
-                display:"flex",
-                gap: "15px",
-                fontWeight: "600"
-              }}>
-                  <span            
-                  >Olá, {props.user.nome}! 
-                  </span>
-                  <Link onClick={sair} className="btn_sair" to="/">Sair?</Link>
+                <div
+                aria-label="abrir menu"
+                aria-expanded="false"
+                id="menu_lateral"
+                style={{
+                  display: "flex",
+                  gap: '20px'
+                }}>
+                  <Link onClick={sair} className="btn_sair" to={"/"}>Sair</Link>
+                  <Link to={"/"}>Editar Avatar</Link>
+                </div>
+                <div
+                className="hover"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '20px',
+                    cursor: 'pointer',
+                    marginRight: '15px'
+                  }}
+                  onClick={abrirMenu}>
+                  <MenuRoundedIcon className="icon_menu"/>
+                </div>
+                <p>Olá, {props.nome}!</p>
               </div>
               </>
               :
               <>
-              <Link to={"/"}>HOMEPAGE</Link>
-              <Link to={"/login"}>LOGIN</Link>
-              <Link to={"/cadastro"}>CADASTRE-SE</Link>              
+              <Link className="link_header" to={"/"}>HOMEPAGE</Link>
+              <Link className="link_header" to={"/login"}>LOGIN</Link>
+              <Link className="link_header" to={"/cadastro"}>CADASTRE-SE</Link>              
               </>
         }
         </nav>
