@@ -9,6 +9,7 @@ import secureLocalStorage from "react-secure-storage";
 
 import { useNavigate } from "react-router";
 
+import { AxiosResponse, AxiosError } from "axios";
 
 // import GoogleAuth from "../../components/auth";
 import { useState, ChangeEvent, SetStateAction, useEffect } from "react";
@@ -48,7 +49,7 @@ export default function Login() {
   };
 
   // -----------------------------------------------------------POR API - THAMIRES
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [id, setId] = useState<String>("");
   const [senha, setSenha] = useState<String>("");
@@ -60,24 +61,27 @@ export default function Login() {
     const usuario = {
       id: id,
       email: email,
-      password: senha
-    }
+      password: senha,
+    };
 
-    api.post("login", usuario).then((response: any) => {
-            secureLocalStorage.setItem("user", response.data)
-            alert("Login efetuado com sucesso!")
-            // console.log(response.data)
-            navigate("/area-colaborador/" + response.data.user.id);
-            navigate(0);
-        }).catch((error: any) => {
-            alert("Não foi possível realizar o login.");
-            console.log(error);
-        })
-}
+    api
+      .post("login", usuario)
+      .then((response: AxiosResponse) => {
+        secureLocalStorage.setItem("user", response.data);
+        alert("Login efetuado com sucesso!");
+        // console.log(response.data)
+        navigate("/area-colaborador/" + response.data.user.id);
+        navigate(0);
+      })
+      .catch((error: AxiosError) => {
+        alert("Não foi possível realizar o login.");
+        console.log(error);
+      });
+  }
 
   useEffect(() => {
-    document.title = "Login - BotQuest VW"
-  })
+    document.title = "Login - BotQuest VW";
+  });
 
   return (
     <>
@@ -95,15 +99,19 @@ export default function Login() {
                 maxLength={5}
                 id="id"
                 placeholder="ID"
-                onChange={(e) => {setId(e.target.value)}}
+                onChange={(e) => {
+                  setId(e.target.value);
+                }}
               />
               <label htmlFor="ID"></label>
-              
+
               <input
                 type="email"
                 id="email"
                 placeholder="E-mail"
-                onChange={(e) => {setEmail(e.target.value)}}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
               <label htmlFor="ID"></label>
 
@@ -111,19 +119,25 @@ export default function Login() {
                 type="password"
                 id="Senha"
                 placeholder="Senha"
-                onChange={(e) => {setSenha(e.target.value)}}
+                onChange={(e) => {
+                  setSenha(e.target.value);
+                }}
               />
               <label htmlFor="Senha"></label>
 
-              <button 
-              // onClick={verifyState}
-              type="submit"
-              >Acessar</button>
+              <button
+                // onClick={verifyState}
+                type="submit"
+              >
+                Acessar
+              </button>
               {/* <GoogleAuth /> */}
 
-              <p 
-                style={{ marginTop: "10px"}}>
-                Esqueceu sua senha? <a style={{color: "#ffffff"}} href="/recuperation">Clique aqui.</a>
+              <p style={{ marginTop: "10px" }}>
+                Esqueceu sua senha?{" "}
+                <a style={{ color: "#ffffff" }} href="/recuperation">
+                  Clique aqui.
+                </a>
               </p>
             </div>
           </form>
