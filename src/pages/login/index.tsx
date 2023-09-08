@@ -19,29 +19,23 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const [id, setId] = useState<SetStateAction<string>>("");
+  const [id, setId] = useState<SetStateAction<any>>("");
   const [email, setEmail] = useState<typeof id>("");
   const [senha, setSenha] = useState<typeof id>("");
 
-  function realizarAutenticacao(
-    event: React.ChangeEvent<HTMLFormElement>
-  ): any {
+  function realizarAutenticacao(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    type Usuario = {
-      id: typeof id;
-      email: typeof email;
-      password: typeof senha;
-    };
-
-    const usuario: Usuario = {
+    const createdUser = auth({
       id: id,
       email: email,
       password: senha,
-    };
+    });
+
+    const { method = "login" } = createdUser;
 
     api
-      .post("login", usuario)
+      .post(method, createdUser)
       .then((response: AxiosResponse) => {
         secureLocalStorage.setItem("user", response.data);
         alert("Login efetuado com sucesso!");
