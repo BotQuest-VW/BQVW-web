@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 
 export default function DeletarTarefa(){
-    const {idTarefa} = useParams()   
+    const {idTarefa} = useParams()  
+
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,18 +19,24 @@ export default function DeletarTarefa(){
     
     function tituloTask(){
         api.get(`tarefas/${idTarefa}`).then((response: any) => {
-            setTitulo(response.data.titulo)})
+            setTitulo(response.data.titulo)
+            console.log(idTarefa)
+        })
     }
 
     function deletarTarefa(){
 
         api.delete(`tarefas/${idTarefa}`).then((response:any) => {
             alert("A tarefa foi deletada com sucesso! 🤩")
-            navigate("/area-colaborador")
+            navigate(-1)
         }).catch((error) => {
             alert("Tivemos um erro ado adicionar sua tarefa. 😓")
             console.log(error)
         })
+    }
+
+    function voltar(){
+        navigate(-1)
     }
 
     return(
@@ -41,8 +48,8 @@ export default function DeletarTarefa(){
                 <Link className='link' to={""}>
                     <button onClick={deletarTarefa}>Sim</button>
                 </Link>
-                <Link className='link' to={"/area-colaborador"}>
-                    <button>Não</button>
+                <Link className='link' to={""}>
+                    <button onClick={voltar}>Não</button>
                 </Link>
                 </div>
             </div>

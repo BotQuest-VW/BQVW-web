@@ -91,6 +91,20 @@ header div>.link, header nav{
     justify-content: space-between;
 }
 
+#header_home .btn_sair{
+    transition: ease-in all 0.2s;
+    padding: 0 5px;
+}
+
+#header_home .btn_sair:hover{
+    background-color: rgb(126, 16, 16);
+    color: var(--branco);
+    font-weight: 600;
+    outline: 2px solid rgb(126, 16, 16);
+    border-radius: 40px;
+    padding: 0 5px;
+}
+
 header nav{
     gap: 60px;
     padding-bottom: 10px;
@@ -101,7 +115,7 @@ header nav a{
     color: var(--branco);
 }
 
-header nav a:hover{
+header .link_header:hover{
     color: var(--verdeC);
 }
 
@@ -114,6 +128,8 @@ header div>.link{
 header {
     display: flex;
     padding: 20px 60px 0;
+    overflow-x: hidden;
+
 
     align-items: center;
     justify-content: space-between;
@@ -130,6 +146,35 @@ header div>.link>p{
 
 header div .link img{
     width: 60px;
+}
+
+#header_home .saudacao{
+    background-color: var(--verdeC);
+    padding: 12px 20px;
+    border-radius: 40px;
+}
+
+#menu{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#menu>.hover:hover{
+    .icon_menu{
+        fill: var(--verdeC);
+    }
+}
+
+
+#menu_lateral{
+    transition: ease-in all 0.5s;
+
+    opacity: 0;
+    gap: 20px;
+    position: relative;
+    /* right: -350px; */
+
 }
 
 @media screen and (max-width: 768px) {
