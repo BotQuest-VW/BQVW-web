@@ -1,7 +1,7 @@
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+// import '@fontsource/roboto/300.css';
+// import '@fontsource/roboto/400.css';
+// import '@fontsource/roboto/500.css';
+// import '@fontsource/roboto/700.css';
 
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -33,7 +33,7 @@ import Active from "./pages/recuperation/active/index";
 
 import Cadastro from "./pages/cadastro/index";
 import DeletarTarefa from "./components/cardTarefa/deletarTarefa";
-import PerfilUsuario from "./components/perfilUsuario";
+// import PerfilUsuario from "./components/perfilUsuario";
 
 export default function logado() {
 

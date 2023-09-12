@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import logado from "../../main";
 
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+// import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 export default function Header(props:any) {
   const navigate = useNavigate();
@@ -108,7 +108,7 @@ export default function Header(props:any) {
                     marginRight: '15px'
                   }}
                   onClick={abrirMenu}>
-                  <MenuRoundedIcon className="icon_menu"/>
+                  {/* <MenuRoundedIcon className="icon_menu"/> */}
                 </div>
                 <p>Olá, {props.nome}!</p>
               </div>
