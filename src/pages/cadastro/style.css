@@ -47,7 +47,7 @@
   /* margin-top: 70px; */
 }
 
-#cadastro .aba_cadastro > input {
+#cadastro .aba_cadastro>input {
   font-family: var(--font1);
   color: black;
   width: 400px;
@@ -99,23 +99,23 @@
   background-color: var(--color4);
 }
 
-#cadastro .tudo > div:nth-child(1) > span {
+#cadastro .tudo>div:nth-child(1)>span {
   color: var(--color2);
   font-weight: 400;
   /* margin-left: 250px; */
 }
 
-#cadastro .tudo > div:nth-child(2) > span {
+#cadastro .tudo>div:nth-child(2)>span {
   color: var(--color3);
   /* margin-left: 250px; */
 }
 
-#cadastro .tudo > div:nth-child(3) > span {
+#cadastro .tudo>div:nth-child(3)>span {
   color: var(--color4);
   /* margin-left: 250px; */
 }
 
-#cadastro .nivel_da_senha > div:nth-child(2) > span {
+#cadastro .nivel_da_senha>div:nth-child(2)>span {
   font-weight: 400;
 }
 
@@ -123,24 +123,23 @@
   margin-bottom: 60px;
   /* margin-top: 20px; */
 }
-#cadastro .teste > span {
+
+#cadastro .teste>span {
   font-size: 25px;
 }
 
-#cadastro .teste > ul {
+#cadastro .teste>ul {
   margin-top: 20px;
   font-size: 18px;
   padding-left: 40px;
 }
 
-#cadastro .teste > div > button {
+#cadastro .teste>div>button {
   text-align: center;
-  background: linear-gradient(
-    94.31deg,
-    #01b0f1 -8.53%,
-    #35bdf5 38.95%,
-    #b1dbff 116.35%
-  );
+  background: linear-gradient(94.31deg,
+      #01b0f1 -8.53%,
+      #35bdf5 38.95%,
+      #b1dbff 116.35%);
   text-decoration: none;
   border: 6px solid #96dbfa;
   border-radius: 30px;
@@ -153,13 +152,13 @@
   font-size: 20px;
 }
 
-#cadastro .teste > div {
+#cadastro .teste>div {
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-#cadastro .aceite > div {
+#cadastro .aceite>div {
   display: flex;
   align-items: center;
   gap: 15px;
@@ -171,7 +170,8 @@
   font-size: 15px;
   margin-top: 54px;
 }
-#cadastro .aceite > span {
+
+#cadastro .aceite>span {
   margin-left: 50px;
   color: white;
 }
@@ -190,7 +190,7 @@
     font-size: 25px;
   }
 
-  .tudo > span {
+  .tudo>span {
     font-size: 10px;
   }
 
@@ -202,20 +202,21 @@
     font-size: 35px;
   }
 
-  .teste > span {
+  .teste>span {
     font-size: 25px;
   }
 
-  .teste > ul {
+  .teste>ul {
     font-size: 15px;
   }
 
-  .teste > a {
+  .teste>a {
     font-size: 25px;
     margin-left: 60px;
     margin-top: 50px;
   }
-  .aceite > span {
+
+  .aceite>span {
     font-size: 12px;
   }
 }
@@ -239,7 +240,7 @@
     font-size: 20px;
   }
 
-  .tudo > span {
+  .tudo>span {
     font-size: 10px;
   }
 
@@ -251,7 +252,7 @@
     font-size: 25px;
   }
 
-  .teste > span {
+  .teste>span {
     font-size: 20px;
   }
 
@@ -263,26 +264,26 @@
     width: 80px;
   }
 
-  .teste > span {
+  .teste>span {
     font-size: 20px;
   }
 
-  .teste > ul {
+  .teste>ul {
     font-size: 12px;
   }
 
-  .teste > a {
+  .teste>a {
     font-size: 20px;
     margin-left: 60px;
     margin-top: 60px;
     width: 150px;
   }
 
-  .aceite > span {
+  .aceite>span {
     font-size: 11px;
   }
 
-  .aceite > .logovw {
+  .aceite>.logovw {
     width: 12px;
     height: 12px;
   }
@@ -323,11 +324,11 @@
     width: 50px;
   }
 
-  .retangulo > span {
+  .retangulo>span {
     font-size: 9px;
   }
 
-  .tudo > span {
+  .tudo>span {
     font-size: 8px;
     width: 80%;
   }
@@ -341,30 +342,31 @@
     font-size: 20px;
   }
 
-  .teste > span {
+  .teste>span {
     font-size: 10px;
   }
 
-  .teste > ul {
+  .teste>ul {
     font-size: 8px;
   }
 
-  .teste > a {
+  .teste>a {
     font-size: 15px;
     margin-left: 30px;
     margin-top: 40px;
     width: 120px;
   }
 
-  .aceite > span {
+  .aceite>span {
     font-size: 7px;
   }
 
-  .aceite > .logovw {
+  .aceite>.logovw {
     width: 8px;
     height: 8px;
     margin-top: 730px;
   }
+
   .aceite {
     width: 50%;
   }
@@ -377,11 +379,9 @@
   height: 70%;
   border-radius: 140px;
   border: 11px solid #6396e4;
-  background: linear-gradient(
-    134deg,
-    rgba(71, 145, 255, 0.6) 0%,
-    rgba(0, 16, 31, 0.6) 100%
-  );
+  background: linear-gradient(134deg,
+      rgba(71, 145, 255, 0.6) 0%,
+      rgba(0, 16, 31, 0.6) 100%);
   backdrop-filter: blur(20px);
 
   display: flex;
@@ -402,12 +402,12 @@
   align-items: center;
 }
 
-.overlay_div:nth-child(1) > div > h1 {
+.overlay_div:nth-child(1)>div>h1 {
   font-size: 35px;
   width: 70%;
 }
 
-.overlay_div:nth-child(1) > div > span {
+.overlay_div:nth-child(1)>div>span {
   display: flex;
   width: 70%;
   margin-top: 12px;
@@ -427,7 +427,7 @@
   justify-content: center;
 }
 
-.overlay_div:nth-child(2) > div {
+.overlay_div:nth-child(2)>div {
   margin-top: 20px;
 
   display: flex;
@@ -436,11 +436,11 @@
   gap: 15px;
 }
 
-.overlay_div:nth-child(2) > p {
+.overlay_div:nth-child(2)>p {
   font-size: 22px;
 }
 
-.wrapper-pin > input {
+.wrapper-pin>input {
   font-size: 30px;
   text-align: center;
   color: var(--branco);
@@ -451,10 +451,12 @@
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
 input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
+
 /* ----------------OCULTAR SETAS NO TYPE NUMBER-------------- */
 
 .container {
@@ -468,7 +470,7 @@ input[type="number"] {
   align-items: center;
 }
 
-.wrapper-container > p {
+.wrapper-container>p {
   margin-top: 25px;
 }
 
@@ -494,17 +496,18 @@ input[type="number"] {
   background-color: rgba(0, 0, 0, 0.9);
 }
 
-#mostrar_overlay > a {
+#mostrar_overlay>a {
   margin-top: 20px;
   font-size: 18px;
   color: rgb(255, 255, 255, 0.8);
 }
-#mostrar_overlay > a:hover {
+
+#mostrar_overlay>a:hover {
   transition: ease-in 0.2s;
   color: rgba(72, 131, 250, 0.8);
 }
 
-#overlay > a {
+#overlay>a {
   text-align: center;
   background: transparent;
   text-decoration: none;
@@ -537,7 +540,7 @@ input[type="checkbox"] {
 }
 
 @media screen and (max-width: 1440px) {
-  .overlay_div > div:nth-child(1) > h1 {
+  .overlay_div>div:nth-child(1)>h1 {
     width: 80%;
   }
 }
@@ -548,7 +551,7 @@ input[type="checkbox"] {
     height: 70%;
   }
 
-  .overlay_div > div:nth-child(1) > h1 {
+  .overlay_div>div:nth-child(1)>h1 {
     font-size: 28px;
   }
 }
@@ -559,7 +562,7 @@ input[type="checkbox"] {
     height: 70%;
   }
 
-  .overlay_div > div:nth-child(1) > h1 {
+  .overlay_div>div:nth-child(1)>h1 {
     font-size: 22px;
   }
 }
@@ -570,29 +573,29 @@ input[type="checkbox"] {
     height: 70%;
   }
 
-  .overlay_div > div:nth-child(1) > h1 {
+  .overlay_div>div:nth-child(1)>h1 {
     font-size: 20px;
   }
 
-  .wrapper-container > p {
+  .wrapper-container>p {
     text-align: center;
   }
 
-  .overlay_div > div:nth-child(1) > h1 {
+  .overlay_div>div:nth-child(1)>h1 {
     width: 80%;
   }
 
-  .overlay_div > div:nth-child(1) > span {
+  .overlay_div>div:nth-child(1)>span {
     width: 90%;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .overlay_div > div:nth-child(1) > h1 {
+  .overlay_div>div:nth-child(1)>h1 {
     width: 80%;
   }
 
-  .overlay_div > div:nth-child(1) > span {
+  .overlay_div>div:nth-child(1)>span {
     width: 90%;
   }
 
@@ -600,7 +603,7 @@ input[type="checkbox"] {
     width: 150px;
   }
 
-  .wrapper-container > p {
+  .wrapper-container>p {
     width: 90%;
   }
 
@@ -616,7 +619,7 @@ input[type="checkbox"] {
     width: 100px;
   }
 
-  .wrapper-container > p {
+  .wrapper-container>p {
     width: 80%;
   }
 
@@ -633,13 +636,13 @@ input[type="checkbox"] {
     display: none;
   }
 
-  .overlay_div > div:nth-child(1) > h1 {
+  .overlay_div>div:nth-child(1)>h1 {
     width: 100%;
     text-align: center;
     margin-top: 30px;
   }
 
-  .overlay_div > div:nth-child(1) > span {
+  .overlay_div>div:nth-child(1)>span {
     width: 100%;
     text-align: center;
   }
@@ -653,21 +656,21 @@ input[type="checkbox"] {
     border: 2px solid #fff;
   }
 
-  .aba_cadastro > input {
+  .aba_cadastro>input {
     width: 350px;
   }
 }
 
 @media screen and (max-width: 399px) {
-  .aba_cadastro > input {
+  .aba_cadastro>input {
     width: 300px;
   }
 
-  .aba_cadastro > input::placeholder {
+  .aba_cadastro>input::placeholder {
     font-size: 14px;
   }
 
-  .teste > div > a {
+  .teste>div>a {
     border: 4px solid #96dbfa;
     border-radius: 30px;
     padding: 10px 30px;
@@ -676,7 +679,7 @@ input[type="checkbox"] {
     font-size: 14px;
   }
 
-  .aceite > div > label {
+  .aceite>div>label {
     font-size: 10px;
   }
 

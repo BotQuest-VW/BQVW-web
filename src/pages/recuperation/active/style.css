@@ -5,10 +5,11 @@
   justify-content: center;
   width: 100%;
 }
-/* 
+
 .LINK-ENVIADO .overlap-wrapper {
   height: 548px;
   overflow-x: hidden;
+
   width: 617px;
 }
 
@@ -17,32 +18,32 @@
   position: relative;
   top: -16px;
   width: 631px;
-} */
+} 
 
-/* .LINK-ENVIADO .overlap-group-wrapper {
+.LINK-ENVIADO .overlap-group-wrapper {
   height: 548px;
   left: 0;
   position: absolute;
   top: 16px;
   width: 623px;
-} */
+} 
 
-/* .LINK-ENVIADO .overlap-group {
+.LINK-ENVIADO .overlap-group {
   height: 548px;
   position: relative;
   width: 617px;
-} */
+} 
 
-/* .LINK-ENVIADO .rectangle {
-  background-color: #ffffff;
-  border-radius: 94.72px;
+ /* .LINK-ENVIADO .rectangle { */
+  /* background-color: #ffffff; */
+  /* border-radius: 94.72px;
   box-shadow: 0px 14.06px 15.54px #0000008f;
   height: 504px;
   left: 0;
   position: absolute;
   top: 0;
   width: 617px;
-} */
+}  */
 
 .LINK-ENVIADO .login {
   height: 88px;
@@ -52,7 +53,7 @@
   width: 276px;
 }
 
-.LINK-ENVIADO .div-wrapper {
+/* .LINK-ENVIADO .div-wrapper {
   background: linear-gradient(
     180deg,
     rgb(1, 176, 241) 0%,
@@ -66,7 +67,7 @@
   height: 88px;
   position: relative;
   width: 274px;
-}
+} */
 
 .LINK-ENVIADO .text-wrapper {
   color: #00101f;
@@ -93,7 +94,7 @@
 }
 
 .LINK-ENVIADO .text-wrapper-2 {
-  color: #00101f;
+  color: #ffffff;
   font-family: "Montserrat-Bold", Helvetica;
   font-size: 35px;
   font-weight: 700;
@@ -105,7 +106,7 @@
 }
 
 .LINK-ENVIADO .p {
-  color: #000000;
+  color: #ffffff;
   font-family: "Montserrat-Medium", Helvetica;
   font-size: 32px;
   font-weight: 500;
@@ -119,9 +120,9 @@
 }
 
 .LINK-ENVIADO .fechar {
-  height: 99px;
+  height: 70px;
   left: 531px;
   position: absolute;
   top: 0;
-  width: 99px;
+  width: 70px;
 }

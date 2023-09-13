@@ -15,9 +15,9 @@ export const LinkEnviado = (): ReactNode => {
 
   const [click, setClick] = useState<number>(0);
 
-  useEffect(() => {
-    click === 1 && setState("Atualize a pagina para tentar novamente");
-  }, [click]);
+  // useEffect(() => {
+  //   click === 1 && setState("Atualize a pagina para tentar novamente");
+  // }, [click]);
 
   return (
     <div className="LINK-ENVIADO">
@@ -36,6 +36,8 @@ export const LinkEnviado = (): ReactNode => {
                       style={
                         click === 1
                           ? {
+                              padding: "10px 30px",
+                              borderRadius: "30px",
                               fontFamily: "montSerrat",
                               backgroundColor: "#d40000",
                             }

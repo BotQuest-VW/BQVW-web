@@ -14,26 +14,27 @@
   height: 548px;
   left: 0;
   top: 16px;
-  width: 623px;
-  overflow-x: clip;
+  /* width: 623px; */
+  overflow-x: clip; 
 }
 
 .LINK-ENVIADO .overlap-group {
   height: 548px;
   position: relative;
   width: 617px;
+  top: 30px;
 }
 
-.LINK-ENVIADO .rectangle {
-  background-color: #ffffff;
-  border-radius: 94.72px;
+/* .LINK-ENVIADO .rectangle { */
+  /* background-color: #ffffff; */
+  /* border-radius: 94.72px;
   box-shadow: 0px 14.06px 15.54px #0000008f;
   height: 504px;
   left: 0;
   position: absolute;
   top: 0;
   width: 617px;
-}
+} */
 
 .LINK-ENVIADO .login {
   height: 88px;
@@ -71,49 +72,49 @@
 }
 
 .LINK-ENVIADO .div {
-  color: #000000;
+  color: #ffff;
   font-family: "Montserrat-Black", Helvetica;
-  font-size: 64px;
+  font-size: 50px;
   font-weight: 900;
-  left: 84px;
+  left: 130px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 81px;
+  top: 70px;
 }
 
 .LINK-ENVIADO .text-wrapper-2 {
-  color: #00101f;
+  color: #ffff;
   font-family: "Montserrat-Bold", Helvetica;
   font-size: 35px;
   font-weight: 700;
-  left: 156px;
+  left: 150px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 384px;
+  top: 370px;
 }
 
 .LINK-ENVIADO .p {
-  color: #000000;
+  color: #ffff; 
   font-family: "Montserrat-Medium", Helvetica;
-  font-size: 32px;
+  font-size: 35px;
   font-weight: 500;
-  left: 75px;
+  left: 0px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
   text-align: center;
   top: 180px;
-  width: 467px;
+  width: 607px;
 }
 
 .LINK-ENVIADO .fechar {
-  height: 99px;
+  /* height: 99px; */
   left: 531px;
   position: absolute;
-  top: 0;
-  width: 99px;
+  top: 15px;
+  /* width: 99px; */
 }
 
 .p-result {
@@ -124,10 +125,28 @@
   font-weight: 800;
 }
 
-.shake-horizontal:hover {
+/* .shake-horizontal:hover {
   -webkit-animation: shake-horizontal 0.8s
     cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+} */
+
+.shake-horizontal {
+    text-align: center;
+    background: linear-gradient(94.31deg,
+        #01b0f1 -8.53%,
+        #35bdf5 38.95%,
+        #b1dbff 116.35%);
+    text-decoration: none;
+    border: 6px solid #96dbfa;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: black;
+    top: 10px;
+    left: 50px;
+  
+    font-weight: 700;
+    font-size: 20px;
 }
 
 @-webkit-keyframes shake-horizontal {
