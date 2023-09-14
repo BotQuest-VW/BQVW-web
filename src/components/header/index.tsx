@@ -4,21 +4,19 @@ import { Link } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
 import { useNavigate } from "react-router-dom";
 
-import logado from "../../main";
+import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 
-// import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
-
-export default function Header(props:any) {
+export default function Header(props: any) {
   const navigate = useNavigate();
 
-  function sair(event:any){   
-      event.preventDefault()
+  function sair(event: any) {
+    event.preventDefault();
 
-      if (confirm("Tem certeza que deseja sair?") == true) {
-          secureLocalStorage.removeItem("user")
-          navigate("/")
-          navigate(0)
-        }
+    if (confirm("Tem certeza que deseja sair?") == true) {
+      secureLocalStorage.removeItem("user");
+      navigate("/");
+      navigate(0);
+    }
   }
 
   function mostrarMenu() {
@@ -45,21 +43,22 @@ export default function Header(props:any) {
     menu_barras.classList.toggle("ativo"); // Alterna a classe 'ativo' no botão do menu
   }
 
-  function abrirMenu(){
-    let menu_lateral:any = document.getElementById('menu_lateral') as HTMLCanvasElement
+  function abrirMenu() {
+    let menu_lateral: any = document.getElementById(
+      "menu_lateral"
+    ) as HTMLCanvasElement;
 
-    if(window.getComputedStyle(menu_lateral).opacity == "0"){
-      menu_lateral.style.opacity = "1"
+    if (window.getComputedStyle(menu_lateral).opacity == "0") {
+      menu_lateral.style.opacity = "1";
       menu_lateral.setAttribute("aria-expanded", "false"); // Atualiza o atributo 'aria-expanded' para 'false'
       menu_lateral.setAttribute("aria-label", "abrir menu"); // Atualiza o atributo 'aria-label' para 'abrir menu'
     } else {
-      menu_lateral.style.opacity = "0"
+      menu_lateral.style.opacity = "0";
       menu_lateral.setAttribute("aria-expanded", "true"); // Atualiza o atributo 'aria-expanded' para 'true'
       menu_lateral.setAttribute("aria-label", "fechar menu"); // Atualiza o atributo 'aria-label' para 'fechar menu'
     }
     menu_lateral.classList.toggle("ativo"); // Alterna a classe 'ativo' no botão do menu
   }
-
 
   return (
     <>
@@ -78,59 +77,60 @@ export default function Header(props:any) {
         </a>
         <div>
           <Link className="link" to={"/"}>
-            <img src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/blu_header.png?alt=media&token=317b726b-7e4a-4557-81f3-b60085755cf9" alt="" />
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/blu_header.png?alt=media&token=317b726b-7e4a-4557-81f3-b60085755cf9"
+              alt=""
+            />
             <p>BotQuest VW</p>
           </Link>
         </div>
         <nav id="menu_links" className="menu_links">
-        {
-          props.user.logado ?
-              <>
+          {props.user.logado ? (
+            <>
               <div id="menu">
                 <div
-                aria-label="abrir menu"
-                aria-expanded="false"
-                id="menu_lateral"
-                style={{
-                  display: "flex",
-                  gap: '20px'
-                }}>
-                  <Link onClick={sair} className="btn_sair" to={"/"}>Sair</Link>
+                  aria-label="abrir menu"
+                  aria-expanded="false"
+                  id="menu_lateral"
+                  style={{
+                    display: "flex",
+                    gap: "20px",
+                  }}
+                >
+                  <Link onClick={sair} className="btn_sair" to={"/"}>
+                    Sair
+                  </Link>
                   <Link to={"/"}>Editar Avatar</Link>
                 </div>
                 <div
-                className="hover"
+                  className="hover"
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '20px',
-                    cursor: 'pointer',
-                    marginRight: '15px'
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "20px",
+                    cursor: "pointer",
+                    marginRight: "15px",
                   }}
-                  onClick={abrirMenu}>
-                  
-                  <svg 
-                  className="icon_menu"
-                  style={{
-                    fill: "var(--branco)"
-                  }}
-                  xmlns="http://www.w3.org/2000/svg" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" width="16" height="16">
-                  <g>
-                    <path d="M480,224H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h448c17.673,0,32-14.327,32-32S497.673,224,480,224z"/>
-                    <path d="M32,138.667h448c17.673,0,32-14.327,32-32s-14.327-32-32-32H32c-17.673,0-32,14.327-32,32S14.327,138.667,32,138.667z"/>
-                    <path d="M480,373.333H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h448c17.673,0,32-14.327,32-32S497.673,373.333,480,373.333z"/>
-                  </g>
-                  </svg>                </div>
+                  onClick={abrirMenu}
+                >
+                  <MenuRoundedIcon className="icon_menu" />
+                </div>
                 <p>Olá, {props.nome}!</p>
               </div>
-              </>
-              :
-              <>
-              <Link className="link_header" to={"/"}>HOMEPAGE</Link>
-              <Link className="link_header" to={"/login"}>LOGIN</Link>
-              <Link className="link_header" to={"/cadastro"}>CADASTRE-SE</Link>              
-              </>
-        }
+            </>
+          ) : (
+            <>
+              <Link className="link_header" to={"/"}>
+                HOMEPAGE
+              </Link>
+              <Link className="link_header" to={"/login"}>
+                LOGIN
+              </Link>
+              <Link className="link_header" to={"/cadastro"}>
+                CADASTRE-SE
+              </Link>
+            </>
+          )}
         </nav>
       </header>
     </>

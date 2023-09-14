@@ -1,42 +1,82 @@
-import './homeAdm.css'
+import "./homeAdm.css";
 
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import api from "../../../utils/api";
 
-import dashboard from './img/Dashboard Layout.png'
-import usuarios from './img/Vector.png'
-import dados from './img/dados.png'
-import setaVoltar from './img/botao-de-seta-para-a-esquerda 1.png'
-import avatarLuana from './img/avatar.png'
-import avatarEmerson from './img/avatar (1).png'
-import avatarHellen from './img/avatar (2).png'
-import avatarMiguel from './img/avatar (3).png'
-
+import dashboard from "./img/Dashboard Layout.png";
+import vector from "./img/Vector.png";
+import dados from "./img/dados.png";
+import setaVoltar from "./img/botao-de-seta-para-a-esquerda 1.png";
+import avatarLuana from "./img/avatar.png";
+import avatarEmerson from "./img/avatar (1).png";
+import avatarHellen from "./img/avatar (2).png";
+import avatarMiguel from "./img/avatar (3).png";
 
 function HomeHelpdesk() {
+  const [usuarios, setUsuarios] = useState<any[]>([]);
+  console.log(usuarios);
+
+  // const [usuarioDigitado, setUsuariosDigitada] = useState<string>("");
+
+  // const [listaUsuariosFiltrados, setListaUsuariosFiltrados] =
+  //   useState<any[]>(usuarios);
+
+  useEffect(() => {
+    document.title = "Helpdesk - BotVW";
+
+    listarUsuarios();
+  }, []);
+
+  // function buscarPorUsuarios(event: any) {
+  //   event.preventDefault();
+
+  //   const devsFiltrados = usuarios.filter((dev: any) =>
+  //     dev.hardSkills.includes(usuarioDigitado.toLocaleUpperCase())
+  //   );
+
+  //   if (devsFiltrados.length === 0) {
+  //     alert("Nenhum desenvolvedor(a) com essa skill");
+  //   } else {
+  //     setListaUsuariosFiltrados(devsFiltrados);
+  //   }
+  // }
+  // 'retornoUsuariosGeral' é declarado, mas seu valor nunca é lido.ts(6133)
+
+  // function retornoUsuariosGeral(event: any){
+  //     if(event.target.value === ""){
+  //         listarUsuarios()
+  //     }
+  //     setUsuariosDigitada(event.target.value)
+  // }
+  // 'retornoUsuariosGeral' é declarado, mas seu valor nunca é lido.ts(6133)
+
+  function listarUsuarios() {
+    api.get("users").then((response: any) => {
+      console.log(response.data);
+      setUsuarios(response.data);
+    });
+  }
   return (
     <>
-
-
-
-      <main id='homeHelpdesk'>
+      <main id="homeHelpdesk">
         <aside>
           <div className="aside_position">
             <div className="Dashboard_aside">
               <img src={dashboard} alt="" />
-              <Link to={'/helpdesk'}>Tela Inicial</Link>
+              <Link to={"/helpdesk"}>Tela Inicial</Link>
             </div>
             <div className="Usuario_aside">
-              <img src={usuarios} alt="" />
-              <Link to={'/usuarioHelpdesk'}>Usuários</Link>
+              <img src={vector} alt="" />
+              <Link to={"/usuarioHelpdesk"}>Usuários</Link>
             </div>
             <div className="Dados_aside">
               <img src={dados} alt="" />
-              <Link to={'/metricas'}>Metricas</Link>
-              
+              <Link to={"/metricas"}>Metricas</Link>
             </div>
             <div className="COnfiguração_aside">
               <img src={setaVoltar} alt="" />
-              <Link to={'/acessoAdm'}>Voltar ao Inicio</Link>
+              <Link to={"/acessoAdm"}>Voltar ao Inicio</Link>
             </div>
           </div>
         </aside>
@@ -285,14 +325,13 @@ function HomeHelpdesk() {
                   <td>10/06</td>
                   <td>Aceita</td>
                 </tr>
-                
               </tbody>
             </table>
           </div>
         </section>
       </main>
     </>
-  )
+  );
 }
 
-export default HomeHelpdesk
+export default HomeHelpdesk;

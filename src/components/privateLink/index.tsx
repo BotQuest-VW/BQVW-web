@@ -1,6 +1,6 @@
 import "./style.css";
 
-import { ReactNode, useState, useEffect } from "react";
+import { ReactNode, useState } from "react";
 
 export const Box = (): ReactNode => {
   return (
@@ -11,7 +11,7 @@ export const Box = (): ReactNode => {
 };
 
 export const LinkEnviado = (): ReactNode => {
-  const [state, setState] = useState<string>("");
+  const [state] = useState<string>("");
 
   const [click, setClick] = useState<number>(0);
 

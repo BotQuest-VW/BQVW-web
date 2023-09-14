@@ -1,31 +1,50 @@
 import "./style.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, ChangeEvent  } from "react";
 // import Logo from "../cadastro/img/iconeVW.png";
 
 import api from "../../utils/api";
 
 export default function Cadastro() {
-  useEffect(() => {
-    document.title = "Cadastro - BotQuest VW";
-  });
 
-  const [vwId, setVwId] = useState<string>("")
-  const [nome, setNome] = useState<string>("")
-  const [email, setEmail] = useState<string>("")
-  const [gestorImediato, setGestorImediato] = useState<string>("")
-  const [setor, setSetor] = useState<string>("")
-  const [senha, setSenha] = useState<string>("")
 
-  function cadastrarUsuario(event:any){
+  const [vwId, setVwId] = useState<React.SetStateAction<string>>("")
+  const [nome, setNome] = useState<typeof vwId>("")
+  const [email, setEmail] = useState<typeof vwId>("")
+  const [gestorImediato, setGestorImediato] = useState<typeof vwId>("")
+  const [setor, setSetor] = useState<typeof vwId>("")
+  const [senha, setSenha] = useState<typeof vwId>("")
+
+
+  const inputRef = useRef<React.SetStateAction<number>>(0);
+
+  useEffect(() => {  
+ (prevstate: any ) => {
+  inputRef.current = prevstate 
+  prevstate + 1 
+  console.log(prevstate)
+ } 
+  })
+
+  // quando a senha tiver menos de 8 caracteres , esse erro vai acontecer !!! 
+const validatePassword = () => inputRef.current !== 20 
+? alert("voce precisa que a senha tenha 20 caracteres ")
+: null ; 
+
+
+
+
+
+
+  function cadastrarUsuario(event:ChangeEvent<HTMLInputElement>) {
     event.preventDefault()
     const formdata = new FormData()
 
-    formdata.append("vwId", vwId)
-    formdata.append("nome", nome)
-    formdata.append("email", email)
-    formdata.append("gestor_imediato", gestorImediato)
-    formdata.append("setor", setor)
-    formdata.append("password", senha)
+    formdata.append("vwId", String(vwId)) 
+    formdata.append("nome", String(nome))
+    formdata.append("email", String(email))
+    formdata.append("gestor_imediato", String(gestorImediato))
+    formdata.append("setor", String(setor))
+    formdata.append("password", String(senha))
     
       // cadastro de usuario
 
@@ -37,13 +56,13 @@ export default function Cadastro() {
         console.log(error)
     })
 
-    api.post
+     api.post
   }
 
   return (
     <>
       <section id="cadastro" className="cadastro">
-        <form onSubmit={cadastrarUsuario} className="aba_cadastro" method="post">
+        <form onSubmit={() => cadastrarUsuario} className="aba_cadastro" method="post">
           <img className="logovw" alt="" src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/icon_vw.png?alt=media&token=0b056a56-9020-4d26-b3ed-cd7bdbd05b2b" />
           <h2>Faça seu cadastro!</h2>
 
@@ -106,6 +125,7 @@ export default function Cadastro() {
           type="password" 
           onChange={(event) => {setSenha(event.target.value)}}
           required
+          // ref={() => console.log(inputRef)}
             />
             
           <label className="repetir_senha" htmlFor="repeatsenha" />
@@ -115,6 +135,8 @@ export default function Cadastro() {
             placeholder="Repetir a sua senha"
             type="password"
             required
+
+            
           />
           <div className="nivel_da_senha">
             <span>Nível da senha</span>
@@ -140,7 +162,7 @@ export default function Cadastro() {
                 <li>No mínimo um número</li>
               </ul>
               <div>
-                <button type="submit">Cadastrar</button>
+                <button type="submit" onClick={validatePassword}>Cadastrar</button>
               </div>
             </div>
           </div>

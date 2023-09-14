@@ -9,79 +9,53 @@ import secureLocalStorage from "react-secure-storage";
 
 import { useNavigate } from "react-router";
 
+import { AxiosResponse, AxiosError } from "axios";
+import { useState, SetStateAction, useEffect } from "react";
 
-// import GoogleAuth from "../../components/auth";
-import { useState, ChangeEvent, SetStateAction, useEffect } from "react";
+import auth from "../../utils/auth";
 
 export default function Login() {
-  const [loading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const [idState, setIdState] = useState<SetStateAction<any>>();
-  const [teamState, setTeamState] = useState<SetStateAction<any>>();
-  const [passwordState, setPasswordState] = useState<SetStateAction<any>>();
+  const navigate = useNavigate();
 
-  const handleIdState = (e: ChangeEvent<HTMLInputElement>) =>
-    setIdState(e?.target.value);
+  const [id, setId] = useState<SetStateAction<any>>("");
+  const [email, setEmail] = useState<typeof id>("");
+  const [senha, setSenha] = useState<typeof id>("");
 
-  const handleTeamState = (e: ChangeEvent<HTMLInputElement>) =>
-    setTeamState(e?.target.value);
-
-  const handlePasswordState = (e: ChangeEvent<HTMLInputElement>) =>
-    setPasswordState(e?.target.value);
-
-  const verifyState = () => {
-    const data = {
-      id: [...idState],
-      team: [...teamState],
-      password: [...passwordState],
-    };
-
-    const { id, team, password } = data;
-
-    id.length !== 5 && alert("seu id tem menos de 5 caracteres");
-    team.length <= 5 && alert("seu time tem menos de 5 caracteres");
-    password.length <= 5 && alert("sua senha tem menos de 5 caracteres");
-  };
-
-  const gettinAxios = () => {
-    // axios.post("blablabla")
-  };
-
-  // -----------------------------------------------------------POR API - THAMIRES
-  const navigate = useNavigate()
-
-  const [id, setId] = useState<String>("");
-  const [senha, setSenha] = useState<String>("");
-  const [email, setEmail] = useState<String>("");
-
-  function realizarAutenticacao(event: any) {
+  function realizarAutenticacao(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const usuario = {
+    const createdUser = auth({
       id: id,
       email: email,
-      password: senha
-    }
+      password: senha,
+    });
 
-    api.post("login", usuario).then((response: any) => {
-            secureLocalStorage.setItem("user", response.data)
-            alert("Login efetuado com sucesso!")
-            // console.log(response.data)
-            navigate("/area-colaborador/" + response.data.user.id);
-            navigate(0);
-        }).catch((error: any) => {
-            alert("Não foi possível realizar o login.");
-            console.log(error);
-        })
-}
+    const { method = "login" } = createdUser;
+
+    api
+      .post(method, createdUser)
+      .then((response: AxiosResponse) => {
+        secureLocalStorage.setItem("user", response.data);
+        alert("Login efetuado com sucesso!");
+        navigate("/area-colaborador/" + response.data.user.id);
+        navigate(0);
+      })
+      .catch((error: AxiosError) => {
+        alert("Não foi possível realizar o login.");
+        console.log(error);
+      });
+  }
 
   useEffect(() => {
-    document.title = "Login - BotQuest VW"
-  })
+    document.title = "Login - BotQuest VW";
+    setTimeout(() => setLoading(true), 1500);
+  }, [loading]);
 
   return (
     <>
-      {loading == false ? (
+      {loading == true ? (
         <>
           <form method="post" onSubmit={realizarAutenticacao}>
             <div id="main_login" className="dados">
@@ -95,15 +69,19 @@ export default function Login() {
                 maxLength={5}
                 id="id"
                 placeholder="ID"
-                onChange={(e) => {setId(e.target.value)}}
+                onChange={(e) => {
+                  setId(e.target.value);
+                }}
               />
               <label htmlFor="ID"></label>
-              
+
               <input
                 type="email"
                 id="email"
                 placeholder="E-mail"
-                onChange={(e) => {setEmail(e.target.value)}}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
               <label htmlFor="ID"></label>
 
@@ -111,19 +89,25 @@ export default function Login() {
                 type="password"
                 id="Senha"
                 placeholder="Senha"
-                onChange={(e) => {setSenha(e.target.value)}}
+                onChange={(e) => {
+                  setSenha(e.target.value);
+                }}
               />
               <label htmlFor="Senha"></label>
 
-              <button 
-              // onClick={verifyState}
-              type="submit"
-              >Acessar</button>
+              <button
+                // onClick={verifyState}
+                type="submit"
+              >
+                Acessar
+              </button>
               {/* <GoogleAuth /> */}
 
-              <p 
-                style={{ marginTop: "10px"}}>
-                Esqueceu sua senha? <a style={{color: "#ffffff"}} href="/recuperation">Clique aqui.</a>
+              <p style={{ marginTop: "10px" }}>
+                Esqueceu sua senha?{" "}
+                <a style={{ color: "#ffffff" }} href="/recuperation">
+                  Clique aqui.
+                </a>
               </p>
             </div>
           </form>

@@ -116,11 +116,11 @@
   color: rgb(255, 255, 255);
 }
 
-#acessoAdm .acessar {
+#acessoAdm button {
   box-sizing: border-box;
-  width: 150px;
+  /* width: 150px;
   height: 50px;
-  left: 1283px;
+  left: 1283px; */
   background: linear-gradient(
     94.31deg,
     #01b0f1 -8.53%,
@@ -136,7 +136,7 @@
   margin: 20px;
 }
 
-#acessoAdm .acessar:hover {
+#acessoAdm button:hover {
   background: linear-gradient(
     94.31deg,
     #026b91 -8.53%,
@@ -144,6 +144,7 @@
     #546778 116.35%
   );
   transition: all 3s ease-in;
+  cursor: pointer;
 }
 
 #acessoAdm a {
@@ -169,6 +170,31 @@
 
 #acessoAdm .acesso_menor {
   display: none;
+}
+
+#acessoAdm button {
+  margin: 20px 0;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--branco);
+  text-decoration: none;
+  padding: 15px 50px;
+  border-radius: 40px;
+  background: #01b0f1;
+  color: rgb(255, 255, 255, 0.3);
+  transition: ease-in 0.2s;
+  color: var(--branco);
+}
+
+#acessoAdm .dados > p {
+  color: var(--branco);
+  padding-top: 30px;
+}
+
+#acessoAdm .dados > p > button {
+  text-decoration: none;
+  color: var(--branco);
+  font-weight: 600;
 }
 
 @media screen and (max-width: 1230px) { 
