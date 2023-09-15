@@ -1,10 +1,12 @@
 import "./style.css";
-import { useEffect, useState, useRef, ChangeEvent  } from "react";
+import { useEffect, useState, useRef } from "react";
 // import Logo from "../cadastro/img/iconeVW.png";
+import { useNavigate } from "react-router-dom";
 
 import api from "../../utils/api";
 
 export default function Cadastro() {
+  const navigate = useNavigate()
 
 
   const [vwId, setVwId] = useState<React.SetStateAction<string>>("")
@@ -12,30 +14,33 @@ export default function Cadastro() {
   const [email, setEmail] = useState<typeof vwId>("")
   const [gestorImediato, setGestorImediato] = useState<typeof vwId>("")
   const [setor, setSetor] = useState<typeof vwId>("")
-  const [senha, setSenha] = useState<typeof vwId>("")
+  const [senha, setSenha] = useState<string>("")
+  const [confirmSenha, setConfirmSenha] = useState<string>("")
 
 
   const inputRef = useRef<React.SetStateAction<number>>(0);
 
   useEffect(() => {  
- (prevstate: any ) => {
-  inputRef.current = prevstate 
-  prevstate + 1 
-  console.log(prevstate)
+    (prevstate: any ) => {
+      inputRef.current = prevstate 
+      prevstate + 1 
+      console.log(prevstate)
+      document.title = "Cadastro - BotQuest VW"
  } 
   })
 
   // quando a senha tiver menos de 8 caracteres , esse erro vai acontecer !!! 
-const validatePassword = () => inputRef.current !== 20 
-? alert("voce precisa que a senha tenha 20 caracteres ")
-: null ; 
+// const validatePassword = () => inputRef.current !== 20 
+// ? alert("voce precisa que a senha tenha 20 caracteres ")
+// : null ;
+// DESABILITEI POR ENQUANTO, INSERI NA CADASTRAR USUÁRIO
 
 
 
 
 
 
-  function cadastrarUsuario(event:ChangeEvent<HTMLInputElement>) {
+  function cadastrarUsuario(event:any) {
     event.preventDefault()
     const formdata = new FormData()
 
@@ -44,25 +49,50 @@ const validatePassword = () => inputRef.current !== 20
     formdata.append("email", String(email))
     formdata.append("gestor_imediato", String(gestorImediato))
     formdata.append("setor", String(setor))
-    formdata.append("password", String(senha))
-    
-      // cadastro de usuario
+    formdata.append("password", senha)
 
-      api.post("users", formdata).then((response) =>{
-        console.log(response)
-        alert("Usuario criado com Sucesso!😊")
-        // Navegação para login
-    }).catch((error)=>{
-        console.log(error)
-    })
+    // cadastro de usuario
+    api.post("users", formdata).then((response) =>{
+      console.log(response)
+      alert("Usuario criado com Sucesso!😊")
+      // Navegação para login
+      navigate("/login")
+  }).catch((error)=>{
+      console.log(error)
+  })
 
-     api.post
+   api.post
+
+}
+
+  // validação de senha
+  let validateNum: RegExp = /^[+ 0-9]/;
+  let validateUpper: RegExp = /^.*[A-Z]/m
+  let validateLower: RegExp = /^.*[a-z]/m
+  // teste ok
+  
+  const testNum = (validateNum.test(senha))
+  const testUpper = (validateUpper.test(senha))
+  const testLower = (validateLower.test(senha))
+  const testLenght = senha.length > 7
+  const testEqual = (confirmSenha == senha)
+  
+  function validate(){
+    testNum && testLower && testUpper && testLenght ? (
+      testEqual == false ?
+        alert("Senhas não coincidem.")
+      :
+      cadastrarUsuario
+    ) : (
+      alert("Senha não segue os padrões necessários. Verifique e tente novamente.")
+    )
   }
+    
 
   return (
     <>
       <section id="cadastro" className="cadastro">
-        <form onSubmit={() => cadastrarUsuario} className="aba_cadastro" method="post">
+        <form onSubmit={cadastrarUsuario} className="aba_cadastro" method="post">
           <img className="logovw" alt="" src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/icon_vw.png?alt=media&token=0b056a56-9020-4d26-b3ed-cd7bdbd05b2b" />
           <h2>Faça seu cadastro!</h2>
 
@@ -135,8 +165,7 @@ const validatePassword = () => inputRef.current !== 20
             placeholder="Repetir a sua senha"
             type="password"
             required
-
-            
+            onChange={(event) => {setConfirmSenha(event.target.value)}}
           />
           <div className="nivel_da_senha">
             <span>Nível da senha</span>
@@ -157,12 +186,15 @@ const validatePassword = () => inputRef.current !== 20
             <div className="teste">
               <span>Sugestão de Senha:</span>
               <ul>
+                <li>No mínimo 8 caracteres</li>
                 <li>No mínimo uma letra maiúscula</li>
                 <li>No mínimo uma letra minúscula</li>
                 <li>No mínimo um número</li>
               </ul>
               <div>
-                <button type="submit" onClick={validatePassword}>Cadastrar</button>
+                <button type="submit" 
+                onClick={validate}
+                >Cadastrar</button>
               </div>
             </div>
           </div>
@@ -180,7 +212,7 @@ const validatePassword = () => inputRef.current !== 20
 
 
 
-      <div id="mostrar_overlay">
+      {/* <div id="mostrar_overlay">
         <div id="overlay">
           <div className="overlay_div">
             <div>
@@ -247,7 +279,7 @@ const validatePassword = () => inputRef.current !== 20
           <a href="../Login/index.html">Enviar</a>
         </div>
         <a href="#">Voltar</a>
-      </div>
+      </div> */}
     </>
   );
 }
