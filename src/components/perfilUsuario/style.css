@@ -28,6 +28,7 @@
   #perfilUsuario .link-editavatar{
     color: var(--branco);
     transition: all ease-in 0.2s;
+    text-decoration: none;
   }
 
   #perfilUsuario .link-editavatar:hover{

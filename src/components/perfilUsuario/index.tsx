@@ -17,6 +17,7 @@ export default function PerfilUsuario(props:any){
             document.getElementById('displayEditAvatar')!.style.display = 'flex'
             document.getElementById('avatar')!.style.display = 'none'
             document.getElementById('bt_acessar')!.style.display = 'none'
+            document.getElementById('link-editavatar')!.style.display = 'none'
             console.log(foto)
         } else{
             console.log(foto)
@@ -84,9 +85,10 @@ export default function PerfilUsuario(props:any){
                 </div>
                 </>
             )}
-            <h3>{props.nome.split(" ")[0]} | <Link 
+            <h3>{props.nome.split(" ")[0]} <Link 
             to={"editar-avatar"}
-            className='link-editavatar'>Editar Avatar</Link>
+            className='link-editavatar'
+            id='link-editavatar'>| Editar Avatar</Link>
             </h3>
             <p>VW_ID: {props.vwId}</p>
             <button id='bt_acessar'>
