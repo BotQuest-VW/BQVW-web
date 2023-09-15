@@ -30,7 +30,7 @@ export default function Homepage() {
             gamificação inteligente!
           </span>
         </div>
-        <img src={img_main} alt="" />
+        <img className="floating" src={img_main} alt="" />
       </section>
       <div>
         <img src={seta_baixo} alt="" />

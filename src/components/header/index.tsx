@@ -2,9 +2,12 @@ import "./style.css";
 
 import { Link } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from 'react'
 
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+
+import api from "../../utils/api";
 
 export default function Header(props: any) {
   const navigate = useNavigate();
@@ -18,6 +21,7 @@ export default function Header(props: any) {
       navigate(0);
     }
   }
+
 
   function mostrarMenu() {
     let menu = document.getElementById("menu_links") as HTMLCanvasElement; // Obtém o elemento do menu pelo ID
@@ -50,15 +54,20 @@ export default function Header(props: any) {
 
     if (window.getComputedStyle(menu_lateral).opacity == "0") {
       menu_lateral.style.opacity = "1";
+      menu_lateral.style.right = "0"; // Esconde o menu deslocando-o para esquerda
+      menu_lateral.style.zIndex = "1"
       menu_lateral.setAttribute("aria-expanded", "false"); // Atualiza o atributo 'aria-expanded' para 'false'
       menu_lateral.setAttribute("aria-label", "abrir menu"); // Atualiza o atributo 'aria-label' para 'abrir menu'
     } else {
       menu_lateral.style.opacity = "0";
+      menu_lateral.style.right = "-10px"; // Esconde o menu deslocando-o para esquerda
+      menu_lateral.style.zIndex = "-1"
       menu_lateral.setAttribute("aria-expanded", "true"); // Atualiza o atributo 'aria-expanded' para 'true'
       menu_lateral.setAttribute("aria-label", "fechar menu"); // Atualiza o atributo 'aria-label' para 'fechar menu'
     }
     menu_lateral.classList.toggle("ativo"); // Alterna a classe 'ativo' no botão do menu
   }
+
 
   return (
     <>
@@ -100,7 +109,11 @@ export default function Header(props: any) {
                   <Link onClick={sair} className="btn_sair" to={"/"}>
                     Sair
                   </Link>
-                  <Link to={"/"}>Editar Avatar</Link>
+                  {/* <span 
+                  style={{cursor: "pointer"}}
+                  onClick={() => {navigate(`/editar-avatar`)
+                  }}>Editar Avatar</span> */}
+                  {/* <Link  to={"editar-avatar"}>Editar Avatar</Link> */}
                 </div>
                 <div
                   className="hover"
@@ -113,9 +126,15 @@ export default function Header(props: any) {
                   }}
                   onClick={abrirMenu}
                 >
-                  <MenuRoundedIcon className="icon_menu" />
+                  <p>MENU</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" width="24" height="24">
+                  <g style={{fill: "var(--branco)"}}>
+                    <path d="M480,224H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h448c17.673,0,32-14.327,32-32S497.673,224,480,224z"/>
+                    <path d="M32,138.667h448c17.673,0,32-14.327,32-32s-14.327-32-32-32H32c-17.673,0-32,14.327-32,32S14.327,138.667,32,138.667z"/>
+                    <path d="M480,373.333H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h448c17.673,0,32-14.327,32-32S497.673,373.333,480,373.333z"/>
+                  </g>
+                  </svg>
                 </div>
-                <p>Olá, {props.nome}!</p>
               </div>
             </>
           ) : (

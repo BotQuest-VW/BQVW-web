@@ -3,10 +3,11 @@ import './style.css'
 import api from '../../utils/api'
 import { useParams } from 'react-router'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import LoaderRound from '../loader/loader_round'
 
 export default function PerfilUsuario(props:any){
+    const navigate = useNavigate()
     const {idUsuario} = useParams()    
     const [foto, setFoto] = useState<string>("")
    
@@ -67,7 +68,11 @@ export default function PerfilUsuario(props:any){
                             color: "red",
                             fontWeight: "600"
                         }}>*Necessário para acessar o game.</p>
-                        <Link id='defineAvatar' to={"/"}>Clique aqui</Link>
+                        <Link 
+                        // onClick={() => {navigate("/editar-avatar")}} 
+                        id='defineAvatar' 
+                        to={"editar-avatar"}
+                        >Clique aqui</Link>
                     </div>
                 </div>
                 <img id='avatar' src={props.foto} alt="Imagem do usuário" />

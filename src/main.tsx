@@ -16,6 +16,7 @@ import Homepage from "./pages/homepage/index";
 import Login from "./pages/login/index";
 
 import AreaColaborador from "./pages/areaColaborador/index";
+import EditarAvatar from "./pages/editarAvatar";
 
 import AcessoAdm from "./pages/acessoAdm/index";
 import Metricas from "./pages/helpdesk/metricas/metricas";
@@ -62,6 +63,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route
           path="/area-colaborador/:idUsuario"
           element={<AreaColaborador user={logado()} />}
+        />
+        <Route
+          path="/area-colaborador/:idUsuario/editar-avatar"
+          element={<EditarAvatar  user={logado()} />}
         />
         <Route
           path="/area-colaborador/deletar/:idTarefa"
