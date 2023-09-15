@@ -24,6 +24,15 @@
   #perfilUsuario .right>h3{
     font-weight: 500;
   }
+
+  #perfilUsuario .link-editavatar{
+    color: var(--branco);
+    transition: all ease-in 0.2s;
+  }
+
+  #perfilUsuario .link-editavatar:hover{
+    color: var(--verdeC);
+  }
   
   
   #perfilUsuario  .right>button{

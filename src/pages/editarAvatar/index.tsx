@@ -54,11 +54,13 @@ export default function EditarAvatar(props: any){
         formdata.set("password", currentPassword)
         formdata.set("vwId", currentVwId)
         formdata.set("nome", currentNome)
-        formdata.set("gestor-imediato", currentGestorImediato)
+        formdata.set("gestor_imediato", currentGestorImediato)
         formdata.set("setor", currentSetor)
         formdata.set("user_img", escolha)
 
         api.put(`users/${idUsuario}`, formdata)
+
+        navigate(-1)
     }
 
     

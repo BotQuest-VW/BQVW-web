@@ -84,7 +84,10 @@ export default function PerfilUsuario(props:any){
                 </div>
                 </>
             )}
-            <h3>{props.nome.split(" ")[0]}</h3>
+            <h3>{props.nome.split(" ")[0]} | <Link 
+            to={"editar-avatar"}
+            className='link-editavatar'>Editar Avatar</Link>
+            </h3>
             <p>VW_ID: {props.vwId}</p>
             <button id='bt_acessar'>
                 <p>Acessar</p>
