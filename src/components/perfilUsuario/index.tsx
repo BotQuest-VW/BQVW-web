@@ -16,6 +16,7 @@ export default function PerfilUsuario(props:any){
             document.getElementById('displayEditAvatar')!.style.display = 'flex'
             document.getElementById('avatar')!.style.display = 'none'
             document.getElementById('bt_acessar')!.style.display = 'none'
+            document.getElementById('link-editavatar')!.style.display = 'none'
             console.log(foto)
         } else{
             console.log(foto)
@@ -67,7 +68,11 @@ export default function PerfilUsuario(props:any){
                             color: "red",
                             fontWeight: "600"
                         }}>*Necessário para acessar o game.</p>
-                        <Link id='defineAvatar' to={"/"}>Clique aqui</Link>
+                        <Link 
+                        // onClick={() => {navigate("/editar-avatar")}} 
+                        id='defineAvatar' 
+                        to={"editar-avatar"}
+                        >Clique aqui</Link>
                     </div>
                 </div>
                 <img id='avatar' src={props.foto} alt="Imagem do usuário" />
@@ -79,7 +84,14 @@ export default function PerfilUsuario(props:any){
                 </div>
                 </>
             )}
-            <h3>{props.nome.split(" ")[0]}</h3>
+            <h3
+            style={{
+                textAlign: "center"
+            }}>{props.nome.split(" ")[0]} <Link 
+            to={"editar-avatar"}
+            className='link-editavatar'
+            id='link-editavatar'>| Editar Avatar</Link>
+            </h3>
             <p>VW_ID: {props.vwId}</p>
             <button id='bt_acessar'>
                 <p>Acessar</p>

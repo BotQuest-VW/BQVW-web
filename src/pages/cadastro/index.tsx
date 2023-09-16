@@ -40,8 +40,8 @@ export default function Cadastro() {
 
 
 
-  function cadastrarUsuario(event:any) {
-    event.preventDefault()
+  function cadastrarUsuario() {
+    // event.preventDefault()
     const formdata = new FormData()
 
     formdata.append("vwId", String(vwId)) 
@@ -54,7 +54,7 @@ export default function Cadastro() {
     // cadastro de usuario
     api.post("users", formdata).then((response) =>{
       console.log(response)
-      alert("Usuario criado com Sucesso!😊")
+      alert("Usuario criado com sucesso!😊")
       // Navegação para login
       navigate("/login")
   }).catch((error)=>{
@@ -66,10 +66,11 @@ export default function Cadastro() {
 }
 
   // validação de senha
-  let validateNum: RegExp = /^[+ 0-9]/;
+  let validateNum: RegExp = /^.*[+ 0-9]/;
   let validateUpper: RegExp = /^.*[A-Z]/m
   let validateLower: RegExp = /^.*[a-z]/m
   // teste ok
+
   
   const testNum = (validateNum.test(senha))
   const testUpper = (validateUpper.test(senha))
@@ -77,12 +78,14 @@ export default function Cadastro() {
   const testLenght = senha.length > 7
   const testEqual = (confirmSenha == senha)
   
-  function validate(){
+  function validate(event:any){
+    event.preventDefault()
+
     testNum && testLower && testUpper && testLenght ? (
       testEqual == false ?
         alert("Senhas não coincidem.")
       :
-      cadastrarUsuario
+      cadastrarUsuario()
     ) : (
       alert("Senha não segue os padrões necessários. Verifique e tente novamente.")
     )
@@ -92,7 +95,7 @@ export default function Cadastro() {
   return (
     <>
       <section id="cadastro" className="cadastro">
-        <form onSubmit={cadastrarUsuario} className="aba_cadastro" method="post">
+        <form onSubmit={validate} className="aba_cadastro" method="post">
           <img className="logovw" alt="" src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/icon_vw.png?alt=media&token=0b056a56-9020-4d26-b3ed-cd7bdbd05b2b" />
           <h2>Faça seu cadastro!</h2>
 
@@ -142,7 +145,7 @@ export default function Cadastro() {
           id="setor"
           className="setor" 
           placeholder="Setor" 
-          type="text" 
+          type="number" 
           onChange={(event) => {setSetor(event.target.value)}}
           required
             />
@@ -193,7 +196,7 @@ export default function Cadastro() {
               </ul>
               <div>
                 <button type="submit" 
-                onClick={validate}
+                // onClick={validate}
                 >Cadastrar</button>
               </div>
             </div>

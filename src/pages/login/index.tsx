@@ -8,6 +8,7 @@ import api from "../../utils/api";
 import secureLocalStorage from "react-secure-storage";
 
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 import { AxiosResponse, AxiosError } from "axios";
 import { useState, SetStateAction, useEffect } from "react";
@@ -111,6 +112,11 @@ export default function Login() {
               </p>
             </div>
           </form>
+          <Link to={"/acessoAdm"}>
+          <div id="admin-button">
+              <img src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/adm.png?alt=media&token=77b88b4f-4dfa-4ac7-a946-708db70e0e0e" alt="" />
+          </div>
+          </Link>
         </>
       ) : (
         <>

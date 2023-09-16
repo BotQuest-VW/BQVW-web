@@ -162,12 +162,12 @@ header div .link img{
 
 
 #menu_lateral{
-    transition: ease-in all 0.5s;
+    transition: ease-in-out all 0.3s;
+    z-index: 1;
 
     opacity: 0;
     gap: 20px;
     position: relative;
-    /* right: -350px; */
 
 }
 
