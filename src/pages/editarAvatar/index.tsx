@@ -23,28 +23,6 @@ export default function EditarAvatar(props: any){
         })
     }
     
-    const [currentVwId, setCurrentVwId] = useState<string>("")
-    const [currentNome, setCurrentNome] = useState<string>("")
-    const [currentEmail, setCurrentEmail] = useState<string>("")
-    const [currentGestorImediato, setCurrentGestorImediato] = useState<string>("")
-    const [currentSetor, setCurrentSetor] = useState<string>("")
-    const [currentPassword, setCurrentPassword] = useState<string>("")
-    // const currentPassword = ""
-
-
-    function puxarDadosAtuais(){
-        api.get(`users/${idUsuario}`).then((response:any) => {
-            setCurrentVwId(response.data.vwId)
-            setCurrentNome(response.data.nome)
-            setCurrentEmail(response.data.email)
-            setCurrentGestorImediato(response.data.gestor_imediato)
-            setCurrentSetor(response.data.setor)
-            setCurrentPassword(response.data.password)
-            console.log(currentPassword)
-
-        })
-    }
-
     function selectAvatar(event:any){
         event.preventDefault()
         let escolha = (document.querySelector('input[name="avatar"]:checked') as HTMLInputElement).value;
@@ -63,7 +41,6 @@ export default function EditarAvatar(props: any){
     useEffect(() => {
         document.title = "Editar Avatar - BotQuest VW"
         listarAvatares()
-        puxarDadosAtuais()
     }, [])
 
     // vvvvvvvvvvvvvv FUNÇÃO LOADER

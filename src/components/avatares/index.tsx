@@ -1,5 +1,4 @@
 import './style.css'
-import { useState } from 'react'
 
 export default function ListaAvatares(props:any){
 

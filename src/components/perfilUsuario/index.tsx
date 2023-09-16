@@ -3,11 +3,10 @@ import './style.css'
 import api from '../../utils/api'
 import { useParams } from 'react-router'
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import LoaderRound from '../loader/loader_round'
 
 export default function PerfilUsuario(props:any){
-    const navigate = useNavigate()
     const {idUsuario} = useParams()    
     const [foto, setFoto] = useState<string>("")
    

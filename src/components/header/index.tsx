@@ -2,12 +2,8 @@ import "./style.css";
 
 import { Link } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
-import { useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from 'react'
+import { useNavigate} from "react-router-dom";
 
-import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
-
-import api from "../../utils/api";
 
 export default function Header(props: any) {
   const navigate = useNavigate();
