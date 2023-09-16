@@ -85,7 +85,10 @@ export default function PerfilUsuario(props:any){
                 </div>
                 </>
             )}
-            <h3>{props.nome.split(" ")[0]} <Link 
+            <h3
+            style={{
+                textAlign: "center"
+            }}>{props.nome.split(" ")[0]} <Link 
             to={"editar-avatar"}
             className='link-editavatar'
             id='link-editavatar'>| Editar Avatar</Link>
