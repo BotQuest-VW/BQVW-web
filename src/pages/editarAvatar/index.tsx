@@ -15,7 +15,6 @@ export default function EditarAvatar(props: any){
     const navigate = useNavigate()
 
     const [avatares, setAvatares] = useState<any[]>([])
-    const [avatarEscolhido, setAvatarEscolhido] = useState<string>("")
 
     
     function listarAvatares(){
@@ -30,6 +29,7 @@ export default function EditarAvatar(props: any){
     const [currentGestorImediato, setCurrentGestorImediato] = useState<string>("")
     const [currentSetor, setCurrentSetor] = useState<string>("")
     const [currentPassword, setCurrentPassword] = useState<string>("")
+    // const currentPassword = ""
 
 
     function puxarDadosAtuais(){
@@ -40,6 +40,8 @@ export default function EditarAvatar(props: any){
             setCurrentGestorImediato(response.data.gestor_imediato)
             setCurrentSetor(response.data.setor)
             setCurrentPassword(response.data.password)
+            console.log(currentPassword)
+
         })
     }
 
@@ -47,18 +49,10 @@ export default function EditarAvatar(props: any){
         event.preventDefault()
         let escolha = (document.querySelector('input[name="avatar"]:checked') as HTMLInputElement).value;
         console.log(escolha)
-        setAvatarEscolhido(escolha)
-        
-        const formdata = new FormData()
-        formdata.set("email", currentEmail)
-        formdata.set("password", currentPassword)
-        formdata.set("vwId", currentVwId)
-        formdata.set("nome", currentNome)
-        formdata.set("gestor_imediato", currentGestorImediato)
-        formdata.set("setor", currentSetor)
-        formdata.set("user_img", escolha)
 
-        api.put(`users/${idUsuario}`, formdata)
+        api.patch(`users/${idUsuario}`, {      
+            user_img: escolha
+        }).then((response:any) => {console.log(response)})
 
         navigate(-1)
     }
