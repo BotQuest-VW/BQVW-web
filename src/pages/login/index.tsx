@@ -97,6 +97,9 @@ export default function Login() {
               <label htmlFor="Senha"></label>
 
               <button
+              style={{
+                border: "none"
+              }}
                 // onClick={verifyState}
                 type="submit"
               >
@@ -125,7 +128,7 @@ export default function Login() {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              height: 600,
+              height: 500,
             }}
           >
             <Loader />
