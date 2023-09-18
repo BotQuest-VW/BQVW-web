@@ -38,7 +38,7 @@ function AcessoAdm() {
       .then((response: AxiosResponse) => {
         secureLocalStorage.setItem("user", response.data);
         alert("Login efetuado com sucesso!");
-        navigate("/area-colaborador/" + response.data.user.id);
+        navigate("/helpdesk/" + response.data.user.id);
         navigate(0);
       })
       .catch((error: AxiosError) => {
