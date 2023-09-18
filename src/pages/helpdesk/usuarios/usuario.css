@@ -5,14 +5,17 @@
 }
 
 #usuario {
+    height: 100vh;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Righteous', cursive;
     font-family: 'Titillium Web', sans-serif;
     color: white;
     background-color: #00101F;
+    display: flex;
+    justify-content: end;
 }
 
-header#usuario  {
+/* header#usuario  {
     height: 80px;
     width: 100%;
     background-image: url("img/Header.png");
@@ -28,12 +31,8 @@ header#usuario  {
 #usuario .heder img {
     width: 80px;
     margin-top: 25px;
-}
+} */
 
-main#usuario {
-    display: flex;
-    justify-content: end;
-}
 
 #usuario aside {
     position: fixed;
@@ -144,7 +143,7 @@ main#usuario {
 
 #usuario .Solicitacoes {
     width: 90%;
-    height: 90%;
+    /* height: 90%; */
     /* background: #000B15; */
     border-radius: 10px;
     margin: 0 auto;
@@ -193,7 +192,7 @@ main#usuario {
 }
 
 #usuario .alinhamento_nome img{
-    width: 45px;
+    width: 60px;
     margin: 10px;
 }
 

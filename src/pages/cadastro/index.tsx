@@ -9,7 +9,8 @@ export default function Cadastro() {
   const navigate = useNavigate()
 
 
-  const [vwId, setVwId] = useState<React.SetStateAction<string>>("")
+  const [vwId, setVwId] = useState<string>("")
+  // const [vwId, setVwId] = useState<React.SetStateAction<string>>("")
   const [nome, setNome] = useState<typeof vwId>("")
   const [email, setEmail] = useState<typeof vwId>("")
   const [gestorImediato, setGestorImediato] = useState<typeof vwId>("")
@@ -36,15 +37,13 @@ export default function Cadastro() {
 // DESABILITEI POR ENQUANTO, INSERI NA CADASTRAR USUÁRIO
 
 
-
-
-
-
   function cadastrarUsuario() {
     // event.preventDefault()
+    const formatVwId = vwId.replace(/(\d{3})(\d)/ , "$1-$2")
+    // fomata o vwId para 000-00
     const formdata = new FormData()
 
-    formdata.append("vwId", String(vwId)) 
+    formdata.append("vwId", String(formatVwId)) 
     formdata.append("nome", String(nome))
     formdata.append("email", String(email))
     formdata.append("gestor_imediato", String(gestorImediato))
@@ -106,6 +105,7 @@ export default function Cadastro() {
           placeholder="VW ID" 
           type="tel"
           maxLength={5}
+          minLength={5}
           onChange={(event) => {setVwId(event.target.value)}}
           required
           />
@@ -145,7 +145,9 @@ export default function Cadastro() {
           id="setor"
           className="setor" 
           placeholder="Setor" 
-          type="number" 
+          type="tel" 
+          maxLength={3}
+          minLength={3}
           onChange={(event) => {setSetor(event.target.value)}}
           required
             />

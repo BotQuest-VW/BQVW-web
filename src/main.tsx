@@ -35,13 +35,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <Header user={logado()} />
-
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/acessoAdm" element={<AcessoAdm />} />
         <Route path="/metricas" element={<Metricas />} />
         <Route path="/usuarioHelpdesk" element={<Usuario />} />
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/helpdesk" element={<HomeHelpdesk />} />
         <Route

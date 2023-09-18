@@ -1,14 +1,18 @@
 import './usuario.css'
 
 import { Link } from "react-router-dom"
+import api from '../../../utils/api'
+
+import { useState, useEffect } from 'react'
+import User from '../../../components/user'
 
 import dashboard from './img/Dashboard Layout.png'
-import usuarios from './img/Vector.png'
+import iconUsuarios from './img/Vector.png'
 import dados from './img/dados.png'
 import setaVoltar from './img/botao-de-seta-para-a-esquerda 1.png'
-import avatarLuana from './img/avatar.png'
-import avatarEmerson from './img/avatar (1).png'
-import avatarHellen from './img/avatar (2).png'
+// import avatarLuana from './img/avatar.png'
+// import avatarEmerson from './img/avatar (1).png'
+// import avatarHellen from './img/avatar (2).png'
 import avatarMiguel from './img/avatar (3).png'
 import lapis from './img/Vector (1).png'
 import menuHamburgue from './img/menu-hamburguer 1.png'
@@ -16,6 +20,22 @@ import usuarios2 from './img/usuario.png'
 import lupa from './img/lupa.png'
 
 function Usuario() {
+
+  const [usuarios, setUsuarios] = useState<string[]>([])
+
+
+  function listarUsuarios(){
+    api.get("users").then((response:any) => {
+      setUsuarios(response.data)
+    })
+  }
+
+  useEffect(() => {
+    document.title = "Usuários - BQVW ADM"
+    listarUsuarios()
+  }, [])
+
+
   return (
     <>
       <main id='usuario'>
@@ -26,7 +46,7 @@ function Usuario() {
               <Link to={'/helpdesk'}>Tela Inicial</Link>      
             </div>
             <div className="Usuario_aside">
-              <img src={usuarios} alt="" />
+              <img src={iconUsuarios} alt="" />
               <Link to={'/usuarioHelpdesk'}>Usuários</Link>
             </div>
             <div className="Dados_aside">
@@ -62,238 +82,28 @@ function Usuario() {
               <thead>
                 <tr>
                   <th>Nome:</th>
-                  <th>Avaliação</th>
+                  <th>VW ID</th>
                   <th>Setor:</th>
                   <th>Usuário ativo</th>
                   <th />
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarLuana} alt="Avatar da Luana M." />
-                    Luana M.
-                  </td>
-                  <td>3.5</td>
-                  <td>Adm</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarEmerson} alt="Avatar da Luana M." />
-                    Emerson A.
-                  </td>
-                  <td>4.0</td>
-                  <td>TI</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarHellen} alt="Avatar da Luana M." />
-                    Hellen M.
-                  </td>
-                  <td>3.5</td>
-                  <td>FIN</td>
-                  <td>
-                    <div className="usuario_inativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarMiguel} alt="Avatar da Luana M." />
-                    Miguel G.
-                  </td>
-                  <td>3.5</td>
-                  <td>Adm</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarLuana} alt="Avatar da Luana M." />
-                    Luana M.
-                  </td>
-                  <td>3.5</td>
-                  <td>Adm</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarEmerson} alt="Avatar da Luana M." />
-                    Emerson A.
-                  </td>
-                  <td>4.0</td>
-                  <td>TI</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarHellen} alt="Avatar da Luana M." />
-                    Hellen M.
-                  </td>
-                  <td>3.5</td>
-                  <td>FIN</td>
-                  <td>
-                    <div className="usuario_inativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarMiguel} alt="Avatar da Luana M." />
-                    Miguel G.
-                  </td>
-                  <td>3.5</td>
-                  <td>Adm</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarLuana} alt="Avatar da Luana M." />
-                    Luana M.
-                  </td>
-                  <td>3.5</td>
-                  <td>Adm</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarEmerson} alt="Avatar da Luana M." />
-                    Emerson A.
-                  </td>
-                  <td>4.0</td>
-                  <td>TI</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarHellen} alt="Avatar da Luana M." />
-                    Hellen M.
-                  </td>
-                  <td>3.5</td>
-                  <td>FIN</td>
-                  <td>
-                    <div className="usuario_inativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarMiguel} alt="Avatar da Luana M." />
-                    Miguel G.
-                  </td>
-                  <td>3.5</td>
-                  <td>Adm</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarLuana} alt="Avatar da Luana M." />
-                    Luana M.
-                  </td>
-                  <td>3.5</td>
-                  <td>Adm</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarEmerson} alt="Avatar da Luana M." />
-                    Emerson A.
-                  </td>
-                  <td>4.0</td>
-                  <td>TI</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarHellen} alt="Avatar da Luana M." />
-                    Hellen M.
-                  </td>
-                  <td>3.5</td>
-                  <td>FIN</td>
-                  <td>
-                    <div className="usuario_inativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="alinhamento_nome">
-                    <img src={avatarMiguel} alt="Avatar da Luana M." />
-                    Miguel G.
-                  </td>
-                  <td>3.5</td>
-                  <td>Adm</td>
-                  <td>
-                    <div className="usuario_ativo" />
-                  </td>
-                  <td className="ajustar_lapis">
-                    <img src={lapis} alt="" />
-                  </td>
-                </tr>
-               
+              {usuarios.map((usuario: any, index: number) => {
+                  return(
+                    <tr
+                      key={index}
+                    >
+                      <User
+                      avatar={usuario.user_img}
+                      nome={usuario.nome}
+                      id={usuario.vwId}
+                      setor={usuario.setor}
+                      />
+                    </tr>
+                    
+                  );
+                })}              
               </tbody>
             </table>
           </div>

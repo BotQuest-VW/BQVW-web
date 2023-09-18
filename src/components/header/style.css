@@ -126,10 +126,15 @@ header div>.link{
 }
 
 header {
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    
     display: flex;
     padding: 20px 60px 0;
     overflow-x: hidden;
 
+    width: 100%;
 
     align-items: center;
     justify-content: space-between;
@@ -137,6 +142,8 @@ header {
     border-bottom: 1px solid var(--branco);
     font-family: var(--montserrat);
     color: var(--branco);
+
+    backdrop-filter: blur(15px);
 }
 
 header div>.link>p{

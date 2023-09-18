@@ -11,12 +11,12 @@
     color: white;
     background-color: #00101F;
 }
-
+/* 
 header#homeHelpdesk  {
     height: 80px;
     width: 100%;
     background-image: url("img/Header.png");
-}
+} */
 
 #homeHelpdesk .heder {
     height: 80px;
@@ -124,8 +124,10 @@ main#homeHelpdesk  {
 #homeHelpdesk .PaiDosQuadrados {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 30spx;
+    justify-content: flex-start;
+    gap: 30px;
+
+    margin-left: 60px;
 }
 
 #homeHelpdesk .quadrado_resumo {
@@ -146,8 +148,9 @@ main#homeHelpdesk  {
     border-radius: 15px;
 }
 
-#homeHelpdesk .quadradinho_resumo p {
+#homeHelpdesk .quadradinho_resumo>p {
     margin: 5px;
+    padding: 10px 0 0 10px;
 }
 
 
