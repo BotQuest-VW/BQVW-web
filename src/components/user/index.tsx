@@ -1,6 +1,3 @@
-import lapis from "../../pages/helpdesk/usuarios/img/Vector (1).png"
-
-
 export default function User(props:any){
     return(
         <>
@@ -12,9 +9,6 @@ export default function User(props:any){
             <td>{props.setor}</td>
             <td>
                 <div className="usuario_ativo" />
-            </td>
-            <td className="ajustar_lapis">
-                <img src={lapis} alt="" />
             </td>
         </>
     )

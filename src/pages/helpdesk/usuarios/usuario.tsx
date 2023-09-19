@@ -100,6 +100,9 @@ function Usuario() {
                       id={usuario.vwId}
                       setor={usuario.setor}
                       />
+                      <td className="ajustar_lapis">
+                        <img src={lapis} alt="" />
+                      </td>
                     </tr>
                     
                   );
