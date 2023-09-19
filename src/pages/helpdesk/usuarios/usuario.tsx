@@ -19,9 +19,23 @@ import menuHamburgue from './img/menu-hamburguer 1.png'
 import usuarios2 from './img/usuario.png'
 import lupa from './img/lupa.png'
 
-function Usuario() {
+
+import {useRef} from "react"
+
+
+
+
+
+
+import CadastrarUsuario  from '../../editarUsuario/editar'
+
+type Props = {children: React.ReactNode | JSX.Element}
+
+function Usuario({children}:Props) {
 
   const [usuarios, setUsuarios] = useState<string[]>([])
+
+  const [visivel, setVisivel] = useState<React.SetStateAction<boolean>>(false)
 
 
   function listarUsuarios(){
@@ -29,6 +43,17 @@ function Usuario() {
       setUsuarios(response.data)
     })
   }
+
+  function displayEdit(): void {
+
+    const ref = useRef(setVisivel(true))
+
+
+    return ref.current
+  }
+
+
+  
 
   useEffect(() => {
     document.title = "Usuários - BQVW ADM"
@@ -38,7 +63,9 @@ function Usuario() {
 
   return (
     <>
-      <main id='usuario'>
+{visivel === true ? (<CadastrarUsuario/>) : <>
+
+<main id='usuario'>
         <aside>
           <div className="aside_position">
             <div className="Dashboard_aside">
@@ -67,8 +94,8 @@ function Usuario() {
             <h1>Usuarios</h1>
             <div className="cad_pesquisa_usuario">
               <div className="butao_usuarios">
-                <a href="#">Cadastrar usuário</a>
-                <img src={usuarios2} alt="" />
+                <button onClick={displayEdit}>Cadastrar usuário<img src={usuarios2} alt="" /></button>
+                
               </div>
               <div className="butao_usuarios">
                 <a href="#">Pesquisar usuário</a>
@@ -109,6 +136,9 @@ function Usuario() {
           </div>
         </section>
       </main>
+
+
+</>}
     </>
   )
 }
