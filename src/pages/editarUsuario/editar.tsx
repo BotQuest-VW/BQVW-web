@@ -2,7 +2,7 @@ import "./editar.css";
 
 export default function CadastrarUsuario() {
 
-    function Salvar (){
+    function Salvar() {
         alert("Seu cadastro foi salvo com sucesso!!")
     }
 
@@ -13,9 +13,10 @@ export default function CadastrarUsuario() {
 
     return (
         <>
-            
+
             <div className="body slide-in-fwd-left"  >
-            
+
+
                 <div className="perfil ">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -42,9 +43,9 @@ export default function CadastrarUsuario() {
                     <input type="text" placeholder=" E-mail" maxLength={20} />
                     <input id="olho" type="password" placeholder=" Senha" maxLength={12} />
                 </div>
-                
+
                 <div className="editar_direita">
-                    
+
                     <input type="text" placeholder=" Gestor imediato" maxLength={20} />
                     <input type="text" placeholder=" Direção" maxLength={6} />
                     <input type="text" placeholder=" VW - ID" maxLength={5} />
@@ -52,13 +53,19 @@ export default function CadastrarUsuario() {
                         <button onClick={Salvar} className="salvar" type="reset">
                             Adicionar usuário
                         </button>
-                        
+                        <div>
+                            <button className="sair" onClick={() => {
+                                    const url : string = 'http://localhost:5173/usuarioHelpdesk'
+                                    window.location.href = url 
+
+                            }}>Sair</button>
+                        </div>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
-            
+
         </>
     );
 }
