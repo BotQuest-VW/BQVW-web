@@ -51,8 +51,11 @@ export default function AreaColaborador(props: any) {
   // ^^^^^^^^^^^^^^ FUNÇÃO DISPLAY DATA ATUAL
 
   const [tarefas, setTarefas] = useState<any[]>([]);
+  const [tarefasDois, setTarefasDois] = useState<any[]>([]);
   const [novidades, setNovidades] = useState<any[]>([]);
   const [titulo, setTitulo] = useState("");
+
+  
 
   const { idUsuario } = useParams();
 
@@ -73,16 +76,36 @@ export default function AreaColaborador(props: any) {
       });
   }
 
+  // function listarTarefas() {
+  //   api
+  //     .get(`/tarefas`)
+  //     .then((response: any) => {
+  //       setTarefas(response.data);
+  //     })
+  //     .catch((error) =>
+  //       console.log("Erro ao obter os dados das tarefas", error)
+  //     );
+  // }
+
+
   function listarTarefas() {
     api
-      .get(`/tarefas`)
+      .get(`users/${idUsuario}`)
       .then((response: any) => {
-        setTarefas(response.data);
+        setTarefas(response.data.tarefas);
+        console.log(tarefas)
       })
       .catch((error) =>
         console.log("Erro ao obter os dados das tarefas", error)
       );
+
+    api.get("tarefas").then((response:any) => {
+      setTarefasDois(response.data)
+    })
   }
+  // LISTA TAREFAS JÁ CADASTRADAS NA API POR ID USER
+
+
 
   function listarNovidades() {
     api
@@ -102,7 +125,7 @@ export default function AreaColaborador(props: any) {
     formdata.append("titulo", titulo);
 
     api
-      .post("/tarefas", formdata)
+      .post("tarefas", formdata)
       .then((response: any) => {
         console.log(response);
         alert("Tarefa adicionada!");
@@ -114,12 +137,32 @@ export default function AreaColaborador(props: any) {
 
     api.post;
   }
+  // VAI ADICIONAR AS TAREFAS DO CAMINHO "API/TAREFAS"
+  // UTILIZANDO POR ENQUANTO APENAS PARA DEMONSTRAÇÃO DO SITE, NÃO ESTÁ FUNCIONAL
+
+
+  // function addTask(event: any) {
+  //   event.preventDefault();
+    
+  //   api.patch(`users/${idUsuario}`, {
+  //     "tarefas": [
+  //       {"titulo": titulo}
+  //     ]
+  //   }).then((response:any) => {
+  //       console.log(response)
+  //       window.location.reload()
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+
+  //   api.post;
+  // }
 
   useEffect(() => {
     listarTarefas();
     listarNovidades();
     buscarUsuarioPorID();
-    console.log(nome);
   }, []);
 
   // vvvvvvvvvvvvvv FUNÇÃO LOADER
@@ -167,6 +210,16 @@ export default function AreaColaborador(props: any) {
                               <CardTarefa
                                 titulo={tarefa.titulo}
                                 id={tarefa.id}
+                              />
+                            </li>
+                          );
+                        })}
+                        {tarefasDois.map((tarefaDois: any, index: number) => {
+                          return (
+                            <li key={index}>
+                              <CardTarefa
+                                titulo={tarefaDois.titulo}
+                                id={tarefaDois.id}
                               />
                             </li>
                           );
