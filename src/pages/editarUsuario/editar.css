@@ -16,7 +16,7 @@
     margin-left: 80px;
 }
 
-input {
+.perfil input {
     background-color: white;
     color: black;
 }
@@ -97,7 +97,7 @@ input {
     border: 1px solid white;
 }
 
-span {
+.perfil span {
     display: flex;
     flex-direction: column;
     margin: 12px;
