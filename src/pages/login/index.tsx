@@ -65,18 +65,9 @@ export default function Login() {
                 source="https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/nicismpcs6-271%3A9?alt=media&token=34022096-56d5-4eb8-801a-3b8328125e59"
               />
               <h1>Faça seu login!</h1>
-              <input
-                type="tel"
-                maxLength={5}
-                id="id"
-                placeholder="ID"
-                onChange={(e) => {
-                  setId(e.target.value);
-                }}
-              />
-              <label htmlFor="ID"></label>
 
               <input
+                name="email"
                 type="email"
                 id="email"
                 placeholder="E-mail"
@@ -84,9 +75,10 @@ export default function Login() {
                   setEmail(e.target.value);
                 }}
               />
-              <label htmlFor="ID"></label>
+              <label htmlFor="email"></label>
 
               <input
+                name="password"
                 type="password"
                 id="Senha"
                 placeholder="Senha"
@@ -94,7 +86,7 @@ export default function Login() {
                   setSenha(e.target.value);
                 }}
               />
-              <label htmlFor="Senha"></label>
+              <label htmlFor="password"></label>
 
               <button
               style={{

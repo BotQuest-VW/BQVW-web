@@ -43,26 +43,26 @@ export default function Header(props: any) {
     menu_barras.classList.toggle("ativo"); // Alterna a classe 'ativo' no botão do menu
   }
 
-  function abrirMenu() {
-    let menu_lateral: any = document.getElementById(
-      "menu_lateral"
-    ) as HTMLCanvasElement;
+  // function abrirMenu() {
+  //   let menu_lateral: any = document.getElementById(
+  //     "menu_lateral"
+  //   ) as HTMLCanvasElement;
 
-    if (window.getComputedStyle(menu_lateral).opacity == "0") {
-      menu_lateral.style.opacity = "1";
-      menu_lateral.style.right = "0"; // Esconde o menu deslocando-o para esquerda
-      menu_lateral.style.zIndex = "1"
-      menu_lateral.setAttribute("aria-expanded", "false"); // Atualiza o atributo 'aria-expanded' para 'false'
-      menu_lateral.setAttribute("aria-label", "abrir menu"); // Atualiza o atributo 'aria-label' para 'abrir menu'
-    } else {
-      menu_lateral.style.opacity = "0";
-      menu_lateral.style.right = "-10px"; // Esconde o menu deslocando-o para esquerda
-      menu_lateral.style.zIndex = "-1"
-      menu_lateral.setAttribute("aria-expanded", "true"); // Atualiza o atributo 'aria-expanded' para 'true'
-      menu_lateral.setAttribute("aria-label", "fechar menu"); // Atualiza o atributo 'aria-label' para 'fechar menu'
-    }
-    menu_lateral.classList.toggle("ativo"); // Alterna a classe 'ativo' no botão do menu
-  }
+  //   if (window.getComputedStyle(menu_lateral).opacity == "0") {
+  //     menu_lateral.style.opacity = "1";
+  //     menu_lateral.style.right = "0"; // Esconde o menu deslocando-o para esquerda
+  //     menu_lateral.style.zIndex = "1"
+  //     menu_lateral.setAttribute("aria-expanded", "false"); // Atualiza o atributo 'aria-expanded' para 'false'
+  //     menu_lateral.setAttribute("aria-label", "abrir menu"); // Atualiza o atributo 'aria-label' para 'abrir menu'
+  //   } else {
+  //     menu_lateral.style.opacity = "0";
+  //     menu_lateral.style.right = "-10px"; // Esconde o menu deslocando-o para esquerda
+  //     menu_lateral.style.zIndex = "-1"
+  //     menu_lateral.setAttribute("aria-expanded", "true"); // Atualiza o atributo 'aria-expanded' para 'true'
+  //     menu_lateral.setAttribute("aria-label", "fechar menu"); // Atualiza o atributo 'aria-label' para 'fechar menu'
+  //   }
+  //   menu_lateral.classList.toggle("ativo"); // Alterna a classe 'ativo' no botão do menu
+  // }
 
 
   return (
@@ -92,7 +92,7 @@ export default function Header(props: any) {
         <nav id="menu_links" className="menu_links">
           {props.user.logado ? (
             <>
-              <div id="menu">
+              {/* <div id="menu"> */}
                 <div
                   aria-label="abrir menu"
                   aria-expanded="false"
@@ -105,13 +105,8 @@ export default function Header(props: any) {
                   <Link onClick={sair} className="btn_sair" to={"/"}>
                     Sair
                   </Link>
-                  {/* <span 
-                  style={{cursor: "pointer"}}
-                  onClick={() => {navigate(`/editar-avatar`)
-                  }}>Editar Avatar</span> */}
-                  {/* <Link  to={"editar-avatar"}>Editar Avatar</Link> */}
-                </div>
-                <div
+                {/* </div> */}
+                {/* <div
                   className="hover"
                   style={{
                     display: "flex",
@@ -130,7 +125,7 @@ export default function Header(props: any) {
                     <path d="M480,373.333H32c-17.673,0-32,14.327-32,32s14.327,32,32,32h448c17.673,0,32-14.327,32-32S497.673,373.333,480,373.333z"/>
                   </g>
                   </svg>
-                </div>
+                </div> */}
               </div>
             </>
           ) : (

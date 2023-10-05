@@ -128,13 +128,11 @@ header div>.link{
 header {
     position: sticky;
     top: 0px;
-    z-index: 1;
     
     display: flex;
     padding: 20px 60px 0;
-    overflow-x: hidden;
 
-    width: 100%;
+    /* width: 100vw; */
 
     align-items: center;
     justify-content: space-between;
@@ -167,17 +165,6 @@ header div .link img{
     gap: 20px;
 }
 
-
-#menu_lateral{
-    transition: ease-in-out all 0.3s;
-    z-index: 1;
-
-    opacity: 0;
-    gap: 20px;
-    position: relative;
-
-}
-
 @media screen and (max-width: 768px) {
     /* HEADER */
     .menu_barras {
@@ -189,13 +176,14 @@ header div .link img{
 
     .menu_links {
         /* display: none; */
+        background-color:  rgb(0, 31, 43);
+
         position: absolute;
         left: -300px;
         overflow-x: hidden;
         top: 70px;
         flex-direction: column;
         border: 1px solid rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(10px);
         box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5);
         width: auto;
         z-index: 1;
@@ -212,6 +200,6 @@ header div .link img{
     }
 
     .menu_links * {
-        margin: 10px 100px 10px 10px;
+        margin: 10px ;
     }
 }

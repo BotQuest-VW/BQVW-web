@@ -139,12 +139,6 @@ body {
   height: 350px;
 }
 
-.segunda_secao {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 #main_home .segunda_secao .cards {
   display: flex;
   justify-content: space-between;
@@ -233,47 +227,10 @@ body {
 }
 
 .terceira_secao > div:nth-child(1) > img {
+  /* z-index: -1; */
+  /* adicionado paranão passar por cima do header e evitar bug do toggle bar */
   width: 300px;
 }
-
-.terceira_secao > div:nth-child(2) {
-  border-radius: 40px;
-  border: 0.733px solid var(--branco, #f1f2f5);
-  background: linear-gradient(
-    180deg,
-    rgba(217, 217, 217, 0.1) 0%,
-    rgba(217, 217, 217, 0) 100%
-  );
-  width: 60%;
-  height: 230px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-}
-
-.terceira_secao > div:nth-child(2) > span {
-  font-size: 25px;
-}
-
-.terceira_secao > div:nth-child(2) > div {
-  display: flex;
-  gap: 30px;
-}
-
-.terceira_secao .botao {
-  transition: ease-in 0.2s;
-  width: 270px;
-  padding: 15px 0;
-  border-radius: 40px;
-}
-/* text-align: center;
-color: var(--branco);
-text-decoration: none;
-font-weight: 500;
-font-size: 18px; */
 
 #main_home .terceira_secao {
   /* height: 400px; */
@@ -281,10 +238,6 @@ font-size: 18px; */
   flex-direction: column;
   align-items: center;
   margin: 20px 0 100px;
-}
-
-#main_home .terceira_secao div {
-  display: flex;
 }
 
 #main_home .terceira_secao > div:nth-child(1) {
@@ -339,10 +292,6 @@ font-size: 18px; */
 
 /* CONFIG HOVER BOTÕES */
 
-.terceira_secao > div:nth-child(2) > div:hover :not(:hover) {
-  opacity: 0.5;
-}
-
 #main_home .terceira_secao > div:nth-child(2) > div:hover :not(:hover) {
   opacity: 0.5;
 }
@@ -365,11 +314,6 @@ font-size: 18px; */
 }
 
 /* CONFIG BLU */
-
-.terceira_secao > div:nth-child(1) {
-  position: relative;
-  top: 50px;
-}
 
 #main_home .terceira_secao > div:nth-child(1) {
   position: relative;
@@ -400,6 +344,9 @@ font-size: 18px; */
 
 
 .floating { 
+  z-index: -1;
+/* adicionado paranão passar por cima do header e evitar bug do toggle bar */
+
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;
@@ -412,4 +359,10 @@ font-size: 18px; */
   0% { transform: translate(0,  0px); }
   50%  { transform: translate(0, 15px); }
   100%   { transform: translate(0, -0px); }   
+}
+
+@media screen and (min-width: 780px){
+  header{
+    z-index: 2;
+  }
 }
