@@ -31,8 +31,6 @@ import DeletarTarefa from "./components/cardTarefa/deletarTarefa";
 
 import logado from "./utils/logado";
 
-import EditarUsuario from "./pages/editarUsuario/editar";
-
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -40,7 +38,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/acessoAdm" element={<AcessoAdm />} />
         <Route path="/metricas" element={<Metricas />} />
-        <Route path="/usuarioHelpdesk" element={<Usuario children={undefined} />} />
+        <Route path="/usuarioHelpdesk" element={<Usuario />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
 
@@ -67,7 +65,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         />
         <Route
           path="/area-colaborador/:idUsuario/editar-avatar"
-          element={<EditarAvatar  user={logado()} />}
+          element={<EditarAvatar user={logado()} />}
         />
         <Route
           path="/area-colaborador/deletar/:idTarefa"
