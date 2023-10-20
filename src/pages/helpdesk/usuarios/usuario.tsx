@@ -69,15 +69,15 @@ function Usuario({children}:Props) {
             <img src={menuHamburgue} alt="" />
           </div>
           <div className="Sub_titulos">
-            <h1>Usuarios</h1>
-            <div className="cad_pesquisa_usuario">
-              <div className="butao_usuarios">
-                <button onClick={displayEdit}>Cadastrar usuário<img src={usuarios2} alt="" /></button>
-                
-              </div>
-              <div className="butao_usuarios">
-                <a href="#">Pesquisar usuário</a>
-                <img src={lupa} alt="" />
+            <h1>Usuários</h1>
+            <div className="botoes">
+              <div className="cad_pesquisa_usuario">
+                <div className="butao_usuarios">
+                  <button onClick={displayEdit}>Cadastrar usuário<img src={usuarios2} alt="" /></button>
+                </div>
+                <div className="butao_usuarios">
+                  <button>Pesquisar usuário<img src={lupa} alt="" /></button>
+                </div>
               </div>
             </div>
           </div>
