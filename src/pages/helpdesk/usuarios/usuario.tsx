@@ -62,8 +62,8 @@ function Usuario({children}:Props) {
     <>
 {visivel === true ? (<CadastrarUsuario/>) : <>
 
-<main id='usuario'>
         <MenuLateral/>
+<main id='usuario'>
         <section>
           <div className="menu_hamburgue">
             <img src={menuHamburgue} alt="" />

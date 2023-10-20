@@ -22,6 +22,9 @@ export default function MenuLateral(){
             case "/metricas":
                 setCorMetricas("var(--azulC")
                 break
+            case "/usuarioHelpdesk/editar-usuario":
+                setCorUsuarios("var(--azulC")
+                break
            }
     }
 
