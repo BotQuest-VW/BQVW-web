@@ -24,6 +24,7 @@ import {useRef} from "react"
 
 
 import CadastrarUsuario  from '../../cadastrarUsuario/editar'
+import MenuLateral from '../../../components/asideHelpdesk'
 
 type Props = {children: React.ReactNode | JSX.Element}
 
@@ -62,26 +63,7 @@ function Usuario({children}:Props) {
 {visivel === true ? (<CadastrarUsuario/>) : <>
 
 <main id='usuario'>
-        <aside>
-          <div className="aside_position">
-            <div className="Dashboard_aside">
-              <img src={dashboard} alt="" />
-              <Link to={'/helpdesk'}>Tela Inicial</Link>      
-            </div>
-            <div className="Usuario_aside">
-              <img src={iconUsuarios} alt="" />
-              <Link to={'/usuarioHelpdesk'}>Usuários</Link>
-            </div>
-            <div className="Dados_aside">
-              <img src={dados} alt="" />
-              <Link to={'/metricas'}>Metricas</Link>
-            </div>
-            <div className="COnfiguração_aside">
-              <img src={setaVoltar} alt="" />
-              <Link to={'/acessoAdm'}>Voltar ao Inicio</Link>
-            </div>
-          </div>
-        </aside>
+        <MenuLateral/>
         <section>
           <div className="menu_hamburgue">
             <img src={menuHamburgue} alt="" />
