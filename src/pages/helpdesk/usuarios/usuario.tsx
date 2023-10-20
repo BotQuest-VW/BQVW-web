@@ -106,7 +106,9 @@ function Usuario({children}:Props) {
                       setor={usuario.setor}
                       />
                       <td className="ajustar_lapis">
-                        <img src={lapis} alt="" />
+                        <Link to={"editar-usuario"}>
+                        <img src={lapis} alt="Ícone de edição" />
+                        </Link>
                       </td>
                     </tr>
                     
