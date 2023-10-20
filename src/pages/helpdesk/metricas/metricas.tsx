@@ -1,21 +1,13 @@
 import './metricas.css'
 
-import { Link } from "react-router-dom"
-
-import dashboard from './img/Dashboard Layout.png'
-import usuarios from './img/Vector.png'
-import dados from './img/dados.png'
-import setaVoltar from './img/botao-de-seta-para-a-esquerda 1.png'
 import MenuLateral from '../../../components/asideHelpdesk'
 
 
 function Metricas() {
   return (
     <>
-
-
-      <main id='metricas'>
       <MenuLateral/>
+      <main id='metricas'>
         <section>
           <div className="Metricas">
             <img src="img/menu-hamburguer 1.png" alt="" />
