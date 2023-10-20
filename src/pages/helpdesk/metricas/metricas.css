@@ -14,8 +14,8 @@
 }
 
 #metricas section{
-    padding-left: 20px;
-    width: calc(100vw - 330px);
+    padding: 0 0 20px 20px;
+    width: calc(100vw - 315px);
 }
 
 #metricas a {
