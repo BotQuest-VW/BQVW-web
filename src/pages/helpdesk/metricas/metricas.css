@@ -11,6 +11,7 @@
     color: white;
     background-image: url("img/fundo.png");
     background-attachment: fixed;
+    background-position: center;
 }
 
 #metricas section{

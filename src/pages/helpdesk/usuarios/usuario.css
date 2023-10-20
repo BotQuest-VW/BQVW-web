@@ -10,6 +10,8 @@
     font-family: 'Montserrat', sans-serif;
     color: white;
     background-image: url("img/fundo.png");
+    background-attachment: fixed;
+    background-position: center;
     display: flex;
     justify-content: end;
 }
