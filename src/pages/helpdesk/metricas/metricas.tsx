@@ -1,40 +1,13 @@
 import './metricas.css'
 
-import { Link } from "react-router-dom"
-
-import dashboard from './img/Dashboard Layout.png'
-import usuarios from './img/Vector.png'
-import dados from './img/dados.png'
-import setaVoltar from './img/botao-de-seta-para-a-esquerda 1.png'
+import MenuLateral from '../../../components/asideHelpdesk'
 
 
 function Metricas() {
   return (
     <>
-
-
+      <MenuLateral/>
       <main id='metricas'>
-      <aside>
-          <div className="aside_position">
-            <div className="Dashboard_aside">
-              <img src={dashboard} alt="" />
-              <Link to={'/helpdesk'}>Tela Inicial</Link>
-            </div>
-            <div className="Usuario_aside">
-              <img src={usuarios} alt="" />
-              <Link to={'/usuarioHelpdesk'}>Usuários</Link>
-            </div>
-            <div className="Dados_aside">
-              <img src={dados} alt="" />
-              <Link to={'/metricas'}>Metricas</Link>
-              
-            </div>
-            <div className="COnfiguração_aside">
-              <img src={setaVoltar} alt="" />
-              <Link to={'/acessoAdm'}>Voltar ao Inicio</Link>
-            </div>
-          </div>
-        </aside>
         <section>
           <div className="Metricas">
             <img src="img/menu-hamburguer 1.png" alt="" />

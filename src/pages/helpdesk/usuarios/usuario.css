@@ -8,45 +8,12 @@
 #usuario {
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
-    font-family: 'Righteous', cursive;
-    font-family: 'Titillium Web', sans-serif;
     color: white;
-    background-color: #00101F;
+    background-image: url("img/fundo.png");
+    background-attachment: fixed;
+    background-position: center;
     display: flex;
     justify-content: end;
-}
-
-/* header#usuario  {
-    height: 80px;
-    width: 100%;
-    background-image: url("img/Header.png");
-}
-
-#usuario .heder {
-    height: 80px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-#usuario .heder img {
-    width: 80px;
-    margin-top: 25px;
-} */
-
-
-#usuario aside {
-    position: fixed;
-    left: 0;
-}
-
-#usuario .aside_position {
-    height: 633px;
-    width: 229px;
-    border: solid #2e3b47 3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
 }
 
 #usuario button {
@@ -54,70 +21,9 @@
     text-decoration: none;
 }
 
-#usuario .Dashboard_aside {
-    width: 12VW;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-
-#usuario .Dashboard_aside p {
-
-
-    background-color: azure;
-}
-
-#usuario .Usuario_aside {
-    height: 50px;
-    width: 12VW;
-    background: #01B0F1;
-    border-radius: 0 15px 15px 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 55px;
-}
-
-#usuario .Dados_aside {
-    width: 12VW;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-#usuario .Suporte_aside {
-    width: 12vw;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-#usuario .COnfiguração_aside {
-    width: 12vw;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 55px;
-}
-#usuario .COnfiguração_aside img{
-    width: 50px;
-    
-}
-
-#usuario .COnfiguração_aside:hover{
-    background: #01B0F1;
-    border-radius: 0 15px 15px 0;
-    transition:ease-in 0.5s;
-}
-
-
-
 #usuario section {
     height:100%;
-    width: 85%;
-    border: solid #2e3b47 3px;
-    background-image: url("img/fundo.png");
+    width: calc(100vw - 315px);
 }
 
 #usuario .linha_divisoria {
@@ -128,22 +34,25 @@
     margin-left: 20px;
 }
 #usuario .Sub_titulos {
-    margin: 40px;
+    padding: 30px 40px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center; 
 }
 
 
 #usuario button {
-    width: 200px;
+    padding: 10px 20px;
+    font-family: var(--font-family);
     background-color: #01B0F1;
     border-radius: 25px;
     height: 35px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 15px;
     font-size: 15px;
+    border: none;
 }
 #usuario .butao_usuarios img{
     width: 27px;

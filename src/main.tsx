@@ -31,7 +31,7 @@ import DeletarTarefa from "./components/cardTarefa/deletarTarefa";
 
 import logado from "./utils/logado";
 
-import EditarUsuario from "./pages/editarUsuario/editar";
+import EditarUsuario from "./pages/helpdesk/usuarios/editarUsuario";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -74,6 +74,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           element={<DeletarTarefa />}
         />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/usuarioHelpdesk/editar-usuario" element={<EditarUsuario />} />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>
