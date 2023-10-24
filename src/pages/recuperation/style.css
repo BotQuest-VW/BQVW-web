@@ -17,6 +17,7 @@
 
 .dados > h1 {
   font-weight: 800;
+  margin-bottom: 20px;
 }
 
 #main_recuperation input {

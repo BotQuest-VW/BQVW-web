@@ -66,27 +66,33 @@ export default function Login() {
               />
               <h1>Faça seu login!</h1>
 
-              <input
-                name="email"
-                type="email"
-                id="email"
-                placeholder="E-mail"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-              <label htmlFor="email"></label>
-
-              <input
-                name="password"
-                type="password"
-                id="Senha"
-                placeholder="Senha"
-                onChange={(e) => {
-                  setSenha(e.target.value);
-                }}
-              />
-              <label htmlFor="password"></label>
+              <div className="id-input">
+                <input
+                  className="input-login"
+                  name="email"
+                  type="email"
+                  id="email"
+                  placeholder="E-mail"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+                <label className="label" htmlFor="email">E-mail</label>
+              </div>
+              
+              <div className="id-input">
+                <input
+                  className="input-login"
+                  name="password"
+                  type="password"
+                  id="Senha"
+                  placeholder="Senha"
+                  onChange={(e) => {
+                    setSenha(e.target.value);
+                  }}
+                />
+                <label className="label" htmlFor="password">Senha</label>
+              </div>
 
               <button
               style={{
