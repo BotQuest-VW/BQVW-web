@@ -97,81 +97,103 @@ export default function Cadastro() {
         <form onSubmit={validate} className="aba_cadastro" method="post">
           <img className="logovw" alt="" src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/icon_vw.png?alt=media&token=0b056a56-9020-4d26-b3ed-cd7bdbd05b2b" />
           <h2>Faça seu cadastro!</h2>
-
-          <label className="id" htmlFor="vwid" />
-          <input 
-          id="vwid"
-          className="id" 
-          placeholder="VW ID" 
-          type="tel"
-          maxLength={5}
-          minLength={5}
-          onChange={(event) => {setVwId(event.target.value)}}
-          required
-          />
-          
-          <label className="nome" htmlFor="nome" />
-          <input 
-          id="nome"
-          className="nome"
-          placeholder="Nome"
-          type="text"
-          onChange={(event) => {setNome(event.target.value)}}
-          required
-          />
-                    
-          <label className="nome" htmlFor="email" />
-          <input 
-          id="email"
-          className="email"
-          placeholder="E-mail"
-          type="text"
-          onChange={(event) => {setEmail(event.target.value)}}
-          required
-          />
-
-          <label className="supervisor" htmlFor="supervisor" />
-          <input
-            id="supervisor"
-            className="supervisor"
-            placeholder="Gestor imediato"
-            type="text"
-            onChange={(event) => {setGestorImediato(event.target.value)}}
-            required
-            />
-
-          <label className="setor" htmlFor="setor" />
-          <input 
-          id="setor"
-          className="setor" 
-          placeholder="Setor" 
-          type="tel" 
-          maxLength={3}
-          minLength={3}
-          onChange={(event) => {setSetor(event.target.value)}}
-          required
-            />
-
-          <label className="senha" htmlFor="senha" />
-          <input 
-          id="senha"
-          className="senha" 
-          placeholder="Senha" 
-          type="password" 
-          onChange={(event) => {setSenha(event.target.value)}}
-          required
-          // ref={() => console.log(inputRef)}
-            />
             
-          <label className="repetir_senha" htmlFor="repeatsenha" />
-          <input
-            id="repeatsenha"
-            className="repetir_senha"
-            placeholder="Repetir a sua senha"
-            type="password"
+          <div className="id-input">
+            <input 
+            id="vwid"
+            name="vwid"
+            className="input-cadastro" 
+            placeholder="VW ID" 
+            type="tel"
+            maxLength={5}
+            minLength={5}
+            onChange={(event) => {setVwId(event.target.value)}}
             required
-            onChange={(event) => {setConfirmSenha(event.target.value)}}
-          />
+            />
+            <label className="label" htmlFor="vwid">VW ID</label>
+          </div>
+
+          <div className="id-input">
+            <input 
+            name="nome"
+            id="nome"
+            className="input-cadastro" 
+            placeholder="Nome"
+            type="text"
+            onChange={(event) => {setNome(event.target.value)}}
+            required
+            />
+            <label className="label" htmlFor="nome">Nome completo</label>
+          </div>
+          
+          <div className="id-input">
+            <input 
+            name="email"
+            id="email"
+            className="input-cadastro" 
+            placeholder="E-mail"
+            type="text"
+            onChange={(event) => {setEmail(event.target.value)}}
+            required
+            />           
+            <label className="label" htmlFor="email">E-mail</label>
+          </div>           
+
+          <div className="id-input">
+            <input
+              name="supervisor"
+              id="supervisor"
+              className="input-cadastro" 
+              placeholder="Gestor imediato"
+              type="text"
+              onChange={(event) => {setGestorImediato(event.target.value)}}
+              required
+              />
+            <label className="label" htmlFor="supervisor">Supervisor</label>
+          </div>
+
+          <div className="id-input">
+            <input 
+            name="chapa"
+            id="chapa"
+            className="input-cadastro" 
+            placeholder="Código da chapa" 
+            type="tel" 
+            maxLength={3}
+            minLength={3}
+            onChange={(event) => {setSetor(event.target.value)}}
+            required
+              />
+            <label className="label" htmlFor="chapa">Código da chapa</label>
+          </div>
+
+          <div className="id-input">
+            <input 
+            name="senha"
+            id="senha"
+            className="input-cadastro" 
+            placeholder="Senha" 
+            type="password" 
+            onChange={(event) => {setSenha(event.target.value)}}
+            required
+            // ref={() => console.log(inputRef)}
+              />
+            <label className="label" htmlFor="senha">Senha</label>
+          </div>
+
+          <div className="id-input">
+            <input
+              name="repeatsenha"
+              id="repeatsenha"
+              className="input-cadastro" 
+              placeholder="Repetir a sua senha"
+              type="password"
+              required
+              onChange={(event) => {setConfirmSenha(event.target.value)}}
+            />
+            <label className="label" htmlFor="repeatsenha">Repetir a senha</label>
+          </div>  
+
           <div className="nivel_da_senha">
             <span>Nível da senha</span>
             <div className="tudo">
