@@ -72,9 +72,9 @@ function Usuario({children}:Props) {
             <h1>Usuários</h1>
             <div className="botoes">
               <div className="cad_pesquisa_usuario">
-                <div className="butao_usuarios">
+                {/* <div className="butao_usuarios">
                   <button onClick={displayEdit}>Cadastrar usuário<img src={usuarios2} alt="" /></button>
-                </div>
+                </div> */}
                 <div className="butao_usuarios">
                   <button>Pesquisar usuário<img src={lupa} alt="" /></button>
                 </div>
