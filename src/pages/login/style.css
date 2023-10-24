@@ -24,6 +24,7 @@
   border-radius: 40px;
   font-size: 15px;
   color: black;
+  border: none;
 }
   
 #main_login input::placeholder {
