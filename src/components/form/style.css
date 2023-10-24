@@ -52,3 +52,11 @@
       0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
   }
 }
+
+
+.input-recup:placeholder-shown + .label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-2.5rem);
+  transform: translateY(-2.5rem);
+}
