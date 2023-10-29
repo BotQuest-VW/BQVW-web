@@ -118,7 +118,7 @@ export default function Cadastro() {
             name="nome"
             id="nome"
             className="input-cadastro" 
-            placeholder="Nome"
+            placeholder="Nome completo"
             type="text"
             onChange={(event) => {setNome(event.target.value)}}
             required
@@ -149,7 +149,7 @@ export default function Cadastro() {
               onChange={(event) => {setGestorImediato(event.target.value)}}
               required
               />
-            <label className="label" htmlFor="supervisor">Supervisor</label>
+            <label className="label" htmlFor="supervisor">Gestor imediato</label>
           </div>
 
           <div className="id-input">
@@ -186,7 +186,7 @@ export default function Cadastro() {
               name="repeatsenha"
               id="repeatsenha"
               className="input-cadastro" 
-              placeholder="Repetir a sua senha"
+              placeholder="Repetir a senha"
               type="password"
               required
               onChange={(event) => {setConfirmSenha(event.target.value)}}

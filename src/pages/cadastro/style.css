@@ -66,6 +66,9 @@
 }
 
 .label{
+  display: flex;
+  align-items: center;
+  gap: 5px;
   margin-left: 20px;
   transition: all 0.3s;
   transform: translateY(-5.2rem);
