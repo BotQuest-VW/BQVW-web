@@ -38,37 +38,47 @@ export default function MenuLateral(){
     const [corMetricas, setCorMetricas] = useState<any>()
 
     return(
-        <aside>
-            <div>
-                <Link
-                className='telaInicial lateralLink' 
-                to={"/helpdesk"}
-                style={{backgroundColor: `${corHelpdesk}`}}
-                >
-                    <img src={dashboard} alt="" /> 
-                    Tela Inicial
-                </Link>
-                <Link
-                className='lateralUser lateralLink' 
-                to={"/usuarioHelpdesk"}
-                style={{backgroundColor: `${corUsuarios}`}}
-                >
-                    <img src={vector} alt="" />
-                    Usuários
-                </Link>
-                <Link 
-                className='lateralData lateralLink' 
-                to={"/metricas"}
-                style={{backgroundColor: `${corMetricas}`}}       
-                >                    
-                    <img src={dados} alt="" />
-                    Metricas
-                </Link>
-            </div>
-            <Link className='lateralVoltarConfig' to={"/acessoAdm"}>
-                <img src={setaVoltar} alt="" />            
-                Voltar ao Inicio
-            </Link>
+        <aside id='asideHelpdesk'>
+            <nav>
+                <ul>
+                    <li>
+                        <Link
+                        className='telaInicial lateralLink' 
+                        to={"/helpdesk"}
+                        style={{backgroundColor: `${corHelpdesk}`}}
+                        >
+                            <img src={dashboard} alt="" /> 
+                            <span style={{whiteSpace: "nowrap"}}>Tela Inicial</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                        className='lateralUser lateralLink' 
+                        to={"/usuarioHelpdesk"}
+                        style={{backgroundColor: `${corUsuarios}`}}
+                        >
+                            <img src={vector} alt="" />
+                            <span style={{whiteSpace: "nowrap"}}>Usuários</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link 
+                        className='lateralData lateralLink' 
+                        to={"/metricas"}
+                        style={{backgroundColor: `${corMetricas}`}}       
+                        >                    
+                            <img src={dados} alt="" />
+                            <span style={{whiteSpace: "nowrap"}}>Metricas</span>                   
+                        </Link>
+                    </li>
+                    <li>
+                    <Link className='lateralVoltarConfig' to={"/acessoAdm"}>
+                        <img src={setaVoltar} alt="" />  
+                        <span style={{whiteSpace: "nowrap"}}>Voltar ao Inicio</span>            
+                    </Link>
+                    </li>
+                </ul>
+            </nav>
         </aside>
     )
 }
