@@ -1,13 +1,7 @@
 import "./homeAdm.css";
 
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import api from "../../../utils/api";
-
-import dashboard from "./img/Dashboard Layout.png";
-import vector from "./img/Vector.png";
-import dados from "./img/dados.png";
-import setaVoltar from "./img/botao-de-seta-para-a-esquerda 1.png";
 import avatarLuana from "./img/avatar.png";
 import avatarEmerson from "./img/avatar (1).png";
 import avatarHellen from "./img/avatar (2).png";

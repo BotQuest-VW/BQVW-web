@@ -6,13 +6,8 @@ import api from '../../../utils/api'
 import { useState, useEffect } from 'react'
 import User from '../../../components/user'
 
-import dashboard from './img/Dashboard Layout.png'
-import iconUsuarios from './img/Vector.png'
-import dados from './img/dados.png'
-import setaVoltar from './img/botao-de-seta-para-a-esquerda 1.png'
 import lapis from './img/Vector (1).png'
 import menuHamburgue from './img/menu-hamburguer 1.png'
-import usuarios2 from './img/usuario.png'
 import lupa from './img/lupa.png'
 
 
