@@ -96,7 +96,7 @@ export default function Cadastro() {
       <section id="cadastro" className="cadastro">
         <form onSubmit={validate} className="aba_cadastro" method="post">
           <img className="logovw" alt="" src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/icon_vw.png?alt=media&token=0b056a56-9020-4d26-b3ed-cd7bdbd05b2b" />
-          <h2>Faça seu cadastro!</h2>
+          <h1>Cadastro</h1>
             
           <div className="id-input">
             <input 

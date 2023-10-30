@@ -6,6 +6,11 @@ textarea:focus, input:focus{
 }
 /* retirar borda criada ao clicar no input */
 
+button{
+  border: none;
+}
+/* retirar borda padrão dos botões */
+
 
 
 /* :root {

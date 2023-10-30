@@ -14,6 +14,10 @@
   --branco: #ffffff;
 }
 
+#cadastro .logovw{
+  width: 120px;
+}
+
 #cadastro body {
   background-color: var(--color1);
   font-family: var(--font1);
@@ -25,7 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 50px 0;
+  margin: 65px 0;
 }
 
 #cadastro .aba_cadastro {
@@ -33,29 +37,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 600px;
-  /* margin-top: 80px; */
   border-radius: 85px;
-  /* height: 900px; */
 }
 
-#cadastro h2 {
-  font-family: var(--font1);
-  font-weight: 900;
+#cadastro h1 {
+  font-weight: 800;
   color: white;
-  font-size: 40px;
+  font-size: 32px;
   margin-bottom: 20px;
 }
 
 #cadastro .aba_cadastro input {
-  font-family: var(--font1);
-  color: black;
-  width: 400px;
-  height: 60px;
-  border-radius: 80px;
-  font-size: 18px;
+  font-family: var(--montserrat);
+  display: flex;
+  padding: 20px 23px;
+  width: 300px;
   margin-top: 5px;
-  padding-left: 20px;
+  border-radius: 40px;
+  font-size: 15px;
+  color: black;
   border: none;
 }
 
@@ -84,8 +84,11 @@
 #cadastro .nivel_da_senha {
   font-size: 25px;
   font-weight: 400;
-  width: 60%;
   margin-top: 15px;
+}
+
+#cadastro .nivel_da_senha span{
+  font-size: 18px;
 }
 
 #cadastro .tudo {
@@ -138,41 +141,28 @@
   /* margin-left: 250px; */
 }
 
-#cadastro .nivel_da_senha>div:nth-child(2)>span {
-  font-weight: 400;
-}
-
-#cadastro .teste {
-  margin-bottom: 60px;
-  /* margin-top: 20px; */
-}
-
 #cadastro .teste>span {
-  font-size: 25px;
+  font-size: 18px;
 }
 
 #cadastro .teste>ul {
   margin-top: 20px;
-  font-size: 18px;
+  font-size: 16px;
   padding-left: 40px;
 }
 
 #cadastro .teste>div>button {
-  text-align: center;
-  background: linear-gradient(94.31deg,
-      #01b0f1 -8.53%,
-      #35bdf5 38.95%,
-      #b1dbff 116.35%);
-  text-decoration: none;
-  border: 6px solid #96dbfa;
-  border-radius: 30px;
-  padding: 10px 30px;
-  color: black;
-  position: absolute;
-  top: 20px;
-
+  margin: 20px 0;
   font-weight: 700;
   font-size: 20px;
+  color: var(--branco);
+  text-decoration: none;
+  padding: 15px 50px;
+  border-radius: 40px;
+  background: #01b0f1;
+  color: rgb(255, 255, 255, 0.3);
+  transition: ease-in 0.2s;
+  color: var(--branco);
 }
 
 #cadastro .teste>div {
@@ -187,16 +177,10 @@
   gap: 15px;
 }
 
-#cadastro .aceite {
-  font-weight: 900;
-  font-family: var(--font1);
+#cadastro .aceite div label {
+  font-weight: 500;
+  font-family: var(--montserrat);
   font-size: 15px;
-  margin-top: 54px;
-}
-
-#cadastro .aceite>span {
-  margin-left: 50px;
-  color: white;
 }
 
 @media screen and (max-width: 590px) {
@@ -708,5 +692,21 @@ input[type="checkbox"] {
 
   #overlay {
     height: 80%;
+  }
+}
+
+/* mobile */
+
+@media screen and (max-width: 480px){
+  #cadastro .nivel_da_senha span{
+    font-size: 15px;
+  }
+
+  #cadastro .teste>ul{
+    font-size: 15px;
+  }
+
+  #cadastro .aceite div label{
+    font-weight: 500;
   }
 }

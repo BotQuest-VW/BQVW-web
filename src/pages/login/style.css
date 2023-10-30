@@ -17,6 +17,7 @@
 }
 
 #main_login input{
+  font-family: var(--montserrat);
   display: flex;
   padding: 20px 23px;
   width: 300px;

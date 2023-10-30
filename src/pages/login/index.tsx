@@ -64,7 +64,7 @@ export default function Login() {
                 class="img_vw"
                 source="https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/nicismpcs6-271%3A9?alt=media&token=34022096-56d5-4eb8-801a-3b8328125e59"
               />
-              <h1>Faça seu login!</h1>
+              <h1>Login</h1>
 
               <div className="id-input">
                 <input
