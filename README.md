@@ -76,6 +76,6 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 * **Thamires Galdino**  - [tamigld](https://github.com/tamigld) 
 * **André Salezze** - [salezzeczerniak](https://github.com/salezzeczerniak)
 * **Leonardo Da Silva** - [Leonardocode23](https://github.com/Leonardocode23)
-* **Simone Lorenzini** - [SLorenziniLima](https://github.com/SLorenziniLima) 
+* **Matheus Pereira** - [97revenge](https://github.com/97revenge) 
 * **Ingrid Kyle** - [ingridkyle1](https://github.com/ingridkyle1)
-* **Henrique Gregory** - [hennrique91](https://github.com/hennrique91) 
+* **Júlia Athar** - [juliaathar](https://github.com/juliaathar) 
