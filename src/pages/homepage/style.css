@@ -4,15 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
-  background-image: url("http://localhost:5173/src/assets/img/bg_padrao.png");
-  background-attachment: fixed;
-}
-
 #main_home body {
-  background-image: url("../../assets/img/bg_padrao.png");
-  background-attachment: fixed;
-
   color: var(--branco);
   font-family: var(--montserrat);
 }

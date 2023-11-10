@@ -11,6 +11,12 @@ button{
 }
 /* retirar borda padrão dos botões */
 
+body{
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/bg_padrao.png?alt=media&token=bd9bc423-658f-4141-bfe6-131c57d93800");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 
 
 /* :root {

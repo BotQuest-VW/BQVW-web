@@ -5,9 +5,6 @@
 }
 
 body{
-    background-image: url("../../assets/img/bg_padrao.png");
-    background-attachment: fixed;
-
     color: var(--branco);
     font-family: var(--montserrat);
 }

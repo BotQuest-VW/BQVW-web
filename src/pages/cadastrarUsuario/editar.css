@@ -10,7 +10,6 @@
     height: 530px;
     border-radius: 156px 50px 156px 156px;
     margin-top: 50px;
-    background-image: url(./img/bg_padrao.png);
     width: 90%;
     border: 1px solid white;
     margin-left: 80px;
@@ -92,7 +91,6 @@
     background-color: black;
     width: 320px;
     font-weight: 600;
-    background-image: url(img/bg_padrao.png);
     border-radius: 156px;
     border: 1px solid white;
 }
