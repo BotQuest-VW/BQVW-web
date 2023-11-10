@@ -1,39 +1,15 @@
 import "./usuario.css";
 
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../../../utils/api";
 
-import { useState, useEffect } from "react";
 import User from "../../../components/user";
-
-
-import lapis from './img/Vector (1).png'
-import menuHamburgue from './img/menu-hamburguer 1.png'
-import lupa from './img/lupa.png'
-
-
-import { useRef } from "react";
-
-import CadastrarUsuario from "../../editarUsuario/editar";
-
-function Usuario() {
-  const [usuarios, setUsuarios] = useState<string[]>([]);
-
-  const [visivel, setVisivel] = useState<React.SetStateAction<boolean>>(false);
-
-
-
-
-import CadastrarUsuario  from '../../cadastrarUsuario/editar'
 import MenuLateral from '../../../components/asideHelpdesk'
 
-type Props = {children: React.ReactNode | JSX.Element}
-
-function Usuario({children}:Props) {
+export default function Usuario() {
 
   const [usuarios, setUsuarios] = useState<string[]>([])
-
-  const [visivel, setVisivel] = useState<React.SetStateAction<boolean>>(false)
 
 
   function listarUsuarios(){
@@ -42,54 +18,43 @@ function Usuario({children}:Props) {
     })
   }
 
-  function displayEdit(): void {
-    const ref = useRef(setVisivel(true));
-
-    return ref.current;
-  }
-
   useEffect(() => {
     document.title = "Usuários - BQVW ADM";
     listarUsuarios();
   }, []);
 
   return (
-    <>
-{visivel === true ? (<CadastrarUsuario/>) : <>
-
+        <>
         <MenuLateral/>
-<main id='usuario'>
-        <section>
-          <div className="menu_hamburgue">
-            <img src={menuHamburgue} alt="" />
-          </div>
-          <div className="Sub_titulos">
-            <h1>Usuários</h1>
-            <div className="botoes">
-              <div className="cad_pesquisa_usuario">
-                {/* <div className="butao_usuarios">
-                  <button onClick={displayEdit}>Cadastrar usuário<img src={usuarios2} alt="" /></button>
-                </div> */}
-                <div className="butao_usuarios">
-                  <button>Pesquisar usuário<img src={lupa} alt="" /></button>
+        <main id='usuario'>
+          <section>
+            <div className="menu_hamburgue">
+              <img src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/area-colaborador%2Fmenu-hamburguer%201.png?alt=media&token=9a0aff2d-0f6a-4af4-840e-45bf6e05dd7b" alt="Ícone de menu hambúrguer" />
+            </div>
+            <div className="Sub_titulos">
+              <h1>Usuários</h1>
+              <div className="botoes">
+                <div className="cad_pesquisa_usuario">
+                  <div className="butao_usuarios">
+                    <button>Pesquisar usuário<img src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/area-colaborador%2Flupa.png?alt=media&token=23accec5-b77b-4db7-b65c-ec52072af608" alt="" /></button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="Solicitacoes">
-            <div className="linha_divisoria" />
-            <table>
-              <thead>
-                <tr>
-                  <th>Nome:</th>
-                  <th>VW ID</th>
-                  <th>Setor:</th>
-                  <th>Usuário ativo</th>
-                  <th />
-                </tr>
-              </thead>
-              <tbody>
-              {usuarios.map((usuario: any, index: number) => {
+            <div className="Solicitacoes">
+              <div className="linha_divisoria" />
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nome:</th>
+                    <th>VW ID</th>
+                    <th>Setor:</th>
+                    <th>Usuário ativo</th>
+                    <th />
+                  </tr>
+                </thead>
+                <tbody>
+                {usuarios.map((usuario: any, index: number) => {
                   return(
                     <tr
                       key={index}
@@ -102,35 +67,17 @@ function Usuario({children}:Props) {
                       />
                       <td className="ajustar_lapis">
                         <Link to={"editar-usuario"}>
-                        <img src={lapis} alt="Ícone de edição" />
+                        <img src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/area-colaborador%2Flapis.png?alt=media&token=97bbbcc5-1307-4b31-9eb3-585f91249e8c" alt="Ícone de edição" />
                         </Link>
                       </td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {usuarios.map((usuario: any, index: number) => {
-                      return (
-                        <tr key={index}>
-                          <User
-                            avatar={usuario.user_img}
-                            nome={usuario.nome}
-                            id={usuario.vwId}
-                            setor={usuario.setor}
-                          />
-                          <td className="ajustar_lapis">
-                            <img src={lapis} alt="" />
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
+                  )
+                })}
+                </tbody>
                 </table>
-              </div>
-            </section>
-          </main>
-        </>
-      )}
-    </>
+                </div>
+              </section>
+            </main>
+          </>
   );
 }
-export default Usuario;
