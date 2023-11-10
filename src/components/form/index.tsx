@@ -54,22 +54,28 @@ export default function Form({ acces, animate }: Props) {
     <>
       <form action="" method="post" onChange={autorize}>
         <div className="form-content">
-          <input
-            required
-            onChange={handleState}
-            type="text"
-            id="Time"
-            minLength={4}
-            placeholder="E-mail"
-          />
-          <label htmlFor="E-mail"></label>
-          <input
-            onChange={handleComfirm}
-            type="text"
-            id="E-mail"
-            placeholder="repetir E-mail"
-          />
-          <label htmlFor="Senha"></label>
+          <div className="id-input">
+            <input
+              className="input-recup"             
+              required
+              onChange={handleState}
+              type="text"
+              id="Time"
+              minLength={4}
+              placeholder="E-mail"
+            />
+            <label className="label" htmlFor="E-mail">E-mail</label>
+          </div>
+          <div className="id-input">
+            <input
+              className="input-recup" 
+              onChange={handleComfirm}
+              type="text"
+              id="E-mail"
+              placeholder="Repetir e-mail"
+            />
+            <label className="label" htmlFor="Senha">Repetir e-mail</label>
+          </div>
         </div>
         <button
           onClick={(e) => {

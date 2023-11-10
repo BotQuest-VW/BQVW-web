@@ -17,12 +17,10 @@
 
 .dados > h1 {
   font-weight: 800;
+  margin-bottom: 20px;
 }
 
 #main_recuperation input {
-  text-align: center;
-  padding: 20px 50px;
-  margin-top: 15px;
   border-radius: 40px;
   font-size: 15px;
 }
@@ -82,6 +80,7 @@ body > a:hover {
   padding: 15px 50px;
   border-radius: 40px;
   background: #01b0f1;
+  border: none;
 }
 
 #main_recuperation .dados span{

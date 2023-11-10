@@ -1,17 +1,12 @@
 import "./homeAdm.css";
 
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import api from "../../../utils/api";
-
-import dashboard from "./img/Dashboard Layout.png";
-import vector from "./img/Vector.png";
-import dados from "./img/dados.png";
-import setaVoltar from "./img/botao-de-seta-para-a-esquerda 1.png";
 import avatarLuana from "./img/avatar.png";
 import avatarEmerson from "./img/avatar (1).png";
 import avatarHellen from "./img/avatar (2).png";
 import avatarMiguel from "./img/avatar (3).png";
+import MenuLateral from "../../../components/asideHelpdesk";
 
 function HomeHelpdesk() {
   const [usuarios, setUsuarios] = useState<any[]>([]);
@@ -62,26 +57,7 @@ function HomeHelpdesk() {
   return (
     <>
       <main id="homeHelpdesk">
-        <aside>
-          <div className="aside_position">
-            <div className="Dashboard_aside">
-              <img src={dashboard} alt="" />
-              <Link to={"/helpdesk"}>Tela Inicial</Link>
-            </div>
-            <div className="Usuario_aside">
-              <img src={vector} alt="" />
-              <Link to={"/usuarioHelpdesk"}>Usuários</Link>
-            </div>
-            <div className="Dados_aside">
-              <img src={dados} alt="" />
-              <Link to={"/metricas"}>Metricas</Link>
-            </div>
-            <div className="COnfiguração_aside">
-              <img src={setaVoltar} alt="" />
-              <Link to={"/acessoAdm"}>Voltar ao Inicio</Link>
-            </div>
-          </div>
-        </aside>
+        <MenuLateral/>
         <section>
           <div className="Resumo_recentes">
             <img src="img/menu-hamburguer 1.png" alt="" />

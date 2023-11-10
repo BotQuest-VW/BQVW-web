@@ -64,29 +64,35 @@ export default function Login() {
                 class="img_vw"
                 source="https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/nicismpcs6-271%3A9?alt=media&token=34022096-56d5-4eb8-801a-3b8328125e59"
               />
-              <h1>Faça seu login!</h1>
+              <h1>Login</h1>
 
-              <input
-                name="email"
-                type="email"
-                id="email"
-                placeholder="E-mail"
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-              <label htmlFor="email"></label>
-
-              <input
-                name="password"
-                type="password"
-                id="Senha"
-                placeholder="Senha"
-                onChange={(e) => {
-                  setSenha(e.target.value);
-                }}
-              />
-              <label htmlFor="password"></label>
+              <div className="id-input">
+                <input
+                  className="input-login"
+                  name="email"
+                  type="email"
+                  id="email"
+                  placeholder="E-mail"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+                <label className="label" htmlFor="email">E-mail</label>
+              </div>
+              
+              <div className="id-input">
+                <input
+                  className="input-login"
+                  name="password"
+                  type="password"
+                  id="Senha"
+                  placeholder="Senha"
+                  onChange={(e) => {
+                    setSenha(e.target.value);
+                  }}
+                />
+                <label className="label" htmlFor="password">Senha</label>
+              </div>
 
               <button
                 style={{
