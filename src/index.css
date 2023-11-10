@@ -12,9 +12,11 @@ button{
 /* retirar borda padrão dos botões */
 
 body{
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/bg_padrao.png?alt=media&token=bd9bc423-658f-4141-bfe6-131c57d93800");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: rgb(10,67,53);
+  background: -moz-linear-gradient(50deg, rgba(10,67,53,1) 0%, rgba(2,28,44,1) 47%, rgba(0,67,96,1) 100%);
+  background: -webkit-linear-gradient(50deg, rgba(10,67,53,1) 0%, rgba(2,28,44,1) 47%, rgba(0,67,96,1) 100%);
+  background: linear-gradient(50deg, rgba(10,67,53,1) 0%, rgba(2,28,44,1) 47%, rgba(0,67,96,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0a4335",endColorstr="#004360",GradientType=1);
 }
 
 
