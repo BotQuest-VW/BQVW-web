@@ -20,7 +20,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const [id, setId] = useState<SetStateAction<any>>("");
+  const [id] = useState<SetStateAction<any>>("");
   const [email, setEmail] = useState<typeof id>("");
   const [senha, setSenha] = useState<typeof id>("");
 
@@ -95,9 +95,9 @@ export default function Login() {
               </div>
 
               <button
-              style={{
-                border: "none"
-              }}
+                style={{
+                  border: "none",
+                }}
                 // onClick={verifyState}
                 type="submit"
               >
@@ -114,9 +114,12 @@ export default function Login() {
             </div>
           </form>
           <Link to={"/acessoAdm"}>
-          <div id="admin-button">
-              <img src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/adm.png?alt=media&token=77b88b4f-4dfa-4ac7-a946-708db70e0e0e" alt="" />
-          </div>
+            <div id="admin-button">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/adm.png?alt=media&token=77b88b4f-4dfa-4ac7-a946-708db70e0e0e"
+                alt=""
+              />
+            </div>
           </Link>
         </>
       ) : (

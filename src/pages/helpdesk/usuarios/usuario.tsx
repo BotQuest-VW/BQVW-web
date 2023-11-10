@@ -1,19 +1,25 @@
-import './usuario.css'
+import "./usuario.css";
 
-import { Link } from "react-router-dom"
-import api from '../../../utils/api'
+import { Link } from "react-router-dom";
+import api from "../../../utils/api";
 
-import { useState, useEffect } from 'react'
-import User from '../../../components/user'
+import { useState, useEffect } from "react";
+import User from "../../../components/user";
+
 
 import lapis from './img/Vector (1).png'
 import menuHamburgue from './img/menu-hamburguer 1.png'
 import lupa from './img/lupa.png'
 
 
-import {useRef} from "react"
+import { useRef } from "react";
 
+import CadastrarUsuario from "../../editarUsuario/editar";
 
+function Usuario() {
+  const [usuarios, setUsuarios] = useState<string[]>([]);
+
+  const [visivel, setVisivel] = useState<React.SetStateAction<boolean>>(false);
 
 
 
@@ -37,21 +43,15 @@ function Usuario({children}:Props) {
   }
 
   function displayEdit(): void {
+    const ref = useRef(setVisivel(true));
 
-    const ref = useRef(setVisivel(true))
-
-
-    return ref.current
+    return ref.current;
   }
 
-
-  
-
   useEffect(() => {
-    document.title = "Usuários - BQVW ADM"
-    listarUsuarios()
-  }, [])
-
+    document.title = "Usuários - BQVW ADM";
+    listarUsuarios();
+  }, []);
 
   return (
     <>
@@ -106,18 +106,31 @@ function Usuario({children}:Props) {
                         </Link>
                       </td>
                     </tr>
-                    
-                  );
-                })}              
-              </tbody>
-            </table>
-          </div>
-        </section>
-      </main>
-
-
-</>}
+                  </thead>
+                  <tbody>
+                    {usuarios.map((usuario: any, index: number) => {
+                      return (
+                        <tr key={index}>
+                          <User
+                            avatar={usuario.user_img}
+                            nome={usuario.nome}
+                            id={usuario.vwId}
+                            setor={usuario.setor}
+                          />
+                          <td className="ajustar_lapis">
+                            <img src={lapis} alt="" />
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </main>
+        </>
+      )}
     </>
-  )
+  );
 }
-export default Usuario
+export default Usuario;
