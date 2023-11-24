@@ -55,19 +55,19 @@ export default function AreaColaborador(props: any) {
 
 
   function listarTarefas() {
-    api
-      .get(`users/${idUsuario}`)
-      .then((response: any) => {
-        setTarefas(response.data.tarefas);
-        console.log(tarefas)
-      })
-      .catch((error) =>
-        console.log("Erro ao obter os dados das tarefas", error)
-      );
+    // api
+    //   .get(`users/${idUsuario}`)
+    //   .then((response: any) => {
+    //     setTarefas(response.data.tarefas);
+    //     console.log(tarefas)
+    //   })
+    //   .catch((error) =>
+    //     console.log("Erro ao obter os dados das tarefas", error)
+    //   );
 
-    api.get("tarefas").then((response:any) => {
-      setTarefasDois(response.data)
-    })
+    // api.get("tarefas").then((response:any) => {
+    //   setTarefasDois(response.data)
+    // })
   }
   // LISTA TAREFAS JÁ CADASTRADAS NA API POR ID USER
 
