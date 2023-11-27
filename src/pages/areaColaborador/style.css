@@ -58,7 +58,7 @@ body{
 /* CARDS */
 
 #area_colaborador .left > div:nth-child(2) .card {
-  width: 80%;
+  width: 100%;
   height: 70vh;
   border-radius: 25px;
   background: rgba(1, 176, 241, 0.1);
@@ -197,26 +197,36 @@ body{
   justify-content: space-between;
 }
 
-#area_colaborador .listaTask,
-#area_colaborador .listaNews{
+#area_colaborador .listaChamados{
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-#area_colaborador .listaTask::-webkit-scrollbar,
-#area_colaborador .listaNews::-webkit-scrollbar{
+.table-header th{
+  border-bottom: 1px solid var(--branco);
+  padding: 5px 0;
+}
+
+.table-chamados{
+  padding: 5px 0;
+}
+
+
+#area_colaborador .listaChamados table{
+  width: 100%;
+}
+
+#area_colaborador .listaChamados::-webkit-scrollbar{
   width: 0.5em;
   background-color: #002431;
   border-radius: 40px;
 }
 
-#area_colaborador .listaTask::-webkit-scrollbar-track,
-#area_colaborador .listaNews::-webkit-scrollbar-track {
+#area_colaborador .listaChamados::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
 
-#area_colaborador .listaTask::-webkit-scrollbar-thumb,
-#area_colaborador .listaNews::-webkit-scrollbar-thumb {
+#area_colaborador .listaChamados::-webkit-scrollbar-thumb {
   background-color: #a9a9a9;
   border-radius: 40px;
   /* outline: 1px solid slategrey; */

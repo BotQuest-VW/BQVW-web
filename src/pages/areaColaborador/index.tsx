@@ -153,96 +153,27 @@ export default function AreaColaborador(props: any) {
                         marginBottom: "10px",
                       }}
                     >
-                      Minhas tarefas
+                      Histórico de chamados
                     </h2>
                     <div
-                      className="listaTask"
-                      style={{
-                        height: "85%",
-                      }}
-                    >
-                      <ul
-                        id="listaTarefas"
-                        style={{
-                          marginRight: "15px",
-                        }}
-                      >
-                        {tarefas.map((tarefa: any, index: number) => {
-                          return (
-                            <li key={index}>
-                              <CardTarefa
-                                titulo={tarefa.titulo}
-                                id={tarefa.id}
-                              />
-                            </li>
-                          );
-                        })}
-                        {tarefasDois.map((tarefaDois: any, index: number) => {
-                          return (
-                            <li key={index}>
-                              <CardTarefa
-                                titulo={tarefaDois.titulo}
-                                id={tarefaDois.id}
-                              />
-                            </li>
-                          );
-                        })}
-                        <div id="addTask" className="addTask">
-                          <form
-                            id="taskForm"
-                            action=""
-                            method="post"
-                            onSubmit={addTask}
-                          >
-                            <label htmlFor="task"></label>
-                            <input
-                              id="task"
-                              name="campo_task"
-                              type="text"
-                              placeholder="Título da tarefa"
-                              onChange={(e) => {
-                                setTitulo(e.target.value);
-                              }}
-                              required
-                            />
-                            <button>Adicionar</button>
-                          </form>
-                        </div>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="card">
-                    <h2
-                      style={{
-                        marginBottom: "10px",
-                      }}
-                    >
-                      Novidades
-                    </h2>
-                    <div
-                      className="listaNews"
+                      className="listaChamados"
                       style={{
                         listStyleType: "none",
                         height: "85%",
                       }}
                     >
-                      <ul
-                        style={{
-                          marginRight: "15px",
-                        }}
-                      >
-                        {novidades.map((novidade: any, index: number) => {
-                          return (
-                            <li key={index}>
-                              <CardNovidade
-                                titulo={novidade.titulo}
-                                id={novidade.id}
-                                link={novidade.link}
-                              />
-                            </li>
-                          );
-                        })}
-                      </ul>
+                      <table>
+                        <tr className="table-header">
+                          <th>Título</th>
+                          <th>Descrição</th>
+                          <th>Status</th>
+                        </tr>
+                        <tr className="table-chamados">
+                          <th>título exemplo</th>
+                          <th>descrição exemplo</th>
+                          <th>concluído</th>
+                        </tr>
+                      </table>
                     </div>
                   </div>
                 </div>
