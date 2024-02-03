@@ -19,6 +19,20 @@ export default function Cadastro() {
   const [confirmSenha, setConfirmSenha] = useState<string>("")
 
 
+<<<<<<< HEAD
+=======
+  const inputRef = useRef<React.SetStateAction<number>>(0);
+
+  useEffect(() => {
+    (prevstate: any) => {
+      inputRef.current = prevstate
+      prevstate + 1
+      console.log(prevstate)
+      document.title = "Cadastro - BotQuest VW"
+    }
+  })
+
+>>>>>>> f7c2a1955cf8bb5f2aebd2dad781346db7690ee7
   // quando a senha tiver menos de 8 caracteres , esse erro vai acontecer !!! 
   // const validatePassword = () => inputRef.current !== 20 
   // ? alert("voce precisa que a senha tenha 20 caracteres ")
@@ -62,6 +76,7 @@ export default function Cadastro() {
     formdata.append("password", senha)
 
     // cadastro de usuario
+<<<<<<< HEAD
       api.post("usuario", formdata).then((response) =>{
         console.log(response)
         alert("Usuario criado com sucesso!😊")
@@ -71,6 +86,18 @@ export default function Cadastro() {
         console.log(error)
     })
 
+=======
+    api.post("users", formdata).then((response) => {
+      console.log(response)
+      alert("Usuario criado com sucesso!😊")
+      // Navegação para login
+      navigate("/login")
+    }).catch((error) => {
+      console.log(error)
+    })
+
+    api.post
+>>>>>>> f7c2a1955cf8bb5f2aebd2dad781346db7690ee7
 
   }
 
@@ -86,7 +113,10 @@ export default function Cadastro() {
   const testLower = (validateLower.test(senha))
   const testLenght = senha.length > 7
   const testEqual = (confirmSenha == senha)
+<<<<<<< HEAD
  // const [select, setSelect] = useState<string>(""); // state que contém a opção de setor selecionada pelo usuário
+=======
+>>>>>>> f7c2a1955cf8bb5f2aebd2dad781346db7690ee7
 
   function validate(event: any) {
     event.preventDefault()
@@ -143,12 +173,34 @@ export default function Cadastro() {
               id="email"
               className="input-cadastro"
               placeholder="E-mail"
+<<<<<<< HEAD
+=======
               type="text"
               onChange={(event) => { setEmail(event.target.value) }}
               required
             />
             <label className="label" htmlFor="email">E-mail</label>
           </div>
+
+          {/* <div className="id-input">
+            <input
+              name="supervisor"
+              id="supervisor"
+              className="input-cadastro" 
+              placeholder="Gestor imediato"
+>>>>>>> f7c2a1955cf8bb5f2aebd2dad781346db7690ee7
+              type="text"
+              onChange={(event) => { setEmail(event.target.value) }}
+              required
+<<<<<<< HEAD
+            />
+            <label className="label" htmlFor="email">E-mail</label>
+          </div>
+=======
+              />
+            <label className="label" htmlFor="supervisor">Gestor imediato</label>
+          </div> */}
+>>>>>>> f7c2a1955cf8bb5f2aebd2dad781346db7690ee7
 
           {/* <div className="id-input">
             <input
@@ -169,6 +221,7 @@ export default function Cadastro() {
               name="chapa"
               id="chapa"
               className="input-cadastro"
+<<<<<<< HEAD
               placeholder="Código da chapa"
               type="tel"
               maxLength={3}
@@ -245,10 +298,21 @@ export default function Cadastro() {
             // ref={() => console.log(inputRef)}
             />
             <label className="label" htmlFor="senha">Senha</label>
+=======
+              placeholder="Código do Setor"
+              type="tel"
+              maxLength={3}
+              minLength={3}
+              onChange={(event) => { setSetor(event.target.value) }}
+              required
+            />
+            <label className="label" htmlFor="chapa">Código do Setor</label>
+>>>>>>> f7c2a1955cf8bb5f2aebd2dad781346db7690ee7
           </div>
 
           <div className="id-input">
             <input
+<<<<<<< HEAD
               name="repeatsenha"
               id="repeatsenha"
               className="input-cadastro"
@@ -259,9 +323,37 @@ export default function Cadastro() {
             />
             <label className="label" htmlFor="repeatsenha">Repetir a senha</label>
           </div>
+=======
+              name="dataDeNascimento"
+              id="date"
+              className="input-cadastro"
+              placeholder="Data de Nascimento"
+              type="date"
+              required
+              onChange={(event) => {  }}
+            />
+            <label className="label" htmlFor="repeatsenha">Data de Nascimento</label>
+          </div>
+
+          <div className="id-input">
+            <input
+              name="senha"
+              id="senha"
+              className="input-cadastro"
+              placeholder="Senha"
+              type="password"
+              onChange={(event) => { setSenha(event.target.value) }}
+              required
+            // ref={() => console.log(inputRef)}
+            />
+            <label className="label" htmlFor="senha">Senha</label>
+          </div>
+
+
+>>>>>>> f7c2a1955cf8bb5f2aebd2dad781346db7690ee7
 
           <div className="nivel_da_senha">
-            <span>Nível da senha</span>
+            {/* <span>Nível da senha</span>
             <div className="tudo">
               <div className=" linha">
                 <div className="retangulo vermelho" />
@@ -275,17 +367,21 @@ export default function Cadastro() {
                 <div className="retangulo verde" />
                 <span>Forte</span>
               </div>
-            </div>
+            </div> */}
             <div className="teste">
-              <span>Sugestão de Senha:</span>
+              {/* <span>Sugestão de Senha:</span>
               <ul>
                 <li>No mínimo 8 caracteres</li>
                 <li>No mínimo uma letra maiúscula</li>
                 <li>No mínimo uma letra minúscula</li>
                 <li>No mínimo um número</li>
-              </ul>
+              </ul> */}
               <div>
+<<<<<<< HEAD
                 <button type="button" onClick={e => cadastrarUsuario()}
+=======
+                <button type="submit"
+>>>>>>> f7c2a1955cf8bb5f2aebd2dad781346db7690ee7
                 // onClick={validate}
                 >Cadastrar</button>
               </div>
