@@ -8,61 +8,71 @@ import api from "../../utils/api";
 export default function Cadastro() {
   const navigate = useNavigate()
 
-
   const [vwId, setVwId] = useState<string>("")
   // const [vwId, setVwId] = useState<React.SetStateAction<string>>("")
   const [nome, setNome] = useState<typeof vwId>("")
   const [email, setEmail] = useState<typeof vwId>("")
   const [gestorImediato, setGestorImediato] = useState<typeof vwId>("")
-  const [setor, setSetor] = useState<typeof vwId>("")
+  const [chapa, setChapa] = useState<string>("")
   const [senha, setSenha] = useState<string>("")
+  const [data, setData] = useState<String>("")
   const [confirmSenha, setConfirmSenha] = useState<string>("")
 
 
-  const inputRef = useRef<React.SetStateAction<number>>(0);
-
-  useEffect(() => {  
-    (prevstate: any ) => {
-      inputRef.current = prevstate 
-      prevstate + 1 
-      console.log(prevstate)
-      document.title = "Cadastro - BotQuest VW"
- } 
-  })
-
   // quando a senha tiver menos de 8 caracteres , esse erro vai acontecer !!! 
-// const validatePassword = () => inputRef.current !== 20 
-// ? alert("voce precisa que a senha tenha 20 caracteres ")
-// : null ;
-// DESABILITEI POR ENQUANTO, INSERI NA CADASTRAR USUÁRIO
+  // const validatePassword = () => inputRef.current !== 20 
+  // ? alert("voce precisa que a senha tenha 20 caracteres ")
+  // : null ;
+  // DESABILITEI POR ENQUANTO, INSERI NA CADASTRAR USUÁRIO
 
+  
+      const [select, setSelect] = useState<string>("");
+  
+      const [sectores, setSectores] = useState<string[]>(
+        [
+          "Recursos Humanos",
+          "Produção",
+          "Finanças",
+          "Jurídico",
+          "Logística"
+  
+        ]
+      );
+      const [tipoDeUsuarios, setTipoDeUsuarios] = useState<string[]>(
+        [
+          "ADIMIN",
+          "COMUM"
+  
+        ]
+      );
+
+      const [setoresSelecionados, setSetoresSelecionados] = useState<string[]>([]);
 
   function cadastrarUsuario() {
     // event.preventDefault()
-    const formatVwId = vwId.replace(/(\d{3})(\d)/ , "$1-$2")
+    const formatVwId = vwId.replace(/(\d{3})(\d)/, "$1-$2")
     // fomata o vwId para 000-00
     const formdata = new FormData()
 
-    formdata.append("vwId", String(formatVwId)) 
+    formdata.append("vwId", String(formatVwId))
     formdata.append("nome", String(nome))
     formdata.append("email", String(email))
     formdata.append("gestor_imediato", String(gestorImediato))
-    formdata.append("setor", String(setor))
+    formdata.append("setor", JSON.stringify(setoresSelecionados))
     formdata.append("password", senha)
 
     // cadastro de usuario
-    api.post("users", formdata).then((response) =>{
-      console.log(response)
-      alert("Usuario criado com sucesso!😊")
-      // Navegação para login
-      navigate("/login")
-  }).catch((error)=>{
-      console.log(error)
-  })
+      api.post("usuario", formdata).then((response) =>{
+        console.log(response)
+        alert("Usuario criado com sucesso!😊")
+        // Navegação para login
+        // navigate("/login")
+    }).catch((error)=>{
+        console.log(error)
+    })
 
-   api.post
 
-}
+  }
 
   // validação de senha
   let validateNum: RegExp = /^.*[+ 0-9]/;
@@ -70,26 +80,27 @@ export default function Cadastro() {
   let validateLower: RegExp = /^.*[a-z]/m
   // teste ok
 
-  
+
   const testNum = (validateNum.test(senha))
   const testUpper = (validateUpper.test(senha))
   const testLower = (validateLower.test(senha))
   const testLenght = senha.length > 7
   const testEqual = (confirmSenha == senha)
-  
-  function validate(event:any){
+ // const [select, setSelect] = useState<string>(""); // state que contém a opção de setor selecionada pelo usuário
+
+  function validate(event: any) {
     event.preventDefault()
 
     testNum && testLower && testUpper && testLenght ? (
       testEqual == false ?
         alert("Senhas não coincidem.")
-      :
-      cadastrarUsuario()
+        :
+        cadastrarUsuario()
     ) : (
       alert("Senha não segue os padrões necessários. Verifique e tente novamente.")
     )
   }
-    
+
 
   return (
     <>
@@ -97,87 +108,142 @@ export default function Cadastro() {
         <form onSubmit={validate} className="aba_cadastro" method="post">
           <img className="logovw" alt="" src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/icon_vw.png?alt=media&token=0b056a56-9020-4d26-b3ed-cd7bdbd05b2b" />
           <h1>Cadastro</h1>
-            
+
           <div className="id-input">
-            <input 
-            id="vwid"
-            name="vwid"
-            className="input-cadastro" 
-            placeholder="VW ID" 
-            type="tel"
-            maxLength={5}
-            minLength={5}
-            onChange={(event) => {setVwId(event.target.value)}}
-            required
+            <input
+              id="vwid"
+              name="vwid"
+              className="input-cadastro"
+              placeholder="VW ID"
+              type="tel"
+              maxLength={5}
+              minLength={5}
+              onChange={(event) => { setVwId(event.target.value) }}
+              required
             />
             <label className="label" htmlFor="vwid">VW ID</label>
           </div>
 
           <div className="id-input">
-            <input 
-            name="nome"
-            id="nome"
-            className="input-cadastro" 
-            placeholder="Nome completo"
-            type="text"
-            onChange={(event) => {setNome(event.target.value)}}
-            required
+            <input
+              name="nome"
+              id="nome"
+              className="input-cadastro"
+              placeholder="Nome completo"
+              type="text"
+              onChange={(event) => { setNome(event.target.value) }}
+              required
             />
             <label className="label" htmlFor="nome">Nome completo</label>
           </div>
-          
-          <div className="id-input">
-            <input 
-            name="email"
-            id="email"
-            className="input-cadastro" 
-            placeholder="E-mail"
-            type="text"
-            onChange={(event) => {setEmail(event.target.value)}}
-            required
-            />           
-            <label className="label" htmlFor="email">E-mail</label>
-          </div>           
 
           <div className="id-input">
             <input
-              name="supervisor"
-              id="supervisor"
-              className="input-cadastro" 
-              placeholder="Gestor imediato"
+              name="email"
+              id="email"
+              className="input-cadastro"
+              placeholder="E-mail"
               type="text"
-              onChange={(event) => {setGestorImediato(event.target.value)}}
+              onChange={(event) => { setEmail(event.target.value) }}
               required
-              />
-            <label className="label" htmlFor="supervisor">Gestor imediato</label>
+            />
+            <label className="label" htmlFor="email">E-mail</label>
           </div>
 
+          {/* <div className="id-input">
+            <input
+              name="supervisor"
+              id="supervisor"
+              className="input-cadastro"
+              placeholder="Gestor imediato"
+              type="text"
+              onChange={(event) => { setGestorImediato(event.target.value) }}
+              required
+            />
+            <label className="label" htmlFor="supervisor">Gestor imediato</label>
+          </div>
+        */}
+
           <div className="id-input">
-            <input 
-            name="chapa"
-            id="chapa"
-            className="input-cadastro" 
-            placeholder="Código da chapa" 
-            type="tel" 
-            maxLength={3}
-            minLength={3}
-            onChange={(event) => {setSetor(event.target.value)}}
-            required
-              />
+            <input
+              name="chapa"
+              id="chapa"
+              className="input-cadastro"
+              placeholder="Código da chapa"
+              type="tel"
+              maxLength={3}
+              minLength={3}
+              onChange={(event) => { setChapa(event.target.value) }}
+              required
+            />
             <label className="label" htmlFor="chapa">Código da chapa</label>
           </div>
 
           <div className="id-input">
-            <input 
-            name="senha"
-            id="senha"
-            className="input-cadastro" 
-            placeholder="Senha" 
-            type="password" 
-            onChange={(event) => {setSenha(event.target.value)}}
-            required
+            <input
+              name="data"
+              id="data"
+              className="input-cadastro"
+              placeholder="Data de Nascimento"
+              type="date"
+              onChange={(event) => { setData(event.target.value) }}
+              required
+            />
+            <label className="label" htmlFor="chapa">Data de Nascimento</label>
+          </div>
+
+          <select
+            name=""
+            id="cad_select_setor"
+            onChange={(e) => setSelect(e.target.value)}
+            defaultValue={select}
+          >
+            <option selected disabled value="">Selecione o setor</option>
+            {
+              sectores.map((sector: any, index: number) => {
+                return <option key={index} value={sector}>{sector}</option>
+              })
+            }
+          </select>
+
+          <select
+            name=""
+            id="cad_select_usuario"
+            onChange={(e) => setSelect(e.target.value)}
+            defaultValue={select}
+          >
+            <option selected disabled value="">Tipo de Usuario</option>
+            {
+              tipoDeUsuarios.map((tipoDeUsuario: any, index: number) => {
+                return <option key={index} value={tipoDeUsuario}>{tipoDeUsuario}</option>
+              })
+            }
+          </select>
+
+          <div className="id-input">
+            <input
+              name="imagem"
+              id="imagem"
+              className="input-cadastro"
+              placeholder="Imagem"
+              type="file"
+              onChange={(event) => { setSenha(event.target.value) }}
+              required
             // ref={() => console.log(inputRef)}
-              />
+            />
+            <label className="label" htmlFor="senha">Senha</label>
+          </div>
+          <div className="id-input">
+            <input
+              name="senha"
+              id="senha"
+              className="input-cadastro"
+              placeholder="Senha"
+              type="password"
+              onChange={(event) => { setSenha(event.target.value) }}
+              required
+            // ref={() => console.log(inputRef)}
+            />
             <label className="label" htmlFor="senha">Senha</label>
           </div>
 
@@ -185,14 +251,14 @@ export default function Cadastro() {
             <input
               name="repeatsenha"
               id="repeatsenha"
-              className="input-cadastro" 
+              className="input-cadastro"
               placeholder="Repetir a senha"
               type="password"
               required
-              onChange={(event) => {setConfirmSenha(event.target.value)}}
+              onChange={(event) => { setConfirmSenha(event.target.value) }}
             />
             <label className="label" htmlFor="repeatsenha">Repetir a senha</label>
-          </div>  
+          </div>
 
           <div className="nivel_da_senha">
             <span>Nível da senha</span>
@@ -219,7 +285,7 @@ export default function Cadastro() {
                 <li>No mínimo um número</li>
               </ul>
               <div>
-                <button type="submit" 
+                <button type="button" onClick={e => cadastrarUsuario()}
                 // onClick={validate}
                 >Cadastrar</button>
               </div>
@@ -228,7 +294,7 @@ export default function Cadastro() {
         </form>
         <div className="aceite">
           <div>
-            <input type="checkbox" id="check" name="checkbox" required/>
+            <input type="checkbox" id="check" name="checkbox" required />
             <label htmlFor="checkbox">
               Li e aceito os Termos e Condições da corporação
             </label>
