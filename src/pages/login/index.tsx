@@ -5,137 +5,117 @@ import Loader from "../../components/loader";
 
 import api from "../../utils/api";
 
-import secureLocalStorage from "react-secure-storage";
+// import secureLocalStorage from "react-secure-storage";
 
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
-import { AxiosResponse, AxiosError } from "axios";
-import { useState, SetStateAction, useEffect } from "react";
+import jwt_decode from 'jwt-decode'
 
+import axios from 'axios';
+// import { useState, SetStateAction, useEffect } from "react";
+import React, { useState } from 'react';
 import auth from "../../utils/auth";
 
-export default function Login() {
-  const [loading, setLoading] = useState<boolean>(false);
-
+const Login: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [mensagemErro, setMensagemErro] = useState('');
   const navigate = useNavigate();
 
-  const [id] = useState<SetStateAction<any>>("");
-  const [email, setEmail] = useState<typeof id>("");
-  const [senha, setSenha] = useState<typeof id>("");
+  const handleLogin = async () => {
+    try {
+      const resposta = await api.post('login', {
+        email,
+        senha
+      }).then( response => {
+        const idUsuario = jwt_decode<any>( response.data.token ).idUsuario
 
-  function realizarAutenticacao(event: React.ChangeEvent<HTMLFormElement>) {
-    event.preventDefault();
+        console.log( idUsuario )
+      } )
+      
+      // navigate("/area-colaborador");
+      // navigate(0);
 
-    const createdUser = auth({
-      id: id,
-      email: email,
-      password: senha,
-    });
-
-    const { method = "login" } = createdUser;
-
-    api
-      .post(method, createdUser)
-      .then((response: AxiosResponse) => {
-        secureLocalStorage.setItem("user", response.data);
-        alert("Login efetuado com sucesso!");
-        navigate("/area-colaborador/" + response.data.user.id);
-        navigate(0);
-      })
-      .catch((error: AxiosError) => {
-        alert("Não foi possível realizar o login.");
-        console.log(error);
-      });
-  }
-
-  useEffect(() => {
-    document.title = "Login - BotQuest VW";
-    setTimeout(() => setLoading(true), 1500);
-  }, [loading]);
-
+      // Aqui você pode lidar com a resposta da API conforme necessário
+      console.log(resposta.data);
+    } catch (erro) {
+      console.error('Erro durante a solicitação:', erro);
+      setMensagemErro('Ocorreu um erro durante a solicitação. Por favor, tente novamente mais tarde.');
+    }
+  };
   return (
     <>
-      {loading == true ? (
-        <>
-          <form method="post" onSubmit={realizarAutenticacao}>
-            <div id="main_login" className="dados">
-              <Image
-                class="img_vw"
-                source="https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/nicismpcs6-271%3A9?alt=media&token=34022096-56d5-4eb8-801a-3b8328125e59"
+      <>
+        <form method="post">
+          <div id="main_login" className="dados">
+            <Image
+              class="img_vw"
+              source="https://firebasestorage.googleapis.com/v0/b/unify-v3-copy.appspot.com/o/nicismpcs6-271%3A9?alt=media&token=34022096-56d5-4eb8-801a-3b8328125e59"
+            />
+            <h1>Login</h1>
+
+            <div className="id-input">
+              <input
+                className="input-login"
+                name="email"
+                type="email"
+                id="email"
+                placeholder="E-mail"
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <h1>Login</h1>
-
-              <div className="id-input">
-                <input
-                  className="input-login"
-                  name="email"
-                  type="email"
-                  id="email"
-                  placeholder="E-mail"
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
-                <label className="label" htmlFor="email">E-mail</label>
-              </div>
-              
-              <div className="id-input">
-                <input
-                  className="input-login"
-                  name="password"
-                  type="password"
-                  id="Senha"
-                  placeholder="Senha"
-                  onChange={(e) => {
-                    setSenha(e.target.value);
-                  }}
-                />
-                <label className="label" htmlFor="password">Senha</label>
-              </div>
-
-              <button
-                style={{
-                  border: "none",
-                }}
-                // onClick={verifyState}
-                type="submit"
-              >
-                Acessar
-              </button>
-              {/* <GoogleAuth /> */}
-
-              <p style={{ marginTop: "10px" }}>
-                Esqueceu sua senha?{" "}
-                <a style={{ color: "#ffffff" }} href="/recuperation">
-                  Clique aqui.
-                </a>
-              </p>
+              <label className="label" htmlFor="email">E-mail</label>
             </div>
-          </form>
-          <Link to={"/acessoAdm"}>
-            <div id="admin-button">
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/adm.png?alt=media&token=77b88b4f-4dfa-4ac7-a946-708db70e0e0e"
-                alt=""
+
+            <div className="id-input">
+              <input
+                className="input-login"
+                name="password"
+                type="password"
+                id="Senha"
+                placeholder="Senha"
+                onChange={(e) => setSenha(e.target.value)}
               />
+              <label className="label" htmlFor="password">Senha</label>
             </div>
-          </Link>
-        </>
-      ) : (
-        <>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              height: 500,
-            }}
-          >
-            <Loader />
+            <button
+              onClick={handleLogin} style={{ border: "none", }} type="button">Acessar</button>
+            {mensagemErro && <p>{mensagemErro}</p>}
+            {/* <GoogleAuth /> */}
+
+            <p style={{ marginTop: "10px" }}>
+              Esqueceu sua senha?{" "}
+              <a style={{ color: "#ffffff" }} href="/recuperation">
+                Clique aqui.
+              </a>
+            </p>
           </div>
-        </>
-      )}
+        </form>
+        <Link to={"/acessoAdm"}>
+          <div id="admin-button">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/adm.png?alt=media&token=77b88b4f-4dfa-4ac7-a946-708db70e0e0e"
+              alt=""
+            />
+          </div>
+        </Link>
+      </>
+
+      : (
+      <>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: 500,
+          }}
+        >
+          <Loader />
+        </div>
+      </>
+      )
     </>
   );
 }
+export default Login;

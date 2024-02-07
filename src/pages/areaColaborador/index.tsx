@@ -31,7 +31,7 @@ export default function AreaColaborador(props: any) {
 
   function buscarUsuarioPorID() {
     api
-      .get(`users/${idUsuario}`)
+      .get(`usuario/${idUsuario}`)
       .then((response: any) => {
         setNome(response.data.nome);
         setFoto(response.data.user_img);

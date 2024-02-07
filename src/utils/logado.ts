@@ -1,8 +1,8 @@
 import secureLocalStorage from "react-secure-storage";
 
 export default function logado() {
-  if (secureLocalStorage.getItem("user")) {
-    const objetoUsuario: any = secureLocalStorage.getItem("user");
+  if (secureLocalStorage.getItem("usuario")) {
+    const objetoUsuario: any = secureLocalStorage.getItem("usuario");
 
     interface User {
       nome: string;

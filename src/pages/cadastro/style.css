@@ -614,6 +614,12 @@ input[type="checkbox"] {
   /* background: linear-gradient(136deg, #ffffff1a 0%, #ffffff0b 100%); */
 }
 
+#imagem{
+  width: 250px;
+  border-radius: 22px;
+  background-color: #ffffff;
+}
+
 
 
 @media screen and (max-width: 1440px) {
