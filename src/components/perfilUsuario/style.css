@@ -84,3 +84,7 @@
     transition: all ease-in 0.5s;
 
   }
+
+  #perfilUsuario #bt_acessar a>p {
+    margin-right: 25px;
+}

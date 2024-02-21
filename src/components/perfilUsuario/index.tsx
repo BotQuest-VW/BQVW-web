@@ -97,13 +97,20 @@ export default function PerfilUsuario(props:any){
             id='link-editavatar'>| Editar Avatar</Link>
             </h3>
             <p>VW_ID: {props.vw_id}</p>
-            <button id='bt_acessar'>
+     
+
+            <button id='bt_acessar'  >
+
+                <a id='link-game' href="https://office-bqvw-phaser.vercel.app/">
+
                 <p>Acessar</p>
+                </a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
                     <circle cx="36.2934" cy="35.7065" r="32.4274" fill="#23CE6B" stroke="#F1F2F5" strokeWidth="6.55836"/>
                     <path d="M44.207 34.094C45.4483 34.8107 45.4483 36.6024 44.207 37.3191L33.7332 43.3661C32.4919 44.0828 30.9402 43.187 30.9402 41.7536L30.9402 29.6595C30.9402 28.2261 32.4919 27.3303 33.7332 28.0469L44.207 34.094Z" stroke="#F1F2F5" strokeWidth="3"/>
                 </svg>  
             </button>        
+
         </section>
         </>
     )
