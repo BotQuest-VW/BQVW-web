@@ -15,27 +15,29 @@ import DataAtual from "../../components/dataAtual";
 // import logado from '../../main';
 
 export default function AreaColaborador(props: any) {
+  const [idUsuario, setIdUsuario] = useState<any>( localStorage.getItem('idUsuario') )
 
   const [tarefas, setTarefas] = useState<any[]>([]);
   const [tarefasDois, setTarefasDois] = useState<any[]>([]);
   const [novidades, setNovidades] = useState<any[]>([]);
   const [titulo, setTitulo] = useState("");
 
-  
-
-  const { idUsuario } = useParams();
-
   const [nome, setNome] = useState<string>("");
-  const [foto, setFoto] = useState<string>("");
-  const [vwId, setVwId] = useState<string>("");
+  const [url_img, seturl_img] = useState<string>("");
+  const [vw_id, setVwId] = useState<string>("");
 
   function buscarUsuarioPorID() {
     api
       .get(`usuario/${idUsuario}`)
       .then((response: any) => {
         setNome(response.data.nome);
-        setFoto(response.data.user_img);
-        setVwId(response.data.vwId);
+        seturl_img(response.data.url_img);
+        setVwId(response.data.vw_id);
+        console.log("ajjajaj")
+        console.log(response.data.url_img)
+
+        
+
       })
       .catch((error) => {
         console.log(error);
@@ -55,54 +57,50 @@ export default function AreaColaborador(props: any) {
 
 
   function listarTarefas() {
-    // api
-    //   .get(`users/${idUsuario}`)
-    //   .then((response: any) => {
-    //     setTarefas(response.data.tarefas);
-    //     console.log(tarefas)
-    //   })
-    //   .catch((error) =>
-    //     console.log("Erro ao obter os dados das tarefas", error)
-    //   );
-
-    // api.get("tarefas").then((response:any) => {
-    //   setTarefasDois(response.data)
-    // })
+    api
+      .get(`usuario/${idUsuario}/chamado`)
+      .then((response: any) => {
+        setTarefas(response.data);
+      })
+      .catch((error) =>
+        console.log("Erro ao obter os dados das tarefas", error)
+      );
   }
   // LISTA TAREFAS JÁ CADASTRADAS NA API POR ID USER
 
 
 
-  function listarNovidades() {
-    api
-      .get("/novidades")
-      .then((response: any) => {
-        setNovidades(response.data);
-      })
-      .catch((error) =>
-        console.log("Erro ao obter os dados das novidades", error)
-      );
-  }
+  // function listarNovidades() {
+  //   api
+  //     .get("/novidades")
+  //     .then((response: any) => {
+  //       setNovidades(response.data);
+  //     })
+  //     .catch((error) =>
+  //       console.log("Erro ao obter os dados das novidades", error)
+  //     );
+  // }
 
-  function addTask(event: any) {
-    event.preventDefault();
-    const formdata = new FormData();
+  // function addTask(event: any) {
+  //   event.preventDefault();
+  //   const formdata = new FormData();
 
-    formdata.append("titulo", titulo);
+  //   formdata.append("titulo", titulo);
 
-    api
-      .post("tarefas", formdata)
-      .then((response: any) => {
-        console.log(response);
-        alert("Tarefa adicionada!");
-        window.location.reload();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  //   api
+  //     .post("tarefas", formdata)
+  //     .then((response: any) => {
+  //       console.log(response);
+  //       alert("Tarefa adicionada!");
+  //       window.location.reload();
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
 
-    api.post;
-  }
+  //   api.post;
+  // }
+
   // VAI ADICIONAR AS TAREFAS DO CAMINHO "API/TAREFAS"
   // UTILIZANDO POR ENQUANTO APENAS PARA DEMONSTRAÇÃO DO SITE, NÃO ESTÁ FUNCIONAL
 
@@ -127,20 +125,21 @@ export default function AreaColaborador(props: any) {
 
   useEffect(() => {
     listarTarefas();
-    listarNovidades();
+    // listarNovidades();
     buscarUsuarioPorID();
   }, []);
 
   // vvvvvvvvvvvvvv FUNÇÃO LOADER
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
-  const handleTime = () => setTimeout(() => setVisible(true), 1500);
-  handleTime();
+  // const handleTime = () => setTimeout(() => setVisible(true), 1500);
+  // handleTime();
   // ^^^^^^^^^^^^^^ FUNÇÃO LOADER
 
   return (
+
     <main id="area_colaborador">
-      {props.user.logado ? (
+      { idUsuario != '' ? (
         <>
           {visible == true ? (
             <>
@@ -163,22 +162,33 @@ export default function AreaColaborador(props: any) {
                       }}
                     >
                       <table>
-                        <tr className="table-header">
-                          <th>Título</th>
-                          <th>Descrição</th>
-                          <th>Status</th>
-                        </tr>
-                        <tr className="table-chamados">
-                          <th>título exemplo</th>
-                          <th>descrição exemplo</th>
-                          <th>concluído</th>
-                        </tr>
+                          <tr className="table-header">
+                            <th>Data chamado</th>
+                            <th>Descrição</th>
+                            <th>Status</th>
+                          </tr>
+                          {
+                  
+                            tarefas.map( (item : any) => {
+                              return (<tr>
+                                  <td>{ item.data_chamado }</td>  
+                                  <td>{ item.descricao }</td>  
+                                  <td>{ item.situacao ? 'Em andamento' : 'Concluído' }</td>  
+                                </tr>
+                              )
+                              
+                            })
+
+                            
+                          }
+
+
                       </table>
                     </div>
                   </div>
                 </div>
               </section>
-              <PerfilUsuario foto={foto} nome={nome} vwId={vwId} />
+              <PerfilUsuario url_img={url_img} nome={nome} vw_id={vw_id} />
             </>
           ) : (
             <>

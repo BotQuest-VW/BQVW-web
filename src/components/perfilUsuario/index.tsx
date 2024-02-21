@@ -6,24 +6,23 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import LoaderRound from '../loader/loader_round'
 
+// export default function PerfilUsuario(props:any){
 export default function PerfilUsuario(props:any){
     const {idUsuario} = useParams()    
-    const [foto, setFoto] = useState<string>("")
+    const [url_img, seturl_img] = useState<string>("");
    
     function buscarAvatar(){
-        if(foto.length == 0){
+        if(props.url_img.length == 0){
             // alert("Você precisa definir o seu avatar!")
             document.getElementById('displayEditAvatar')!.style.display = 'flex'
             document.getElementById('avatar')!.style.display = 'none'
             document.getElementById('bt_acessar')!.style.display = 'none'
             document.getElementById('link-editavatar')!.style.display = 'none'
-            console.log(foto)
         } else{
-            console.log(foto)
+            console.log(props.url_img)
         }
     }
 
-      
     // vvvvvvvvvvvvvv FUNÇÃO LOADER
     const [visivel, setVisivel] = useState(false);
     
@@ -31,16 +30,21 @@ export default function PerfilUsuario(props:any){
     lidarTempo();
     // ^^^^^^^^^^^^^^ FUNÇÃO LOADER
     
-    setTimeout(() => {
-        buscarAvatar()        
-        }, 1000);
-        
+    function buscandoImagem(){
+        api.get(`usuario/${idUsuario}`).then((response:any) => {
+            seturl_img(response.data.url_img);
+          }).catch((error:any) => console.log(error));
+    }
+   
     useEffect(() => {
         document.title = `Olá, ${props.nome.split(" ")[0]}! - BotQuest VW`
             
-        api.get(`users/${idUsuario}`).then((response:any) => {
-            setFoto(response.data.user_img)
-        })
+        buscandoImagem();
+
+        setTimeout(() => {
+            buscarAvatar()        
+            }, 1000);
+            
     })
 
     return(
@@ -54,7 +58,7 @@ export default function PerfilUsuario(props:any){
                 style={{
                         display:"none"
                     }}>
-                    <div>
+                    {/* <div>
                         <img 
                         src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/area-colaborador%2Fcry.png?alt=media&token=be47dfa4-c516-4657-9121-1179c524def9" 
                         alt="" 
@@ -73,9 +77,9 @@ export default function PerfilUsuario(props:any){
                         id='defineAvatar' 
                         to={"editar-avatar"}
                         >Clique aqui</Link>
-                    </div>
+                    </div> */}
                 </div>
-                <img id='avatar' src={props.foto} alt="Imagem do usuário" />
+                <img id='avatar' src={`http://localhost:8082/img/${props.url_img}`} alt="Imagem do usuário" />
                 </>
             ) : (
                 <>
@@ -92,7 +96,7 @@ export default function PerfilUsuario(props:any){
             className='link-editavatar'
             id='link-editavatar'>| Editar Avatar</Link>
             </h3>
-            <p>VW_ID: {props.vwId}</p>
+            <p>VW_ID: {props.vw_id}</p>
             <button id='bt_acessar'>
                 <p>Acessar</p>
                 <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">

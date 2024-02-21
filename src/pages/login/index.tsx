@@ -5,17 +5,11 @@ import Loader from "../../components/loader";
 
 import api from "../../utils/api";
 
-// import secureLocalStorage from "react-secure-storage";
-
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
-import jwt_decode from 'jwt-decode'
-
-import axios from 'axios';
-// import { useState, SetStateAction, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
 import React, { useState } from 'react';
-import auth from "../../utils/auth";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -29,16 +23,15 @@ const Login: React.FC = () => {
         email,
         senha
       }).then( response => {
-        const idUsuario = jwt_decode<any>( response.data.token ).idUsuario
+        const decoded : any = jwtDecode(response.data.token)
 
-        console.log( idUsuario )
+        localStorage.setItem("idUsuario", decoded.idUsuario)
+        localStorage.setItem("token", response.data.token)
+        
+        navigate("/area-colaborador");
+        navigate(0);
       } )
-      
-      // navigate("/area-colaborador");
-      // navigate(0);
 
-      // Aqui você pode lidar com a resposta da API conforme necessário
-      console.log(resposta.data);
     } catch (erro) {
       console.error('Erro durante a solicitação:', erro);
       setMensagemErro('Ocorreu um erro durante a solicitação. Por favor, tente novamente mais tarde.');
