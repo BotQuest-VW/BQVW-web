@@ -71,7 +71,8 @@
   gap: 5px;
   margin-left: 20px;
   transition: all 0.3s;
-  transform: translateY(-5.2rem);
+  margin-top: 15px;
+  /* transform: translateY(-5.2rem); */
 }
 
 .input-cadastro:placeholder-shown + .label {
@@ -560,7 +561,7 @@ input[type="checkbox"] {
   color: #737373;
   background-color: #fff;
   font-size: 16px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
  #cad_select_setor option {
@@ -593,7 +594,7 @@ input[type="checkbox"] {
   color: #737373;
   background-color: #fff;
   font-size: 16px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
  #cad_select_usuario option {
