@@ -171,7 +171,7 @@ export default function AreaColaborador(props: any) {
                   
                             tarefas.map( (item : any) => {
                               return (<tr>
-                                  <td>{ item.data_chamado }</td>  
+                                  <td>{ new Date(item.data_chamado).toLocaleDateString() }</td>  
                                   <td>{ item.descricao }</td>  
                                   <td>{ item.situacao ? 'Em andamento' : 'Concluído' }</td>  
                                 </tr>

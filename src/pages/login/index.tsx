@@ -49,6 +49,7 @@ const Login: React.FC = () => {
             <h1>Login</h1>
 
             <div className="id-input">
+              <label className="label" htmlFor="email">E-mail</label>
               <input
                 className="input-login"
                 name="email"
@@ -57,10 +58,10 @@ const Login: React.FC = () => {
                 placeholder="E-mail"
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <label className="label" htmlFor="email">E-mail</label>
             </div>
 
             <div className="id-input">
+              <label className="label" htmlFor="password">Senha</label>
               <input
                 className="input-login"
                 name="password"
@@ -69,19 +70,18 @@ const Login: React.FC = () => {
                 placeholder="Senha"
                 onChange={(e) => setSenha(e.target.value)}
               />
-              <label className="label" htmlFor="password">Senha</label>
             </div>
             <button
               onClick={handleLogin} style={{ border: "none", }} type="button">Acessar</button>
             {mensagemErro && <p>{mensagemErro}</p>}
             {/* <GoogleAuth /> */}
 
-            <p style={{ marginTop: "10px" }}>
+            {/* <p style={{ marginTop: "10px" }}>
               Esqueceu sua senha?{" "}
               <a style={{ color: "#ffffff" }} href="/recuperation">
                 Clique aqui.
               </a>
-            </p>
+            </p> */}
           </div>
         </form>
         <Link to={"/acessoAdm"}>

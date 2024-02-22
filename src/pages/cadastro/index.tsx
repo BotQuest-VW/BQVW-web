@@ -16,10 +16,10 @@ export default function Cadastro() {
     ]
   );
 
- 
+
   //Constante que possui a opcao seleciona
   var [setorSelecionado, setSetorSelecionado] = useState<string>("")
- 
+
 
   const [tipo_usuario, settipousuario] = useState<string[]>(
     [
@@ -28,10 +28,10 @@ export default function Cadastro() {
     ]
   );
 
- 
+
   //Constante que possui a opcao seleciona
   var [tipouserSelecionado, settipouserSelecionado] = useState("");
- 
+
 
 
   // const navigate = useNavigate()
@@ -44,47 +44,47 @@ export default function Cadastro() {
   const [data_nascimento, setData] = useState<string>("")
 
 
-  function cadastrarUsuario(event:any) {
+  function cadastrarUsuario(event: any) {
 
     event.preventDefault()
 
-    switch (setorSelecionado){
+    switch (setorSelecionado) {
       case "Recursos Humanos":
         setorSelecionado = "a67e88cb-d107-11ee-8392-b445067b7f91"
-      break;
+        break;
 
       case "Produção":
         setorSelecionado = "a7d7b2be-d107-11ee-8392-b445067b7f91"
-      break;
+        break;
 
       case "Finanças":
         setorSelecionado = "a950e444-d107-11ee-8392-b445067b7f91"
-      break;
+        break;
 
       case "Jurídico":
         setorSelecionado = "aab913d8-d107-11ee-8392-b445067b7f91"
-      break;
+        break;
 
       case "Logística":
         setorSelecionado = "ac995c21-d107-11ee-8392-b445067b7f91"
-      break;
+        break;
     }
 
-     // fomata o vw_id para 000-00
-     const formdata = new FormData()
+    // fomata o vw_id para 000-00
+    const formdata = new FormData()
 
-     formdata.append("nome", nome)
-     formdata.append("email", email)
-     formdata.append("senha", senha) 
-     formdata.append("id_setor", setorSelecionado)
-     formdata.append("vw_id", vw_id)
-     formdata.append("tipo_usuario", tipouserSelecionado)
-     formdata.append("url_img", url_img)
-     formdata.append("data_nascimento", data_nascimento)
+    formdata.append("nome", nome)
+    formdata.append("email", email)
+    formdata.append("senha", senha)
+    formdata.append("id_setor", setorSelecionado)
+    formdata.append("vw_id", vw_id)
+    formdata.append("tipo_usuario", tipouserSelecionado)
+    formdata.append("url_img", url_img)
+    formdata.append("data_nascimento", data_nascimento)
 
 
     // cadastro de usuario
-    api.post("usuario", formdata).then((response : any) => {
+    api.post("usuario", formdata).then((response: any) => {
       console.log(response)
       alert("Usuario criado com sucesso!😊")
       // console.log(setorSelecionado)
@@ -100,7 +100,7 @@ export default function Cadastro() {
 
   }
 
-  function verificarCampoUpload(event:any){
+  function verificarCampoUpload(event: any) {
     console.log(event.target.files[0])
     setImg(event.target.files[0]);
   }
@@ -121,22 +121,22 @@ export default function Cadastro() {
   return (
     <>
       <section id="cadastro" className="cadastro">
-        <form  className="aba_cadastro" >
+        <form className="aba_cadastro" >
           <img className="logovw" alt="" src="https://firebasestorage.googleapis.com/v0/b/bqvw-bc2fc.appspot.com/o/icon_vw.png?alt=media&token=0b056a56-9020-4d26-b3ed-cd7bdbd05b2b" />
           <h1>Cadastro</h1>
           <div className="id-input">
             <label className="label" htmlFor="vw_id">VW ID</label>
-              <input
-                id="vw_id"
-                name="vw_id"
-                className="input-cadastro"
-                placeholder="VW ID"
-                type="number"
-                maxLength={5}
-                minLength={5}
-                onChange={(event) => { setvwId(event.target.value) }}
-                required
-              />
+            <input
+              id="vw_id"
+              name="vw_id"
+              className="input-cadastro"
+              placeholder="VW ID"
+              type="number"
+              maxLength={5}
+              minLength={5}
+              onChange={(event) => { setvwId(event.target.value) }}
+              required
+            />
           </div>
 
           <div className="id-input">
@@ -173,7 +173,7 @@ export default function Cadastro() {
               className="input-cadastro"
               placeholder="Data de Nascimento"
               type="date"
-              onChange={(event) => { setData(event.target.value)}}
+              onChange={(event) => { setData(event.target.value) }}
               required
             />
           </div>
@@ -215,20 +215,20 @@ export default function Cadastro() {
 
           <div className="id-input">
             <label className="label" htmlFor="senha">Senha</label>
-              <input
-                name="senha"
-                id="senha"
-                className="input-cadastro"
-                placeholder="Senha"
-                type="password"
-                onChange={(event) => { setSenha(event.target.value) }}
-                required
-              // ref={() => console.log(inputRef)}
-              />
-            </div>
+            <input
+              name="senha"
+              id="senha"
+              className="input-cadastro"
+              placeholder="Senha"
+              type="password"
+              onChange={(event) => { setSenha(event.target.value) }}
+              required
+            // ref={() => console.log(inputRef)}
+            />
+          </div>
 
           <div className="id-input">
-          <label className="label" htmlFor="url_img">Foto do usuario</label>
+            <label className="label" htmlFor="url_img">Foto do usuario</label>
             <input
               name="url_img"
               id="url_img"
@@ -241,19 +241,17 @@ export default function Cadastro() {
           </div>
         </form>
         <div className="aceite">
-          <div>
-            <input type="checkbox" id="check" name="checkbox" required/>
-            <label htmlFor="checkbox">
-              Li e aceito os Termos e Condições da corporação
-            </label>
+            <button onClick={cadastrarUsuario}
+            // onClick={validate}
+            >Cadastrar</button>
+            <div>
+              <input type="checkbox" id="check" name="checkbox" required />
+              <label htmlFor="checkbox">
+                Li e aceito os Termos e Condições da corporação
+              </label>
+            </div>
           </div>
 
-         
-                <button  onClick={cadastrarUsuario}
-                // onClick={validate}
-                >Cadastrar</button>
-              
-        </div>
       </section>
 
     </>
